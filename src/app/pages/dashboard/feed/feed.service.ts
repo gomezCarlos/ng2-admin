@@ -13,7 +13,20 @@ export class FeedService {
       time: 'Today 11:55 pm',
       ago: '25 minutes ago',
       expanded: false,
-    }, {
+    },
+{
+      type: 'video-message',
+      author: 'Alonso',
+      surname: 'Samuel',
+      header: 'videooo',
+      text: 'Carlos MIRA :v',
+      preview: 'app/feed/vader-and-me-preview.png',
+      link: 'https://www.youtube.com/watch?v=g9TaShz2uDY',
+      time: 'Today 09:15 am',
+      ago: '1 minutes ago',
+      expanded: false,
+    },
+     {
       type: 'video-message',
       author: 'Andrey',
       surname: 'Hrabouski',

@@ -22,6 +22,8 @@ import {Editors} from './editors/editors.component';
 import {Ckeditor} from './editors/components/ckeditor/ckeditor.component';
 import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
+import {Project} from './project/project.component';
+
 
 //noinspection TypeScriptValidateTypes
 export const PagesRoutes:RouterConfig = [
@@ -39,6 +41,19 @@ export const PagesRoutes:RouterConfig = [
             selected: false,
             expanded: false,
             order: 0
+          }
+        }
+      },
+      {
+        path: 'project',
+        component: Project,
+        data: {
+          menu: {
+            title: 'Projects',
+            icon: 'ion-pinpoint',
+            selected: false,
+            expanded: false,
+            order: 50
           }
         }
       },
