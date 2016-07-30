@@ -23,6 +23,8 @@ import {Ckeditor} from './editors/components/ckeditor/ckeditor.component';
 import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
 import {Project} from './project/project.component';
+import {MenuProject} from './menuproject/menuproject.component';
+import {CreateProject} from './menuproject/components/createproject/createproject.component';
 
 
 //noinspection TypeScriptValidateTypes
@@ -49,13 +51,37 @@ export const PagesRoutes:RouterConfig = [
         component: Project,
         data: {
           menu: {
-            title: 'Projects',
+            title: 'Inicio',
             icon: 'ion-pinpoint',
             selected: false,
             expanded: false,
             order: 50
           }
         }
+      },
+      {
+        path: 'menuproject',
+        component: MenuProject,
+        data: {
+          menu: {
+            title: 'Proyectos',
+            icon: 'ion-edit',
+            selected: false,
+            expanded: false,
+            order: 51,
+          }
+        },
+        children: [
+          {
+            path: 'createproject',
+            component: CreateProject,
+            data: {
+              menu: {
+                title: 'Crear Proyecto',
+              }
+            }
+          }
+        ]
       },
       {
         path: 'editors',

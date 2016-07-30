@@ -1,18 +1,26 @@
 <div class="container">
-  <div class="row">
-   <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+<ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
                title="Project" baCardClass="medium-card">
-               <a [routerLink]="['projects']" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >
-          Ver Proyectos
-        </a>
-        
-      </ba-card>
+               <div class="row">
+
+
+               <button type="button" class="btn btn-success btn-with-icon" [routerLink]="['projects']"><i class="ion-android-checkmark-circle"></i>Ver Proyectos
+    </button>
+    </div>
+</ba-card>
+  <div class="row">
+
     <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
-               title="Tareas" baCardClass="medium-card"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" [routerLink]="['tasks']">
-          Ver Tareas
-        </a>
+               title="Tareas" baCardClass="medium-card">
+                
+
+          <button type="button" class="btn btn-success btn-with-icon" [routerLink]="['tasks']"><i class="ion-android-checkmark-circle"></i>Ver Tareas
+    </button>
+
+
         
       </ba-card>
+      
   </div>
 
 </div>
