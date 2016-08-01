@@ -24,6 +24,10 @@ import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
 import {Project} from './project/project.component';
 import {MenuProject} from './menuproject/menuproject.component';
+import {MenuAccount} from './menuaccount/menuaccount.component';
+import {MenuPhase} from './menuphase/menuphase.component';
+import {MenuTask} from './menutask/menutask.component';
+import {MenuWork} from './menuwork/menuwork.component';
 import {CreateProject} from './menuproject/components/createproject/createproject.component';
 
 
@@ -65,7 +69,7 @@ export const PagesRoutes:RouterConfig = [
         data: {
           menu: {
             title: 'Proyectos',
-            icon: 'ion-edit',
+            icon: 'ion-filing',
             selected: false,
             expanded: false,
             order: 51,
@@ -83,6 +87,107 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
+      // Phase Menu
+      {
+        path: 'menuphase',
+        component: MenuPhase,
+        data: {
+          menu: {
+            title: 'Fases',
+            icon: 'ion-arrow-graph-up-right',
+            selected: false,
+            expanded: false,
+            order: 52,
+          }
+        },
+        children: [
+          {
+            path: 'createproject',
+            component: CreateProject,
+            data: {
+              menu: {
+                title: 'Crear Fase',
+              }
+            }
+          }
+        ]
+      },
+      // Account Menu
+      {
+        path: 'menuaccount',
+        component: MenuAccount,
+        data: {
+          menu: {
+            title: 'Cuentas',
+            icon: 'ion-person',
+            selected: false,
+            expanded: false,
+            order: 53,
+          }
+        },
+        children: [
+          {
+            path: 'createproject',
+            component: CreateProject,
+            data: {
+              menu: {
+                title: 'Crear Cuenta',
+              }
+            }
+          }
+        ]
+      },
+      // Tarea Menu 
+      {
+        path: 'menutask',
+        component: MenuTask,
+        data: {
+          menu: {
+            title: 'Tareas',
+            icon: 'ion-ios-list-outline',
+            selected: false,
+            expanded: false,
+            order: 54,
+          }
+        },
+        children: [
+          {
+            path: 'createproject',
+            component: CreateProject,
+            data: {
+              menu: {
+                title: 'Crear Tarea',
+              }
+            }
+          }
+        ]
+      },
+      // Work Menu
+      {
+        path: 'menuwork',
+        component: MenuWork,
+        data: {
+          menu: {
+            title: 'Trabajos',
+            icon: 'ion-ios-briefcase-outline',
+            selected: false,
+            expanded: false,
+            order: 55,
+          }
+        },
+        children: [
+          {
+            path: 'createproject',
+            component: CreateProject,
+            data: {
+              menu: {
+                title: 'Crear Trabajo',
+              }
+            }
+          }
+        ]
+      },
+      //lo demas
       {
         path: 'editors',
         component: Editors,
