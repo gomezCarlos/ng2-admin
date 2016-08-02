@@ -25,8 +25,8 @@ import {TreeView} from './components/components/treeView/treeView.component';
 import {Project} from './projects/project.component';
 import {MenuAccount} from './menuaccount/menuaccount.component';
 import {MenuPhase} from './menuphase/menuphase.component';
-import {MenuTask} from './menutask/menutask.component';
-import {MenuWork} from './menuwork/menuwork.component';
+import {Task} from './tasks/tasks.component';//MOISES
+import {Jobs} from './jobs/jobs.component';//MOISES
 import {Create} from './projects/components/create/create.component';
 import {List}  from './projects/components/list/list.component'
 
@@ -134,10 +134,10 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      // Tarea Menu 
+       // Tarea Menu //MOISES
       {
-        path: 'menutask',
-        component: MenuTask,
+        path: 'tasks',
+        component: Task,
         data: {
           menu: {
             title: 'Tareas',
@@ -159,10 +159,10 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      // Work Menu
+     // Work Menu //MOISES
       {
-        path: 'menuwork',
-        component: MenuWork,
+        path: 'jobs',
+        component: Jobs,
         data: {
           menu: {
             title: 'Trabajos',
