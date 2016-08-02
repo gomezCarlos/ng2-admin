@@ -22,13 +22,13 @@ import {Editors} from './editors/editors.component';
 import {Ckeditor} from './editors/components/ckeditor/ckeditor.component';
 import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
-import {Project} from './project/project.component';
-import {MenuProject} from './menuproject/menuproject.component';
+import {Project} from './projects/project.component';
 import {MenuAccount} from './menuaccount/menuaccount.component';
 import {MenuPhase} from './menuphase/menuphase.component';
 import {MenuTask} from './menutask/menutask.component';
 import {MenuWork} from './menuwork/menuwork.component';
-import {CreateProject} from './menuproject/components/createproject/createproject.component';
+import {Create} from './projects/components/create/create.component';
+import {List}  from './projects/components/list/list.component'
 
 
 //noinspection TypeScriptValidateTypes
@@ -51,21 +51,8 @@ export const PagesRoutes:RouterConfig = [
         }
       },
       {
-        path: 'project',
+        path: 'projects',
         component: Project,
-        data: {
-          menu: {
-            title: 'Inicio',
-            icon: 'ion-pinpoint',
-            selected: false,
-            expanded: false,
-            order: 50
-          }
-        }
-      },
-      {
-        path: 'menuproject',
-        component: MenuProject,
         data: {
           menu: {
             title: 'Proyectos',
@@ -77,16 +64,26 @@ export const PagesRoutes:RouterConfig = [
         },
         children: [
           {
-            path: 'createproject',
-            component: CreateProject,
+            path: 'create',
+            component: Create,
             data: {
               menu: {
                 title: 'Crear Proyecto',
               }
             }
+          },
+          {
+            path: 'list',
+            component: List,
+            data: {
+              menu:{
+                title: 'Listar',
+              }
+            }
           }
         ]
       },
+
       // Phase Menu
       {
         path: 'menuphase',
@@ -103,7 +100,7 @@ export const PagesRoutes:RouterConfig = [
         children: [
           {
             path: 'createproject',
-            component: CreateProject,
+            component: Create,
             data: {
               menu: {
                 title: 'Crear Fase',
@@ -128,7 +125,7 @@ export const PagesRoutes:RouterConfig = [
         children: [
           {
             path: 'createproject',
-            component: CreateProject,
+            component: Create,
             data: {
               menu: {
                 title: 'Crear Cuenta',
@@ -153,7 +150,7 @@ export const PagesRoutes:RouterConfig = [
         children: [
           {
             path: 'createproject',
-            component: CreateProject,
+            component: Create,
             data: {
               menu: {
                 title: 'Crear Tarea',
@@ -178,7 +175,7 @@ export const PagesRoutes:RouterConfig = [
         children: [
           {
             path: 'createproject',
-            component: CreateProject,
+            component: Create,
             data: {
               menu: {
                 title: 'Crear Trabajo',

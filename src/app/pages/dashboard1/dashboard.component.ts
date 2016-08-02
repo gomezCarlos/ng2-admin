@@ -1,13 +1,13 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
-import {PopularApp} from './components/popularApp';
-import {PieChart} from './components/pieChart';
-import {TrafficChart} from './components/trafficChart';
-import {UsersMap} from './components/usersMap';
-import {LineChart} from './components/lineChart';
-import {Feed} from './components/feed';
-import {Todo} from './components/todo';
-import {Calendar} from './components/calendar';
+import {PopularApp} from './popularApp';
+import {PieChart} from './pieChart';
+import {TrafficChart} from './trafficChart';
+import {UsersMap} from './usersMap';
+import {LineChart} from './lineChart';
+import {Feed} from './feed';
+import {Todo} from './todo';
+import {Calendar} from './calendar';
 import {BaCard} from '../../theme/components';
 
 @Component({
