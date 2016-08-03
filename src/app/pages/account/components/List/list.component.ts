@@ -8,7 +8,7 @@ import {CondensedTable} from './components/condensedTable';
 //import {StripedTable} from './components/stripedTable';
 //import {ContextualTable} from './components/contextualTable';
 //import {ResponsiveTable} from './components/responsiveTable';
-
+//alonso
 @Component({
   selector: 'basic-tables',
   encapsulation: ViewEncapsulation.None,
