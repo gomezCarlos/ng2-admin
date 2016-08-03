@@ -23,12 +23,20 @@ import {Ckeditor} from './editors/components/ckeditor/ckeditor.component';
 import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
 import {Project} from './projects/project.component';
-import {MenuAccount} from './menuaccount/menuaccount.component';
-import {MenuPhase} from './menuphase/menuphase.component';
+import {Account} from './account/account.component';
+import {Phase} from './phase/phase.component';
 import {Task} from './tasks/tasks.component';//MOISES
 import {Jobs} from './jobs/jobs.component';//MOISES
 import {Create} from './projects/components/create/create.component';
-import {List}  from './projects/components/list/list.component'
+import {List}  from './projects/components/list/list.component';
+import {CreateAccount} from './account/components/create/create.component';
+import {ListAccount}  from './account/components/list/list.component';
+import {CreateJob} from './jobs/components/create/create.component';
+import {ListJob}  from './jobs/components/list/list.component';
+import {CreateTask} from './tasks/components/create/create.component';
+import {ListTask}  from './tasks/components/list/list.component';
+import {CreatePhase} from './phase/components/create/create.component';
+import {ListPhase}  from './phase/components/list/list.component'
 
 
 //noinspection TypeScriptValidateTypes
@@ -86,8 +94,8 @@ export const PagesRoutes:RouterConfig = [
 
       // Phase Menu
       {
-        path: 'menuphase',
-        component: MenuPhase,
+        path: 'phase',
+        component: Phase,
         data: {
           menu: {
             title: 'Fases',
@@ -99,11 +107,20 @@ export const PagesRoutes:RouterConfig = [
         },
         children: [
           {
-            path: 'createproject',
-            component: Create,
+            path: 'create',
+            component: CreatePhase,
             data: {
               menu: {
                 title: 'Crear Fase',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListPhase,
+            data: {
+              menu:{
+                title: 'Listar Fase',
               }
             }
           }
@@ -111,8 +128,8 @@ export const PagesRoutes:RouterConfig = [
       },
       // Account Menu
       {
-        path: 'menuaccount',
-        component: MenuAccount,
+        path: 'account',
+        component: Account,
         data: {
           menu: {
             title: 'Cuentas',
@@ -124,11 +141,20 @@ export const PagesRoutes:RouterConfig = [
         },
         children: [
           {
-            path: 'createproject',
-            component: Create,
+            path: 'create',
+            component: CreateAccount,
             data: {
               menu: {
-                title: 'Crear Cuenta',
+                title: 'Crear Account',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListAccount,
+            data: {
+              menu:{
+                title: 'Listar',
               }
             }
           }
@@ -149,11 +175,20 @@ export const PagesRoutes:RouterConfig = [
         },
         children: [
           {
-            path: 'createproject',
-            component: Create,
+            path: 'create',
+            component: CreateTask,
             data: {
               menu: {
                 title: 'Crear Tarea',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListTask,
+            data: {
+              menu:{
+                title: 'Listar Tareas',
               }
             }
           }
@@ -174,11 +209,20 @@ export const PagesRoutes:RouterConfig = [
         },
         children: [
           {
-            path: 'createproject',
-            component: Create,
+            path: 'create',
+            component: CreateJob,
             data: {
               menu: {
                 title: 'Crear Trabajo',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListJob,
+            data: {
+              menu:{
+                title: 'Listar Trabajo',
               }
             }
           }

@@ -5,6 +5,7 @@ import {ProjectHal} from '../../../Project';
 @Component({
   selector: 'form',
   template: require('./form.html'),
+  providers: [ProjectService],
 })
 export class Form {
 
