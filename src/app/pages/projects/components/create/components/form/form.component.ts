@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {ProjectService} from '../../../projectService';
+import {ProjectHal} from '../../../Project';
 
 @Component({
   selector: 'form',
@@ -6,6 +8,8 @@ import {Component} from '@angular/core';
 })
 export class Form {
 
-  constructor() {
+  object : ProjectHal
+
+  constructor(service : ProjectService ) {
   }
 }
