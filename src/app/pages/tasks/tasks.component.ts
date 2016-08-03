@@ -2,14 +2,14 @@ import {Component} from '@angular/core';
 import {BaCard} from '../../theme/components';
 
 @Component({
-  selector: 'menutask',
+  selector: 'tasks',
   pipes: [],
   providers: [],
   styles: [],
   directives: [BaCard],
   template: `<router-outlet></router-outlet>`
 })
-export class MenuTask {
+export class Task {
 
   constructor() {
   }
