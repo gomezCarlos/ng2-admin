@@ -1,0 +1,28 @@
+<div class="horizontal-scroll">
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th class="table-id">Nro.</th>
+      <th></th>
+      <th>Proyecto</th>
+      <th>Responsable</th>
+      <th>Departamento</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of projectsTableData">
+      <td class="table-id">{{ item.id }}</td>
+      <td>{{ item.numberProjects }}</td>
+      <td>{{ item.nameProjects }}</td>
+      <td>{{ item.username }}</td>
+      <td>{{ item.dptoname }}</td>
+      
+      <td>        
+       <button type="button" class="btn btn-success btn-icon"><i class="ion-android-checkmark-circle"></i></button>      
+     </td>
+     
+    </tr>
+    </tbody>
+  </table>
+</div>

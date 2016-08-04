@@ -22,13 +22,13 @@ import {Editors} from './editors/editors.component';
 import {Ckeditor} from './editors/components/ckeditor/ckeditor.component';
 import {Components} from './components/components.component';
 import {TreeView} from './components/components/treeView/treeView.component';
-import {Project} from './projects/project.component';
+import {Projects} from './projects/project.component';
 import {Account} from './account/account.component';
 import {Phase} from './phase/phase.component';
 import {Task} from './tasks/tasks.component';//MOISES
 import {Jobs} from './jobs/jobs.component';//MOISES
 import {Create} from './projects/components/create/create.component';
-import {List}  from './projects/components/list/list.component';
+import {ListProjects}  from './projects/components/list/list.component';//MOISES
 import {CreateAccount} from './account/components/create/create.component';
 import {ListAccount}  from './account/components/list/list.component';
 import {CreateJob} from './jobs/components/create/create.component';
@@ -60,7 +60,7 @@ export const PagesRoutes:RouterConfig = [
       },
       {
         path: 'projects',
-        component: Project,
+        component: Projects,
         data: {
           menu: {
             title: 'Proyectos',
@@ -82,10 +82,10 @@ export const PagesRoutes:RouterConfig = [
           },
           {
             path: 'list',
-            component: List,
+            component: ListProjects,
             data: {
               menu:{
-                title: 'Listar',
+                title: 'Listar Proyectos',
               }
             }
           }
