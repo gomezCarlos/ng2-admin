@@ -9,7 +9,7 @@ import {BaCard} from '../../theme/components';
   directives: [BaCard],
   template: `<router-outlet></router-outlet>`
 })
-export class Project {
+export class Projects {
 
   constructor() {
   }
