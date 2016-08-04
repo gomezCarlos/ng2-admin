@@ -1,4 +1,5 @@
-import { Injectable} from '@angular/core';
+import { Injectable, Inject} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Http, Response, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
@@ -17,8 +18,8 @@ export class Service<T extends Hal> {
 	object: T;
 
 	//inject the http object for managing requests
-	constructor( private http: Http){
-
+	constructor( private _http : Http){
+		
 	}
 	//handle the error, you should implements what to do.
 	private getError(error: any) { return Observable.throw(error); }
@@ -52,26 +53,26 @@ export class Service<T extends Hal> {
 		
 		if(object.ids!=null){
 			url = this.urlBackend+"/"+object.ids;
-					return this.http.put(url,JSON.stringify(object),requestOptions)
+					return this._http.put(url,JSON.stringify(object),requestOptions)
 					.map(this.getData)
 					.catch(this.getError)
 		}
 		else{
 			url = this.urlBackend;
-					return this.http.post(url,JSON.stringify(object),requestOptions)
+					return this._http.post(url,JSON.stringify(object),requestOptions)
 					.map(this.getData)
 					.catch(this.getError)
 		}
 	}
 	//delete the object, this could generate an empty response.
 	delete(object : T): Observable<Response>{
-		return this.http.delete(this.urlBackend+"/"+object.ids,this.getOptions).map(this.getData).catch(this.getError);
+		return this._http.delete(this.urlBackend+"/"+object.ids,this.getOptions).map(this.getData).catch(this.getError);
 	}
 	//find one object by its id.
 	find(id : number): Observable<T>{
 		let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
     	let requestOptions = new RequestOptions({ headers: headers });
-    	return this.http.get(this.getUrlBackend()+"/"+id,requestOptions)
+    	return this._http.get(this.getUrlBackend()+"/"+id,requestOptions)
     	  .map(this.getData)
     	  .catch(this.getError);
 	}
@@ -84,7 +85,7 @@ export class Service<T extends Hal> {
 		let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
 
     	let requestOptions = new RequestOptions({ headers: headers, search: params });
-    	return this.http.get(this.urlBackend,requestOptions)
+    	return this._http.get(this.urlBackend,requestOptions)
 			.map(this.getData)
 			.catch(this.getError)
 			;

@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
 import {BasicTablesService} from './list.service';
 import {BaCard} from '../../../../theme/components';
@@ -9,16 +9,21 @@ import {CondensedTable} from './components/condensedTable';
 //import {ContextualTable} from './components/contextualTable';
 //import {ResponsiveTable} from './components/responsiveTable';
 //alonso
+import { AccountService } from '../account.service'; 
 @Component({
   selector: 'basic-tables',
   encapsulation: ViewEncapsulation.None,
   directives: [BaCard, CondensedTable],
   styles: [require('./list.scss')],
   template: require('./index.html'),
-  providers: [BasicTablesService]
+  providers: [BasicTablesService,AccountService]
 })
-export class ListAccount {
+export class ListAccount{
 
+  
+  error : any;
+  
   constructor() {
   }
+
 }

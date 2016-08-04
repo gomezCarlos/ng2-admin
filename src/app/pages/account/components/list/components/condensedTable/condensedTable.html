@@ -24,3 +24,8 @@
     </tbody>
   </table>
 </div>
+<div *ngIf="accounts">
+<div *ngFor="let item of accounts._embedded.accounts">
+  <div>{{ item.username }}</div>
+</div>
+</div>
