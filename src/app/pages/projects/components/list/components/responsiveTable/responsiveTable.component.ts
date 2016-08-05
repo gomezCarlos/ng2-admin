@@ -4,11 +4,11 @@ import {BaAppPicturePipe} from '../../../../../../theme/pipes';
 import {BasicTablesService} from '../../list.service';
 
 @Component({
-  selector: 'condensed-table',
-  template: require('./condensedTable.html'),
+  selector: 'responsive-table',
+  template: require('./responsiveTable.html'),
   pipes: [BaAppPicturePipe]
 })
-export class CondensedTable {
+export class ResponsiveTable {
 
   projectsTableData:Array<any>;
 
