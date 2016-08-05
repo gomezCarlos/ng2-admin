@@ -1,26 +1,23 @@
 <form>
   <div class="form-group">
-    <label for="input01">Nombre de la cuenta</label>
-    <input type="text" class="form-control" id="input01" placeholder="Nombre">
+    <label for="input01">Usuario</label>
+    <input type="text" class="form-control" name="username" id="input01" placeholder="Usuario" [(ngModel)]="accounthal.username">
   </div>
   <div class="form-group">
-    <label for="input02">Fecha de Inicio</label>
-    <input type="text" class="form-control" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY">
+    <label for="input02">Password</label>
+    <input type="password" class="form-control" name="password" id="input02" placeholder="Password" title="" [(ngModel)]="accounthal.password">
   </div>  
     <div class="form-group">
-    <label for="input03">Fecha Final</label>
-    <input type="text" class="form-control" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" >
+    <label for="input03">Authorities</label>
+    <input type="text" class="form-control" name="authorities" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" [(ngModel)]="accounthal.authorities">
   </div>
-  <div class="form-group">
-    <label for="textarea01">Descripcion</label>
-    <textarea placeholder="Descripcion" class="form-control" id="textarea01"></textarea>
-  </div>
+
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <th scope="col">
                           <div class="button-wrapper">
-                               <button type="submit" class="btn btn-primary btn-raised">Guardar</button>
+                               <button type="submit" class="btn btn-primary btn-raised" (click)="save(accounthal)"></button>
                           </div>
                       </th>
                       <th scope="col">

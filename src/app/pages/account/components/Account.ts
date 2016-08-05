@@ -4,6 +4,7 @@ export class AccountHal extends Hal {
 
 	username : string;
 	authorities: string;
+	password: string;
 
 	constructor(){
 		super();

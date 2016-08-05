@@ -30,4 +30,8 @@ export class CondensedTable implements OnInit{
   getPage(){
     this.service.getPage(0).subscribe(response => {this.accounts = response;},error => {this.error = error})
   }
+
+  delete(account : AccountHal){
+    this.service.delete(account).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
+  }
 }

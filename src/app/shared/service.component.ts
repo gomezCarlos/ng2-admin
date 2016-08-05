@@ -25,7 +25,7 @@ export class Service<T extends Hal> {
 	private getError(error: any) { return Observable.throw(error); }
 
 	//handle the response as a json object, it will fail with an empty response.
-	private getData(r: Response){ return r.json();}
+	private getData(r: Response){ if(r != null) return r.json(); else return null}
 
 	//define the basic options for the request.
 	private getOptions(){

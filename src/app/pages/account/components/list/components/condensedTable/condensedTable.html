@@ -10,22 +10,25 @@
       <th>Status</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let item of peopleTableData">
+    <tbody *ngIf="accounts">
+    <tr *ngFor="let item of accounts._embedded.accounts">
       <td class="table-id">{{ item.id }}</td>
-      <td>{{ item.firstName }}</td>
-      <td>{{ item.lastName }}</td>
+      <td>{{ item.created_at }}</td>
+      <td>{{ item.authorities }}</td>
       <td>{{ item.username }}</td>
       <td><a class="email-link" href="mailto:{{ item.email }}">{{ item.email }}</a></td>
       <td>
-        <button ngClass="{status-button btn btn-xs btn-{{ item.status }}">{{ item.status }}</button>
+        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
-<div *ngIf="accounts">
+<!--<div *ngIf="accounts">
 <div *ngFor="let item of accounts._embedded.accounts">
+  <div>{{ item.created_at }}</div>
+  <div>{{ item.authorities }}</div>
   <div>{{ item.username }}</div>
+  <div>{{ item.is_active}}</div>
 </div>
-</div>
+</div>-->
