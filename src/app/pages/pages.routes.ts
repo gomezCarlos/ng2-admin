@@ -229,7 +229,7 @@ export const PagesRoutes:RouterConfig = [
         ]
       },
       //lo demas
-      {
+     /* {
         path: 'editors',
         component: Editors,
         data: {
@@ -534,13 +534,13 @@ export const PagesRoutes:RouterConfig = [
             ]
           }
         ]
-      },
+      },*/
       {
         path: '',
         data: {
           menu: {
-            title: 'External Link',
-            url: 'http://akveo.com',
+            title: 'Pagina Anca',
+            url: 'http://www.anca.org.ve',
             icon: 'ion-android-exit',
             order: 800,
             target: '_blank'
