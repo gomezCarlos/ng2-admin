@@ -5,21 +5,21 @@
       <th class="table-id">Nro.</th>
       <th></th>
       <th>Proyecto</th>
-      <th>Responsable</th>
-      <th>Departamento</th>
+      <th>Descripcion</th>
+     <!-- <th>Departamento</th>--> 
       <th>Status</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let item of projectsTableData">
+    <tbody *ngIf="project">
+    <tr *ngFor="let item of project._embedded.project">
       <td class="table-id">{{ item.id }}</td>
-      <td>{{ item.numberProjects }}</td>
-      <td>{{ item.nameProjects }}</td>
-      <td>{{ item.username }}</td>
-      <td>{{ item.dptoname }}</td>
-      
+      <td>{{ item.name }}</td> 
+      <td>{{ item.description }}</td>
+     <!-- <td>{{ item.estimated_date_end }}</td>
+      <td>{{ item.estimated_start_date }}</td>
+     -->      
       <td>        
-       <button type="button" class="btn btn-success btn-icon"><i class="ion-android-checkmark-circle"></i></button>      
+       <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
      </td>
      
     </tr>

@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 //import {ProjectService} from '../../../projectService';
 //import {ProjectHal} from '../../../Project';
-import { ProjectService } from '../../../project.service';
-import { ProjectHal } from '../../../Project';
-import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import {ProjectService } from '../../../project.service';
+import {ProjectHal } from '../../../Project';
+import {PaginatedList } from '../../../../../../shared/PaginatedList.component';
 
 @Component({
   selector: 'form',

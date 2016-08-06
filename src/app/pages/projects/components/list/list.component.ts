@@ -1,5 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-
+import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 import {BasicTablesService} from './list.service';
 import {BaCard} from '../../../../theme/components';
 //import {HoverTable} from './components/hoverTable';
@@ -8,17 +7,20 @@ import {BaCard} from '../../../../theme/components';
 //import {StripedTable} from './components/stripedTable';
 //import {ContextualTable} from './components/contextualTable';
 import {ResponsiveTable} from './components/responsiveTable';
-//alonso
+import { ProjectService } from '../project.service'; 
+//MOISES
 @Component({
   selector: 'basic-tables',
   encapsulation: ViewEncapsulation.None,
   directives: [BaCard, ResponsiveTable],
   styles: [require('./list.scss')],
   template: require('./index.html'),
-  providers: [BasicTablesService]
+  providers: [BasicTablesService,ProjectService]
 })
 export class ListProjects {
+	error : any;
 
   constructor() {
   }
 }
+

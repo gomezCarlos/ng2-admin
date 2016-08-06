@@ -19,10 +19,8 @@ export class CondensedTable implements OnInit{
   accounts:PaginatedList<AccountHal>;
 
   constructor(private _basicTablesService: BasicTablesService, private service : AccountService) {
-
     this.peopleTableData = _basicTablesService.peopleTableData;
   }
-
   ngOnInit(){
   	this.getPage();
   }
