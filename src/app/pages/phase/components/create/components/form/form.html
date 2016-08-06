@@ -1,26 +1,19 @@
 <form>
   <div class="form-group">
-    <label for="input01">Nombr de la Fase</label>
-    <input type="text" class="form-control" id="input01" placeholder="Nombre">
+    <label for="input01">Nombre</label>
+    <input type="text" class="form-control" name="name" id="input01" placeholder="Fase" [(ngModel)]="phasehal.name">
   </div>
   <div class="form-group">
-    <label for="input02">Fecha de Inicio</label>
-    <input type="text" class="form-control" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY">
+    <label for="input02">Descripcion</label>
+    <input type="text" class="form-control" name="description" id="input02" placeholder="Descripcion" title="" [(ngModel)]="phasehal.description">
   </div>  
-    <div class="form-group">
-    <label for="input03">Fecha Final</label>
-    <input type="text" class="form-control" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" >
-  </div>
-  <div class="form-group">
-    <label for="textarea01">Descripcion</label>
-    <textarea placeholder="Descripcion" class="form-control" id="textarea01"></textarea>
-  </div>
+  
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <th scope="col">
                           <div class="button-wrapper">
-                               <button type="submit" class="btn btn-primary btn-raised">Guardar</button>
+                               <button type="submit" class="btn btn-primary btn-raised" (click)="save(phasehal)">Guardar</button>
                           </div>
                       </th>
                       <th scope="col">
