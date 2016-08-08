@@ -6,15 +6,27 @@ export class FeedService {
   private _data = [
     {
       type: 'text-message',
-      author: 'Kostya',
-      surname: 'Danovsky',
-      header: 'Posted new message',
-      text: 'Guys, check this out: \nA police officer found a perfect hiding place for watching for speeding motorists. One day, the officer was amazed when everyone was under the speed limit, so he investigated and found the problem. A 10 years old boy was standing on the side of the road with a huge hand painted sign which said "Radar Trap Ahead." A little more investigative work led the officer to the boy\'s accomplice: another boy about 100 yards beyond the radar trap with a sign reading "TIPS" and a bucket at his feet full of change.',
-      time: 'Today 11:55 pm',
-      ago: '25 minutes ago',
+      author: 'Alonso',
+      surname: 'Samuel',
+      header: 'Bienvenido al Sistema de Gestion',
+      text: 'Bienvenido al sistema de Gestion demostracion basica',
+      time: 'Hoy 7:00 am',
+      ago: 'Hace 25 minutos',
       expanded: false,
     },
-{
+    {
+      type: 'text-message',
+      author: 'Alejandro',
+      surname: 'Moreno',
+      header: 'Video Importante',
+      text: 'Nuevo Equipo Para Presentaciones',
+      preview: 'app/feed/WIPG.png',
+      link: 'https://www.youtube.com/watch?v=X8l5aYvaw-E',
+      time: 'Hoy 07:15 am',
+      ago: 'Hace 1 minuto',
+      expanded: false,
+    },
+/*{
       type: 'video-message',
       author: 'Alonso',
       surname: 'Samuel',
@@ -26,7 +38,7 @@ export class FeedService {
       ago: '1 minutes ago',
       expanded: false,
     },
-     {
+/*     {
       type: 'video-message',
       author: 'Andrey',
       surname: 'Hrabouski',
@@ -125,7 +137,7 @@ export class FeedService {
       time: '18.11.2015',
       ago: '9 days ago',
       expanded: false,
-    }
+    }*/
   ];
 
   getData() {

@@ -22,8 +22,6 @@ import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components
         <ul class="al-share clearfix">
           <li><i class="socicon socicon-facebook"></i></li>
           <li><i class="socicon socicon-twitter"></i></li>
-          <li><i class="socicon socicon-google"></i></li>
-          <li><i class="socicon socicon-github"></i></li>
         </ul>
       </div>
     </footer>
