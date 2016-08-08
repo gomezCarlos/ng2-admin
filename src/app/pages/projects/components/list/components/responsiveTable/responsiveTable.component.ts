@@ -16,7 +16,7 @@ export class ResponsiveTable implements OnInit{
 
   projectsTableData:Array<any>;
    error : any;
-  project:PaginatedList<ProjectHal>;
+  projects :PaginatedList<ProjectHal>;
 
   constructor(private _basicTablesService: BasicTablesService, private service : ProjectService) {
     this.projectsTableData = _basicTablesService.projectsTableData;
@@ -26,7 +26,7 @@ export class ResponsiveTable implements OnInit{
   }
 
   getPage(){
-    this.service.getPage(0).subscribe(response => {this.project = response;},error => {this.error = error})
+    this.service.getPage(0).subscribe(response => {this.projects = response;},error => {this.error = error})
   }
 
   delete(project : ProjectHal){

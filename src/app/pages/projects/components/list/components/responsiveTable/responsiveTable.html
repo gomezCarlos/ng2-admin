@@ -10,8 +10,8 @@
       <th>Status</th>
     </tr>
     </thead>
-    <tbody *ngIf="project">
-    <tr *ngFor="let item of project._embedded.project">
+    <tbody *ngIf="projects">
+    <tr *ngFor="let item of projects._embedded.projects">
       <td class="table-id">{{ item.id }}</td>
       <td>{{ item.name }}</td> 
       <td>{{ item.description }}</td>
