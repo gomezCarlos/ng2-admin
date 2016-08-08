@@ -17,19 +17,40 @@ export class CondensedTable implements OnInit{
   peopleTableData:Array<any>;
   error : any;
   accounts:PaginatedList<AccountHal>;
+  page : number;
+  totalElements : number;
+  totalPages : number;
 
   constructor(private _basicTablesService: BasicTablesService, private service : AccountService) {
     this.peopleTableData = _basicTablesService.peopleTableData;
   }
+
   ngOnInit(){
-  	this.getPage();
+  	this.getPage(0);
   }
 
-  getPage(){
-    this.service.getPage(0).subscribe(response => {this.accounts = response;},error => {this.error = error})
+  getPage(page : number){
+    this.service.getPage(page).subscribe(response => {this.accounts = response; },error => {this.error = error})
   }
 
   delete(account : AccountHal){
     this.service.delete(account).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
+  }
+
+  first(){
+    this.getPage(0);
+    alert(this.accounts.page.totalElements);
+  }
+
+  last(){
+    this.getPage(this.accounts.page.totalPages -1 );
+  }
+
+  previous(){
+    this.getPage(this.accounts.page.number -1);
+  }
+
+  next(){
+    this.getPage(this.accounts.page.number +1);
   }
 }

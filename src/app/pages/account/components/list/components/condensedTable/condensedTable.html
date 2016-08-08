@@ -1,5 +1,11 @@
 <div class="horizontal-scroll">
   <table class="table table-condensed">
+    <tfoot>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="first()" >Primero</button>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="previous()" >Anterior</button>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="next()" >Siguiente</button>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="last()" >Ultimo</button>
+    </tfoot>
     <thead>
     <tr>
       <th class="table-id">#</th>
