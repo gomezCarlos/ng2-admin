@@ -2,24 +2,24 @@
 
   <div class="form-group">
     <label for="input01">Nombre</label>    
-     <input type="text" class="form-control" name="name" id="input01" placeholder="Proyecto" [(ngModel)]="projecthal.name">
+     <input type="text"  class="form-control" name="name" id="input01"  placeholder="Proyecto" [(ngModel)]="projecthal.name" required="nombre" >
   </div>
-<!--
+
   <div class="form-group">
     <label for="input02">Fecha de Inicio</label>    
-    <input type="text" class="form-control" name="estimated_start_date" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY" [(ngModel)]="projecthal.estimated_start_date">
+    <input type="date" min="08-08-2016" class="form-control" name="estimated_start_date" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY" [(ngModel)]="projecthal.estimated_start_date" required="input02">
   </div> 
 
   <div class="form-group">
     <label for="input03">Fecha Final</label>
-    <input type="text" class="form-control" name="estimated_date_end" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" [(ngModel)]="projecthal.estimated_date_end">
-  </div>
--->
-  <div class="form-group">
-    <label for="textarea01">Descripcion</label>
-    <textarea placeholder="Descripcion" class="form-control" name="description" id="textarea01" [(ngModel)]="projecthal.description"></textarea>
+    <input type="date" class="form-control" name="estimated_date_end" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" [(ngModel)]="projecthal.estimated_date_end" required="input03">
   </div>
 
+  <div class="form-group">
+    <label for="textarea01">Descripcion</label>
+    <textarea placeholder="Descripcion" class="form-control" name="description" id="textarea01" [(ngModel)]="projecthal.description" required="descripcion"></textarea>
+  </div> 
+    
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
                     <tr>
