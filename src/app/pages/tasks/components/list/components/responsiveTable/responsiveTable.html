@@ -1,0 +1,28 @@
+<div class="horizontal-scroll">
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th class="table-id">Nro.</th>
+      <th></th>
+      <th>Tarea</th>
+      <th>Descripcion</th>
+     <!-- <th>Departamento</th>--> 
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="task">
+    <tr *ngFor="let item of task._embedded.task">
+      <td class="table-id">{{ item.id }}</td>
+      <td>{{ item.name }}</td> 
+      <td>{{ item.description }}</td>
+     <!--<td>{{ item.estimated_date_end }}</td>
+      <td>{{ item.estimated_start_date }}</td>
+       -->  
+      <td>        
+       <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
+     </td>
+     
+    </tr>
+    </tbody>
+  </table>
+</div>

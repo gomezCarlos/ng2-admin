@@ -18,6 +18,7 @@ import {PaginatedList } from '../../../../../../shared/PaginatedList.component';
 export class Form {
   error : any;
   projecthal:ProjectHal;
+  
 	constructor( private service : ProjectService) {
 		this.projecthal = new ProjectHal();
     
