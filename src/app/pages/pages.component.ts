@@ -20,8 +20,8 @@ import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components
       <div class="al-footer-main clearfix">
         <div class="al-copy">&copy; <a href="http://akveo.com">Team ST</a> 2016</div>
         <ul class="al-share clearfix">
-          <li><i class="socicon socicon-facebook"></i></li>
-          <li><i class="socicon socicon-twitter"></i></li>
+          <li src="http://akveo.com"><i class="socicon socicon-facebook" href="http://akveo.com"></i></li>
+          <li><i><a class="socicon socicon-twitter"></a></i></li>
         </ul>
       </div>
     </footer>
