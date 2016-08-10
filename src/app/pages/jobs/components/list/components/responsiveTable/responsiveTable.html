@@ -1,0 +1,24 @@
+<div class="horizontal-scroll">
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th class="table-id">Nro.</th>
+      <th></th>
+      <th>Proyecto</th>
+      <th>Descripcion</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="jobs">
+    <tr *ngFor=" let item of jobs._embedded.jobs">
+      <td class="table-id">{{ item.id }}</td>
+      <td>{{ item.name }}</td> 
+      <td>{{ item.description }}</td>
+         
+      <td>        
+       <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
+     </td>
+     
+    </tr>
+    </tbody>
+  </table>
+</div>

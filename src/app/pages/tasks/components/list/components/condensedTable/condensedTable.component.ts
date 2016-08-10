@@ -14,13 +14,13 @@ import { PaginatedList } from '../../../../../../shared/PaginatedList.component'
 })
 export class CondensedTable implements OnInit{
 
-  peopleTableData:Array<any>;
+  taskTableData:Array<any>;
   error : any;
   tasks:PaginatedList<TaskHal>;
 
   constructor(private _basicTablesService: BasicTablesService, private service : TaskService) {
 
-    this.peopleTableData = _basicTablesService.peopleTableData;
+    this.taskTableData = _basicTablesService.taskTableData;
   }
 
   ngOnInit(){

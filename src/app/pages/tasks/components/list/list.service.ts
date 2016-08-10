@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 export class BasicTablesService {
    editableTableData:Array<any>;
 
-  peopleTableData = [
+  taskTableData = [
     {
       id: 1,
       Name: 'Tarea uno',

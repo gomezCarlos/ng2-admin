@@ -1,26 +1,19 @@
 <form>
   <div class="form-group">
     <label for="input01">Nombre del trabajo</label>
-    <input type="text" class="form-control" id="input01" placeholder="Nombre">
+    <input [(ngModel)]="jobhal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Nombre" required="name" name="nombre" >
   </div>
-  <div class="form-group">
-    <label for="input02">Fecha de Inicio</label>
-    <input type="text" class="form-control" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY">
-  </div>  
-    <div class="form-group">
-    <label for="input03">Fecha Final</label>
-    <input type="text" class="form-control" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" >
-  </div>
+
   <div class="form-group">
     <label for="textarea01">Descripcion</label>
-    <textarea placeholder="Descripcion" class="form-control" id="textarea01"></textarea>
+    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="jobhal.description" name="description" ></textarea>
   </div>
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <th scope="col">
                           <div class="button-wrapper">
-                               <button type="submit" class="btn btn-primary btn-raised">Guardar</button>
+                               <button type="submit" class="btn btn-primary btn-raised" (click)="save(jobhal)">Guardar</button>
                           </div>
                       </th>
                       <th scope="col">
