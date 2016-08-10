@@ -90,4 +90,26 @@ export class Service<T extends Hal> {
 			.catch(this.getError)
 			;
 	}
+
+	getAll(): Observable<Array<T>>{
+                let params = new URLSearchParams();
+                let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+		let requestOptions = new RequestOptions({ headers: headers, search: params });
+        	return this._http.get(this.urlBackend,requestOptions)
+                        .map(this.getArray)
+                        .catch(this.getError)
+                        ;
+
+	}
+
+	getArray(r: Response){
+		var result: any;
+		if(r!=null){
+			result = r.json();
+			if(result._embedded)
+			return result._embedded;
+		}
+		result = [];
+		return result;
+	}
 }

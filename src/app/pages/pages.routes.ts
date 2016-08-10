@@ -25,7 +25,7 @@ import {TreeView} from './components/components/treeView/treeView.component';
 import {Projects} from './projects/project.component';
 import {Account} from './account/account.component';
 import {Phase} from './phase/phase.component';
-import {Task} from './tasks/tasks.component';//MOISES
+import {Task} from './tasks/task.component';//MOISES
 import {Jobs} from './jobs/jobs.component';//MOISES
 import {Create} from './projects/components/create/create.component';
 import {ListProjects}  from './projects/components/list/list.component';//MOISES

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PhaseService} from '../../../../../phase/components/phase.service';
-import {PhaseHal} from '../../../../../phase/components/phase';
+import {PhaseHal} from '../../../../../phase/components/Phase';
 import { TaskService } from '../../../task.service';
 import { TaskHal } from '../../../Task';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
