@@ -1,8 +1,8 @@
 <form>
 <!-- LISTADO PARA SELECCIONAR FASES -->
   <div class="form-group" *ngIf = "listphase">
-    <label for="input03">Fase</label>
-    <select class="form-control" name="phase" id="input03" placeholder="Descripcion" title="" [(ngModel)]="taskhal.phase" required="phase" style="color:black">
+    <label for="input05">Fase</label>
+    <select class="form-control" name="phase" id="input05" placeholder="Descripcion" title="" [(ngModel)]="taskhal.phase" required="phase" style="color:black">
       <option *ngFor = "let item of listphase._embedded.phases" value="{{ item.ids }}">
         {{item.name}}
       </option>>
@@ -13,8 +13,17 @@
     <label for="input01">Nombre</label>
     <input type="text" class="form-control" name="name" id="input01" placeholder="Tareas" [(ngModel)]="taskhal.name" required="name" style="color:black">
   </div>
+   <div class="form-group">
+    <label for="input02">Fecha Estimada de Inicio</label>    
+    <input type="date" class="form-control"  name="estimated_start_date" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY" [(ngModel)]="taskhal.estimated_start_date" required="input02" >
+  </div> 
+
   <div class="form-group">
-    <label for="input02">Descripcion</label>
+    <label for="input03">Fecha Estimada de Final</label>
+    <input type="date" class="form-control" name="estimated_date_end" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" [(ngModel)]="taskhal.estimated_date_end" required="input03">
+  </div>
+  <div class="form-group">
+    <label for="input04">Descripcion</label>
     <textarea class="form-control" name="description" id="input02" placeholder="Descripcion" title="" [(ngModel)]="taskhal.description" required="description" style="color:black"></textarea>
   </div>  
 
