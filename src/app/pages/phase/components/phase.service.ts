@@ -6,8 +6,9 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class PhaseService extends Service<PhaseHal>{
-	urlBackend =API_URL+"phases";	
-
+	urlBackend = API_URL+"phases";	
+	
 	constructor( private _http : Http){
+	  super(_http);
 	}
 }

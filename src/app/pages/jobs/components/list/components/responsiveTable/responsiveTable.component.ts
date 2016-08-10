@@ -15,8 +15,9 @@ import {PaginatedList} from '../../../../../../shared/PaginatedList.component';
 export class ResponsiveTable implements OnInit{
 
   jobsTableData:Array<any>;
-   error : any;
+  error : any;
   jobs :PaginatedList<JobHal>;
+  isEmpty : boolean = true;
 
   constructor(private _basicTablesService: BasicTablesService, private service : JobService) {
     this.jobsTableData = _basicTablesService.jobsTableData;
@@ -26,7 +27,8 @@ export class ResponsiveTable implements OnInit{
   }
 
   getPage(){
-    this.service.getPage(0).subscribe(response => {this.jobs = response;},error => {this.error = error})
+    this.isEmpty = false;
+    this.service.getPage(0).subscribe(response => {this.jobs = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error})
   }
 
   delete(job : JobHal){
