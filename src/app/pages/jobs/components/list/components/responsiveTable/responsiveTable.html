@@ -8,17 +8,18 @@
       <th>Descripcion</th>
     </tr>
     </thead>
-    <tbody *ngIf="jobs">
+    <tbody *ngIf="jobs && jobs._embedded">
     <tr *ngFor=" let item of jobs._embedded.jobs">
       <td class="table-id">{{ item.id }}</td>
       <td>{{ item.name }}</td> 
       <td>{{ item.description }}</td>
-         
       <td>        
        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
      </td>
-     
     </tr>
+    <tr *ngIf="isEmpty"><td colspan=4>Lista vacia</td></tr>
+
     </tbody>
   </table>
 </div>
+¿Empty?:{{isEmpty}}
