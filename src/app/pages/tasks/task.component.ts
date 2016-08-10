@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {BaCard} from '../../theme/components';
 
 @Component({
-  selector: 'tasks',
+  selector: 'phase',
   pipes: [],
   providers: [],
   styles: [],

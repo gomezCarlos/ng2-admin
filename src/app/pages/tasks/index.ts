@@ -1,1 +1,1 @@
-export * from './tasks.component';
+export * from './task.component';

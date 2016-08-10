@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class ProjectService extends Service<ProjectHal>{
-	urlBackend = "http://localhost:7890/api/v1/projects";	
+	urlBackend = "http://localhost:3000/api/v1/projects";	
 
 	constructor( private _http : Http){
 		super(_http);

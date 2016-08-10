@@ -7,20 +7,22 @@ import { TaskHal } from '../../../Task';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
 
 @Component({
-  selector: 'responsive-table',
-  template: require('./responsiveTable.html'),
+  selector: 'condensed-table',
+  template: require('./condensedTable.html'),
   pipes: [BaAppPicturePipe],
   providers: [TaskService, BasicTablesService, HTTP_PROVIDERS]
 })
-export class ResponsiveTable implements OnInit{
+export class CondensedTable implements OnInit{
 
-  tasksTableData:Array<any>;
-   error : any;
-  tasks :PaginatedList<TaskHal>;
+  peopleTableData:Array<any>;
+  error : any;
+  tasks:PaginatedList<TaskHal>;
 
   constructor(private _basicTablesService: BasicTablesService, private service : TaskService) {
-    this.tasksTableData = _basicTablesService.taskTableData;
+
+    this.peopleTableData = _basicTablesService.peopleTableData;
   }
+
   ngOnInit(){
   	this.getPage();
   }
@@ -33,12 +35,3 @@ export class ResponsiveTable implements OnInit{
     this.service.delete(task).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
   }
 }
-
-
-
-
-
-  
-
-  
-

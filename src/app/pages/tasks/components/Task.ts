@@ -1,12 +1,13 @@
 import { Hal } from '../../../shared/Hal'
 
 export class TaskHal extends Hal {
-  description : string;
-  //created_at: string;    
-  name:string;
+
+	name : string;
+	description: string;
+	phase : number;	
+	phaseName : string;	
 
 	constructor(){
 		super();
 	}
 }
-

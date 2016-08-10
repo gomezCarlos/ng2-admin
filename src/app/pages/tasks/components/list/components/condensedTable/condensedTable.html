@@ -1,0 +1,37 @@
+<div class="horizontal-scroll">
+  <table class="table table-condensed">
+    <tfoot>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="first()" >Primero</button>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="previous()" >Anterior</button>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="next()" >Siguiente</button>
+      <button ngClass="{status-button btn btn-xs btn-info" (click)="last()" >Ultimo</button>
+    </tfoot>
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>      
+      <th>Tareas</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="tasks">
+    <tr *ngFor="let item of tasks._embedded.tasks">
+      <td class="table-id">{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>            
+      <td>{{ item.phaseName }}</td>
+      <td>
+        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--<div *ngIf="accounts">
+<div *ngFor="let item of accounts._embedded.accounts">
+  <div>{{ item.created_at }}</div>
+  <div>{{ item.authorities }}</div>
+  <div>{{ item.username }}</div>
+  <div>{{ item.is_active}}</div>
+</div>
+</div>-->

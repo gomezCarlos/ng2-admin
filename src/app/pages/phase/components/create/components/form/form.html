@@ -1,4 +1,14 @@
 <form>
+<!-- LISTADO PARA SELECCIONAR PROYECTOS -->
+  <div class="form-group" *ngIf = "listproject">
+    <label for="input03">Proyecto</label>
+    <select class="form-control" name="project" id="input03" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="project" style="color:black">
+      <option *ngFor = "let item of listproject._embedded.projects" value="{{ item.ids }}">
+        {{item.name}}
+      </option>>
+    </select>
+  </div>  
+  
   <div class="form-group">
     <label for="input01">Nombre</label>
     <input type="text" class="form-control" name="name" id="input01" placeholder="Fase" [(ngModel)]="phasehal.name" required="name" style="color:black">
@@ -8,15 +18,7 @@
     <textarea class="form-control" name="description" id="input02" placeholder="Descripcion" title="" [(ngModel)]="phasehal.description" required="description" style="color:black"></textarea>
   </div>  
 
-  <!-- LISTADO PARA SELECCIONAR PROYECTOS -->
-  <div class="form-group" *ngIf = "listproject">
-    <label for="input03">Proyecto</label>
-    <select class="form-control" name="project" id="input03" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="project" style="color:black">
-      <option *ngFor = "let item of listproject._embedded.projects" value="{{ item.ids }}">
-        {{item.name}}
-      </option>>
-    </select>
-  </div>  
+  
   
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
