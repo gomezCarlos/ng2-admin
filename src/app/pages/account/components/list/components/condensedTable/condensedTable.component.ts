@@ -62,4 +62,5 @@ export class CondensedTable implements OnInit{
       page = this.accounts.page.number +1;
     this.getPage(page);
   }
+
 }
