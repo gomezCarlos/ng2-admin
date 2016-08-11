@@ -1,8 +1,8 @@
 <form>
 <!-- LISTADO PARA SELECCIONAR PROYECTOS -->
   <div class="form-group" *ngIf = "listproject">
-    <label for="input03">Proyecto</label>
-    <select class="form-control" name="project" id="input03" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="project" style="color:black">
+    <label for="input05">Proyecto</label>
+    <select class="form-control" name="project" id="input05" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="project" style="color:black">
       <option *ngFor = "let item of listproject._embedded.projects" value="{{ item.ids }}">
         {{item.name}}
       </option>>
@@ -14,8 +14,17 @@
     <input type="text" class="form-control" name="name" id="input01" placeholder="Fase" [(ngModel)]="phasehal.name" required="name" style="color:black">
   </div>
   <div class="form-group">
-    <label for="input02">Descripcion</label>
-    <textarea class="form-control" name="description" id="input02" placeholder="Descripcion" title="" [(ngModel)]="phasehal.description" required="description" style="color:black"></textarea>
+    <label for="input02">Fecha Estimada de Inicio</label>    
+    <input type="date" class="form-control"  name="estimated_start_date" id="input02" placeholder="Fecha de Inicio" title="DD/MM/YYYY" [(ngModel)]="phasehal.estimated_start_date" required="input02" >
+  </div> 
+
+  <div class="form-group">
+    <label for="input03">Fecha Estimada de Final</label>
+    <input type="date" class="form-control" name="estimated_date_end" id="input03" placeholder="Fecha Final" title="DD/MM/YYYY" [(ngModel)]="phasehal.estimated_date_end" required="input03">
+  </div>
+  <div class="form-group">
+    <label for="input04">Descripcion</label>
+    <textarea class="form-control" name="description" id="input04" placeholder="Descripcion" title="" [(ngModel)]="phasehal.description" required="description" style="color:black"></textarea>
   </div>  
 
   
