@@ -77,10 +77,14 @@ export class Service<T extends Hal> {
     	  .catch(this.getError);
 	}
 	//get a paginated response wrapping an array of obects
-	getPage(page : number): Observable<PaginatedList<T>>{
+	getPage(page : number,size? : number): Observable<PaginatedList<T>>{
 		const perPage = 10;
+		
 		let params = new URLSearchParams();
-		params.set("size",perPage.toString());
+		if(size)
+		  params.set("size",size.toString());
+		else
+		  params.set("size",perPage.toString());
 		params.set("page",page.toString());
 		let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
 
