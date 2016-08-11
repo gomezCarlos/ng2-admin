@@ -34,12 +34,11 @@ export class CondensedTable implements OnInit{
   }
 
   delete(account : AccountHal){
-    this.service.delete(account).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
+    this.service.delete(account).subscribe(response => {this.getPage},error => {this.getPage();alert("Error al eliminar")})
   }
 
   first(){
     this.getPage(0);
-    alert(this.accounts.page.totalElements);
   }
 
   last(){
@@ -47,10 +46,20 @@ export class CondensedTable implements OnInit{
   }
 
   previous(){
-    this.getPage(this.accounts.page.number -1);
+    var page: number;
+    if(this.accounts.page.number -1<0)
+      page = 0;
+    else
+      page = this.accounts.page.number -1;
+    this.getPage(page);
   }
 
   next(){
-    this.getPage(this.accounts.page.number +1);
+    var page: number;
+    if(this.accounts.page.number +1 >= this.accounts.page.totalPages -1)
+      page = this.accounts.page.totalPages -1;
+    else
+      page = this.accounts.page.number +1;
+    this.getPage(page);
   }
 }
