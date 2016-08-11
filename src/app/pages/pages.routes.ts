@@ -80,7 +80,16 @@ export const PagesRoutes:RouterConfig = [
               }
             }
           },
-          {
+         /* {
+            path: 'view/:id',
+            component: view,
+            data: {
+              menu: {
+                title: 'Crear Proyecto',
+              }
+            }
+          },
+          */{
             path: 'list',
             component: ListProjects,
             data: {
@@ -229,7 +238,7 @@ export const PagesRoutes:RouterConfig = [
         ]
       },
       //lo demas
-     /* {
+    /* {
         path: 'editors',
         component: Editors,
         data: {
@@ -534,8 +543,8 @@ export const PagesRoutes:RouterConfig = [
             ]
           }
         ]
-      },*/
-      {
+      },
+      */{
         path: '',
         data: {
           menu: {

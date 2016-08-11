@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components';
+import {AppState} from '../app.state';
 
 @Component({
   selector: 'pages',
@@ -9,7 +10,7 @@ import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components
   template: `
     <ba-sidebar></ba-sidebar>
     <ba-page-top></ba-page-top>
-    <div class="al-main">
+    <div class="al-main" (click)="collapseMenu()">
       <div class="al-content">
         <ba-content-top></ba-content-top>
         <router-outlet></router-outlet>
@@ -30,7 +31,17 @@ import {BaPageTop, BaContentTop, BaSidebar, BaBackTop} from '../theme/components
 })
 export class Pages {
 
-  constructor() {
+  public isScrolled:boolean = false;
+  public isMenuCollapsed:boolean = false;
+
+  constructor(private _state:AppState) {
+    this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
+      this.isMenuCollapsed = isCollapsed;
+    });
+  }
+   public collapseMenu(){
+    this.isMenuCollapsed = true;
+    this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
   }
 
   ngOnInit() {

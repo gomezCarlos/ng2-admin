@@ -1,7 +1,7 @@
 <div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"
-     [ngClass]="{scrolled: isScrolled}">
+     [ngClass]="{scrolled: isScrolled}" >
   <a href="#/pages/dashboard" class="al-logo clearfix"><span>ANCA-</span>SIGESAT</a>
-  <a (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
+  <a (click)="toggleMenu()" class="collapse-menu-link ion-navicon" ></a>
 
   <div class="search">
     <i class="ion-ios-search-strong" ng-click="startSearch()"></i>
@@ -22,4 +22,5 @@
     </div>
     <ba-msg-center></ba-msg-center>
   </div>
-</div>
+</div >
+

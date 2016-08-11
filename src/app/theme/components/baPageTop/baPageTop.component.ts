@@ -29,6 +29,11 @@ export class BaPageTop {
     this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
   }
 
+  public collapseMenu(){
+    this.isMenuCollapsed = true;
+    this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
+  }
+
   public scrolledChanged(isScrolled) {
     this.isScrolled = isScrolled;
   }
