@@ -14,31 +14,54 @@ import { PaginatedList } from '../../../../../../shared/PaginatedList.component'
 })
 export class ResponsiveTable implements OnInit{
 
-  projectsTableData:Array<any>;
+  peopleTableData:Array<any>;
    error : any;
   projects :PaginatedList<ProjectHal>;
+ 
+  //Variables para los botones de navegacion en las listas
+  page : number;
+  totalElements : number;
+  totalPages : number;
+  //******************************************************
 
   constructor(private _basicTablesService: BasicTablesService, private service : ProjectService) {
-    this.projectsTableData = _basicTablesService.projectsTableData;
+    this.peopleTableData = _basicTablesService.peopleTableData;
   }
   ngOnInit(){
-  	this.getPage();
+  	this.getPage(0);
   }
 
-  getPage(){
-    this.service.getPage(0).subscribe(response => {this.projects = response;},error => {this.error = error})
+  getPage(page : number){
+    this.service.getPage(page).subscribe(response => {this.projects = response;},error => {this.error = error})
   }
 
   delete(project : ProjectHal){
     this.service.delete(project).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
   }
+
+  first(){
+    this.getPage(0);
+  }
+
+  last(){
+    this.getPage(this.projects.page.totalPages -1 );
+  }
+
+  previous(){
+    var page: number;
+    if(this.projects.page.number -1<0)
+      page = 0;
+    else
+      page = this.projects.page.number -1;
+    this.getPage(page);
+  }
+
+  next(){
+    var page: number;
+    if(this.projects.page.number +1 >= this.projects.page.totalPages -1)
+      page = this.projects.page.totalPages -1;
+    else
+      page = this.projects.page.number +1;
+    this.getPage(page);
+  }
 }
-
-
-
-
-
-  
-
-  
-
