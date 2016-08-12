@@ -19,7 +19,7 @@
     <tbody >
     <tr *ngFor="let item of projects._embedded.projects">
       <td class="table-id">{{ item.ids }}</td>
-      <td><a class="learn-more" [routerLink]="['/pages/projects/list']">{{ item.name }} </a></td> 
+      <td><a class="learn-more" [routerLink]="['/pages/projects/view/' + item.ids]">{{ item.name }} </a></td> 
       <td>{{ item.description }}</td>
     </tr>
     </tbody>

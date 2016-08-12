@@ -10,19 +10,18 @@
       <th>Status</th>
     </tr>
     </thead>
-    <tbody *ngIf="projects">
-    <tr *ngFor="let item of projects._embedded.projects">
-      <td class="table-id">{{ item.ids }}</td>
-      <td>{{ item.name }}</td> 
-      <td>{{ item.description }}</td>
-     <td>{{ item.estimated_date_end }}</td>
-      <td>{{ item.estimated_start_date }}</td>
+    <tbody *ngIf="project">
+    <tr>
+      <td class="table-ids">{{ project.ids }}</td>
+      <td>{{ project.name }}</td> 
+      <td>{{ project.description }}</td>
+     <td>{{ project.estimated_date_end }}</td>
+      <td>{{ project.estimated_start_date }}</td>
          
       <td>        
        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
      </td>
-     
-    </tr>
+     </tr>
     </tbody>
   </table>
 </div>
