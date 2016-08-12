@@ -1,0 +1,37 @@
+<div class="horizontal-scroll">
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th class="table-id">Nro.</th>
+      <th></th>
+      <th>Proyecto</th>
+      <th>Descripcion</th>
+     <!-- <th>Departamento</th>--> 
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="projects">
+    <tr *ngFor="let item of projects._embedded.projects">
+
+      <td class="table-id">{{ item.id }}</td>
+      <td colspan="4">
+      <panel [name]="item.name" [description]="item.description" [estimatedDateEnd]="item.estimatedDateEnd"> 
+      </panel>
+  
+
+             <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
+     </td>
+     
+    </tr>
+    </tbody>
+  </table>
+<
+
+<div class="horizontal-scroll">
+  <table class="table table-responsive">
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="first()" >Primero</button></td>
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="previous()" >Anterior</button></td>
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="next()" >Siguiente</button></td>
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="last()" >Ultimo</button></td>
+  </table>
+</div>
