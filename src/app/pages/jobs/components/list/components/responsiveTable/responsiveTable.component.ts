@@ -19,20 +19,52 @@ export class ResponsiveTable implements OnInit{
   jobs :PaginatedList<JobHal>;
   isEmpty : boolean = true;
 
+  //Variables para los botones de navegacion en las listas
+  page : number;
+  totalElements : number;
+  totalPages : number;
+  //******************************************************
+
   constructor(private _basicTablesService: BasicTablesService, private service : JobService) {
     this.jobsTableData = _basicTablesService.jobsTableData;
   }
   ngOnInit(){
-  	this.getPage();
+  	this.getPage(0);
   }
 
-  getPage(){
+  getPage(page : number){
     this.isEmpty = false;
     this.service.getPage(0).subscribe(response => {this.jobs = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error})
   }
 
   delete(job : JobHal){
     this.service.delete(job).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
+  }
+
+  first(){
+    this.getPage(0);
+  }
+
+  last(){
+    this.getPage(this.jobs.page.totalPages -1 );
+  }
+
+  previous(){
+    var page: number;
+    if(this.jobs.page.number -1<0)
+      page = 0;
+    else
+      page = this.jobs.page.number -1;
+    this.getPage(page);
+  }
+
+  next(){
+    var page: number;
+    if(this.jobs.page.number +1 >= this.jobs.page.totalPages -1)
+      page = this.jobs.page.totalPages -1;
+    else
+      page = this.jobs.page.number +1;
+    this.getPage(page);
   }
 }
 
