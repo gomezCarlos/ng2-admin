@@ -13,12 +13,12 @@
     <tbody *ngIf="projects">
     <tr *ngFor="let item of projects._embedded.projects">
       <td class="table-id">{{ item.id }}</td>
-      <td>{{ item.name }}</td> 
-      <td>{{ item.description }}</td>
-     <td>{{ item.estimated_date_end }}</td>
-      <td>{{ item.estimated_start_date }}</td>
-         
-      <td>        
+      <td colspan="4">
+      <panel [name]="item.name" [description]="item.description" [estimatedDateEnd]="item.estimatedDateEnd"> 
+      </panel>
+  
+
+              
        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
      </td>
      

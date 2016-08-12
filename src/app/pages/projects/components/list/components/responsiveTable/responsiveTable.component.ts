@@ -5,17 +5,21 @@ import {BasicTablesService} from '../../list.service';
 import { ProjectService } from '../../../project.service';
 import { ProjectHal } from '../../../Project';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import { Panel } from './panel';
 
 @Component({
   selector: 'responsive-table',
+
   template: require('./responsiveTable.html'),
   pipes: [BaAppPicturePipe],
-  providers: [ProjectService, BasicTablesService, HTTP_PROVIDERS]
+  providers: [ProjectService, BasicTablesService, HTTP_PROVIDERS],
+  directives: [Panel]
 })
 export class ResponsiveTable implements OnInit{
 
+
   peopleTableData:Array<any>;
-   error : any;
+  error : any;
   projects :PaginatedList<ProjectHal>;
  
   //Variables para los botones de navegacion en las listas
@@ -38,6 +42,7 @@ export class ResponsiveTable implements OnInit{
   delete(project : ProjectHal){
     this.service.delete(project).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
   }
+
 
   first(){
     this.getPage(0);
