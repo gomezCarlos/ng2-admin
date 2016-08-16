@@ -26,7 +26,7 @@ export class Form  implements OnInit{
  // }
 
  save(phase : PhaseHal){
-   phase.project=Number(phase.project);
+   //phase.project=Number(phase.project);
  	this.service.save(phase).subscribe(response => {this.phasehal = response; alert("Fase Creada")},error => {this.error = error; alert(error.message)})
 
  }

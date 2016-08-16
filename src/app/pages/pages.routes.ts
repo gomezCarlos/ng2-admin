@@ -86,9 +86,6 @@ export const PagesRoutes:RouterConfig = [
             path: 'view/:id',
             component: ViewProjects,
             data: {
-              menu: {
-                title: 'View',
-              }
             }
           },
           {
