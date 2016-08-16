@@ -6,7 +6,9 @@ export class PhaseHal extends Hal {
 	description: string;
 	project : number;	
 	projectName : string;
-	value : bigdecimal;	
+	value : number;
+	estimatedDateEnd: Date;
+    estimatedStartDate: Date; 	
 
 	constructor(){
 		super();
