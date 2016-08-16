@@ -13,7 +13,7 @@
     <tbody *ngIf="projects">
     <tr *ngFor="let item of projects._embedded.projects">
 
-      <td class="table-id">{{ item.id }}</td>
+      <td class="table-ids">{{ item.ids }}</td>
       <td colspan="4">
       <panel [name]="item.name" [description]="item.description" [estimatedDateEnd]="item.estimatedDateEnd"> 
       </panel>
@@ -25,7 +25,6 @@
     </tr>
     </tbody>
   </table>
-<
 
 <div class="horizontal-scroll">
   <table class="table table-responsive">

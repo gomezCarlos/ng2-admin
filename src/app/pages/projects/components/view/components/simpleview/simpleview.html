@@ -26,8 +26,7 @@
     </tr>
   </thead>
 </tbody>-->  
-
-        <div class="table-responsive">
+        <div>
           <table class="table table-bordered table-striped">
             <thead>
             </thead>
@@ -43,13 +42,27 @@
               <td colspan="4">{{ project.name }}</td>
             </tr>
             <tr>
+              <th class="text-nowrap" scope="row">Fecha de inicio</th>
+              <td></td>
+              <td>{{ project.estimatedStartDate }}</td>
+            </tr>
+             <tr>
+              <th class="text-nowrap" scope="row">Fecha Final</th>
+              <td></td>
+              <td>{{ project.estimatedDateEnd }}</td>
+            </tr>
+             <tr>
               <th class="text-nowrap" scope="row">Detalle</th>
               <td></td>
               <td>{{ project.description }}</td>
             </tr>
             </tbody>
           </table>
-        </div>
+              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/projects/list/']">Actualizar</button>
+              <button type="button" class="btn btn-danger btn-mm" (click)="delete(project)">Borrar</button>
+
+              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/projects/list/']">Listar</button>
+      </div>
 
 
     <!--<thead>

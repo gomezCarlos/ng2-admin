@@ -135,39 +135,7 @@ export const PagesRoutes:RouterConfig = [
         ]
       },
       // Account Menu
-      {
-        path: 'account',
-        component: Account,
-        data: {
-          menu: {
-            title: 'Cuentas',
-            icon: 'ion-person',
-            selected: false,
-            expanded: false,
-            order: 53,
-          }
-        },
-        children: [
-          {
-            path: 'create',
-            component: CreateAccount,
-            data: {
-              menu: {
-                title: 'Crear Account',
-              }
-            }
-          },
-          {
-            path: 'list',
-            component: ListAccount,
-            data: {
-              menu:{
-                title: 'Listar',
-              }
-            }
-          }
-        ]
-      },
+      
        // Tarea Menu //MOISES
       {
         path: 'tasks',
@@ -231,6 +199,40 @@ export const PagesRoutes:RouterConfig = [
             data: {
               menu:{
                 title: 'Listar Trabajo',
+              }
+            }
+          }
+        ]
+      },
+      //Acount
+      {
+        path: 'account',
+        component: Account,
+        data: {
+          menu: {
+            title: 'Cuentas',
+            icon: 'ion-person',
+            selected: false,
+            expanded: false,
+            order: 56,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateAccount,
+            data: {
+              menu: {
+                title: 'Crear Account',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListAccount,
+            data: {
+              menu:{
+                title: 'Listar',
               }
             }
           }
