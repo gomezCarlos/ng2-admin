@@ -1,4 +1,14 @@
 <form>
+<form>
+<!-- LISTADO PARA SELECCIONAR TAREAS -->
+  <div class="form-group" *ngIf = "listtask">
+    <label for="input05">Tarea</label>
+    <select class="form-control" name="phase" id="input05" placeholder="Descripcion" title="" [(ngModel)]="jobhal.task" required="task" style="color:black">
+      <option *ngFor = "let item of listtask._embedded.tasks" value="{{ item._links?.self?.href }}">
+        {{item.name}}
+      </option>>
+    </select>
+  </div>
   <div class="form-group">
     <label for="input01">Nombre del trabajo</label>
     <input [(ngModel)]="jobhal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Nombre" required="name" name="nombre" >
