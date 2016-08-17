@@ -19,6 +19,9 @@ export class ResponsiveTable implements OnInit{
   error : any;
   project :ProjectHal;
   param : any;
+  page : number;
+  projects :PaginatedList<ProjectHal>;
+
 
   constructor(private _basicTablesService: BasicTablesService, private service : ProjectService, private route : ActivatedRoute) {
     this.projectsTableData = _basicTablesService.projectsTableData;
@@ -33,8 +36,13 @@ export class ResponsiveTable implements OnInit{
     }
     }  
   )
+
   }
 
+ delete(project : ProjectHal){
+   this.service.delete(project).subscribe(response => {alert("Proyecto Eliminado")},error => {this.error = error; alert("borrado")})
+
+ }
  
 }
 

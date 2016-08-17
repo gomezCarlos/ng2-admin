@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {RouteConfig, Router, ROUTER_DIRECTIVES} from '@angular/router';
 //import {ProjectService} from '../../../projectService';
 //import {ProjectHal} from '../../../Project';
 import {ProjectService } from '../../../project.service';
@@ -19,13 +20,13 @@ export class Form {
   error : any;
   projecthal:ProjectHal;
   
-	constructor( private service : ProjectService) {
+	constructor( private service : ProjectService, private router: Router) {
 		this.projecthal = new ProjectHal();
     
   }
 
   save(project : ProjectHal){
- 	this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado")},error => {this.error = error; alert(error.message)})
+ 	this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado"); this.router.navigate(['/pages/projects/view/' + this.projecthal.ids])},error => {this.error = error; alert(error.message)})
 
  }
 
