@@ -1,0 +1,42 @@
+ <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            </thead>
+            <tbody *ngIf="task">
+            <tr>
+              <th class="upper-text bold-text" scope="row">Codigo</th>
+              <td></td>
+              <td colspan="4">{{ task.ids }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Proyecto</th>
+              <td></td>
+              <td colspan="4">{{ task.name }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Fecha de inicio</th>
+              <td></td>
+              <td>{{ task.estimatedStartDate }}</td>
+            </tr>
+             <tr>
+              <th class="text-nowrap" scope="row">Fecha Final</th>
+              <td></td>
+              <td>{{ task.estimatedDateEnd }}</td>
+            </tr>
+             <tr>
+              <th class="text-nowrap" scope="row">Detalle</th>
+              <td></td>
+              <td>{{ task.description }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Fase</th>
+              <td></td>
+              <td>{{ task.phaseName }}</td>
+            </tr>
+            </tbody>
+          </table>
+              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/projects/list/']">Actualizar</button>
+              <button type="button" class="btn btn-danger btn-mm" (click)="delete(task)">Borrar</button>
+
+              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/projects/list/']">Listar</button>
+      </div>
