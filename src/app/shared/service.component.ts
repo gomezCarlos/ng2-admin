@@ -8,7 +8,10 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import { Hal } from './Hal';
 import { PaginatedList } from './PaginatedList.component';
-
+import { UserService } from './user.service';
+@Component({
+        providers:[UserService]
+})
 @Injectable()
 export class Service<T extends Hal> {
 
@@ -18,7 +21,7 @@ export class Service<T extends Hal> {
 	object: T;
 
 	//inject the http object for managing requests
-	constructor( private _http : Http){
+	constructor( private _http : Http, private userService: UserService){
 		
 	}
 	//handle the error, you should implements what to do.
@@ -29,9 +32,11 @@ export class Service<T extends Hal> {
 
 	//define the basic options for the request.
 	private getOptions(){
+
 		let headers = new Headers({
 			'Content-Type':'application/json',
-			'Access-Control-Allow-Origin': '*'
+			'Access-Control-Allow-Origin': '*',
+			'X-Auth-Token': this.userService.getToken().toString(),
 		})
 		let options = new RequestOptions({headers: headers})
 		return options;
@@ -47,8 +52,8 @@ export class Service<T extends Hal> {
 	}
 	//save the object
 	save(object : T): Observable<T>{
-		let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-    	let requestOptions = new RequestOptions({ headers: headers });
+		//let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+    	let requestOptions = this.getOptions();//new RequestOptions({ headers: headers });
 		let url ='';
 		
 		if(object.ids!=null){
@@ -70,9 +75,9 @@ export class Service<T extends Hal> {
 	}
 	//find one object by its id.
 	find(id : number): Observable<T>{
-		let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-    	let requestOptions = new RequestOptions({ headers: headers });
-    	return this._http.get(this.getUrlBackend()+"/"+id,requestOptions)
+		//let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+    	//let requestOptions = new RequestOptions({ headers: headers });
+    	return this._http.get(this.getUrlBackend()+"/"+id,this.getOptions)
     	  .map(this.getData)
     	  .catch(this.getError);
 	}
@@ -86,7 +91,10 @@ export class Service<T extends Hal> {
 		else
 		  params.set("size",perPage.toString());
 		params.set("page",page.toString());
-		let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+		let headers = new Headers({ 'Content-Type': 'application/json', 
+			'Access-Control-Allow-Origin': '*' ,
+			'X-Auth-Token': this.userService.getToken().toString()
+		});
 
     	let requestOptions = new RequestOptions({ headers: headers, search: params });
     	return this._http.get(this.urlBackend,requestOptions)
@@ -97,7 +105,9 @@ export class Service<T extends Hal> {
 
 	getAll(): Observable<Array<T>>{
                 let params = new URLSearchParams();
-                let headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+                let headers = new Headers({ 'Content-Type': 'application/json', 
+                	'Access-Control-Allow-Origin': '*', 
+                	'X-Auth-Token': this.userService.getToken().toString() });
 		let requestOptions = new RequestOptions({ headers: headers, search: params });
         	return this._http.get(this.urlBackend,requestOptions)
                         .map(this.getArray)

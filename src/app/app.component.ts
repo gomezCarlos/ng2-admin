@@ -5,6 +5,7 @@ import {BaThemeConfigProvider, BaThemeConfig} from "./theme";
 import {BaThemeRun} from "./theme/directives";
 import {BaImageLoaderService, BaThemePreloader, BaThemeSpinner} from "./theme/services";
 import {layoutPaths} from "./theme/theme.constants";
+import {UserService} from './shared/user.service';
 
 /*
  * App Component
@@ -14,7 +15,7 @@ import {layoutPaths} from "./theme/theme.constants";
   selector: 'app',
   pipes: [],
   directives: [BaThemeRun],
-  providers: [BaThemeConfigProvider, BaThemeConfig, BaImageLoaderService, BaThemeSpinner],
+  providers: [BaThemeConfigProvider, BaThemeConfig, BaImageLoaderService, BaThemeSpinner,UserService],
   encapsulation: ViewEncapsulation.None,
   styles: [require('normalize.css'), require('./app.scss')],
   template: `
@@ -28,7 +29,7 @@ export class App {
 
   isMenuCollapsed:boolean = false;
 
-  constructor(private _state:AppState, private _imageLoader:BaImageLoaderService, private _spinner:BaThemeSpinner, private _config:BaThemeConfig) {
+  constructor(private _state:AppState, private _imageLoader:BaImageLoaderService, private _spinner:BaThemeSpinner, private _config:BaThemeConfig, private userService:UserService) {
     this._loadImages();
 
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
