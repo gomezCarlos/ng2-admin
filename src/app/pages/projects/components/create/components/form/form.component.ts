@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouteConfig, Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 //import {ProjectService} from '../../../projectService';
 //import {ProjectHal} from '../../../Project';
 import {ProjectService } from '../../../project.service';

@@ -36,8 +36,10 @@ import {ListJob}  from './jobs/components/list/list.component';
 import {CreateTask} from './tasks/components/create/create.component';
 import {ListTask}  from './tasks/components/list/list.component';
 import {CreatePhase} from './phase/components/create/create.component';
-import {ListPhase}  from './phase/components/list/list.component'
-import {ViewProjects} from './projects/components/view/view.components'
+import {ListPhase}  from './phase/components/list/list.component';
+import {ViewProjects} from './projects/components/view/view.components';
+import {ViewPhase} from './phase/components/view/view.components';
+import {ViewTask} from './tasks/components/view/view.components'
 
 //test
 
@@ -131,7 +133,14 @@ export const PagesRoutes:RouterConfig = [
                 title: 'Listar Fase',
               }
             }
-          }
+          },
+           {
+            path: 'view/:id',
+            component: ViewPhase,
+            data: {
+
+            }
+          },
         ]
       },
       // Account Menu
@@ -157,6 +166,12 @@ export const PagesRoutes:RouterConfig = [
               menu: {
                 title: 'Crear Tarea',
               }
+            }
+          },
+             {
+            path: 'view/:id',
+            component: ViewTask,
+            data: {
             }
           },
           {

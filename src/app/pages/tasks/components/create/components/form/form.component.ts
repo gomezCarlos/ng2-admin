@@ -4,6 +4,7 @@ import {PhaseHal} from '../../../../../phase/components/Phase';
 import { TaskService } from '../../../task.service';
 import { TaskHal } from '../../../Task';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
   selector: 'form',
@@ -15,7 +16,7 @@ export class Form  implements OnInit{
   listphase : PaginatedList<PhaseHal>;
   error : any;
   taskhal:TaskHal;
-	constructor( private service : TaskService, private phases : PhaseService) {
+	constructor( private service : TaskService, private phases : PhaseService, private router : Router) {
 		this.taskhal = new TaskHal();
     
   }
@@ -27,7 +28,7 @@ export class Form  implements OnInit{
 
  save(task : TaskHal){
    task.phase=Number(task.phase);
- 	this.service.save(task).subscribe(response => {this.taskhal = response; alert("Tarea Creada")},error => {this.error = error; alert(error.message)})
+ 	this.service.save(task).subscribe(response => {this.taskhal = response; alert("Tarea Creada"); this.router.navigate(['/pages/tasks/view/' + this.taskhal.ids])},error => {this.error = error; alert(error.message)})
 
  }
 
