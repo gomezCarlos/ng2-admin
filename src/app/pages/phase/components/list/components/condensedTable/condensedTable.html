@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody *ngIf="phases">
-    <tr *ngFor="let item of phases._embedded.phases">
+    <tr *ngFor="let item of phases._embedded?.phases">
       <td class="table-id">{{ item.ids }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.description }}</td>            

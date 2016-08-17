@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody *ngIf="projects">
-    <tr *ngFor="let item of projects._embedded.projects">
+    <tr *ngFor="let item of projects._embedded?.projects">
 
       <td class="table-ids">{{ item.ids }}</td>
       <td colspan="4">

@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody *ngIf="accounts">
-    <tr *ngFor="let item of accounts._embedded.accounts">
+    <tr *ngFor="let item of accounts._embedded?.accounts">
       <td class="table-id">{{ item.id }}</td>
       <td>{{ item.created_at }}</td>
       <td>{{ item.authorities }}</td>

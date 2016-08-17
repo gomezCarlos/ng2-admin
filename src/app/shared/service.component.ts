@@ -32,11 +32,16 @@ export class Service<T extends Hal> {
 
 	//define the basic options for the request.
 	private getOptions(){
+		let token = "none";
+		if(this.userService.getToken()==null)
+		  token = "none";
+		else
+		  token = this.userService.getToken().toString();
 
 		let headers = new Headers({
 			'Content-Type':'application/json',
 			'Access-Control-Allow-Origin': '*',
-			'X-Auth-Token': this.userService.getToken().toString(),
+			'X-Auth-Token': token,
 		})
 		let options = new RequestOptions({headers: headers})
 		return options;
