@@ -1,0 +1,35 @@
+<form>
+<form>
+<!-- LISTADO PARA SELECCIONAR PUNTOS DE AUTENTICACION DE SERVICIOS -->
+  <div class="form-group">
+    <label for="input01">Nombre del Punto a Autenticar</label>
+    <input [(ngModel)]="endPointServiceAuthenticationHal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Nombre" required="name" name="nombre" >
+  </div>
+
+  <div class="form-group">
+    <label for="textarea01">Descripcion</label>
+    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="endPointServiceAuthenticationHal.description" name="description" ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="input02">Roles</label>
+    <input [(ngModel)]="endPointServiceAuthenticationHal.authorities" placeholder="Roles" class="form-control" id="input02"  name="authorities" >
+  </div>
+
+  <!--Boton Agregado por Moises aun falta los eventos -->
+  <table width="200" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <th scope="col">
+                          <div class="button-wrapper">
+                               <button type="submit" class="btn btn-primary btn-raised" (click)="save(endPointServiceAuthenticationHal)">Guardar</button>
+                          </div>
+                      </th>
+                      <th scope="col">
+                          <div class="button-wrapper"> 
+                               <button type="reset" class="btn btn-primary btn-raised">Limpiar</button>
+                          </div>
+                      </th>
+                    </tr>
+            </table>
+
+</form>

@@ -4,8 +4,9 @@
     <tr>
       <th class="table-id">Nro.</th>
       <th></th>
-      <th>Proyecto</th>
+      <th>Nombre</th>
       <th>Descripcion</th>
+      <th>Roles</th>
     </tr>
     </thead>
     <tbody *ngIf="jobs && jobs._embedded">
@@ -13,6 +14,7 @@
       <td class="table-id">{{ item.id }}</td>
       <td>{{ item.name }}</td> 
       <td>{{ item.description }}</td>
+      <td>{{ item.authorities }}</td>
       <td>        
        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
      </td>
@@ -22,4 +24,4 @@
     </tbody>
   </table>
 </div>
-¿Empty?:{{isEmpty}}
+<!--¿Empty?:{{isEmpty}} -->
