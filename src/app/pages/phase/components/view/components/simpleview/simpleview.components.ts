@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import {BaAppPicturePipe} from '../../../../../../theme/pipes';
 import {BasicTablesService} from '../../view.service';
-import { PhaseService } from '../../../Phase.service';
+import { PhaseService } from '../../../phase.service';
 import { PhaseHal } from '../../../Phase';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
 import { ActivatedRoute, Router } from '@angular/router'
