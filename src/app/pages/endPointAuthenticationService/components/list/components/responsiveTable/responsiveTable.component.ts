@@ -25,9 +25,9 @@ export class ResponsiveTable implements OnInit{
   totalPages : number;
   //******************************************************
 
-  constructor(private _basicTablesService: BasicTablesService, private service : EndPointServiceAuthenticationService) {
-    this.endPointServiceAuthenticationTableData = _basicTablesService.endPointServiceAuthenticationTableData;
+  constructor(private service : EndPointServiceAuthenticationService) {
   }
+  
   ngOnInit(){
   	this.getPage(0);
   }
@@ -37,8 +37,8 @@ export class ResponsiveTable implements OnInit{
     this.service.getPage(0).subscribe(response => {this.endPointServiceAuthentications = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error})
   }
 
-  delete(job : EndPointServiceAuthenticationHal){
-    this.service.delete(job).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
+  delete(endPointServiceAuthentication : EndPointServiceAuthenticationHal){
+    this.service.delete(endPointServiceAuthentication).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
   }
 
   first(){
