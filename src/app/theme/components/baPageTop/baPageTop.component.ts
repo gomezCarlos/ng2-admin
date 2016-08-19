@@ -1,9 +1,10 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-
+import { Router } from '@angular/router';
 import {AppState} from '../../../app.state';
 import {BaProfilePicturePipe} from '../../pipes';
 import {BaMsgCenter} from '../../components/baMsgCenter';
 import {BaScrollPosition} from '../../directives';
+import {UserService} from '../../../shared/user.service.ts'
 
 @Component({
   selector: 'ba-page-top',
@@ -11,14 +12,15 @@ import {BaScrollPosition} from '../../directives';
   template: require('./baPageTop.html'),
   directives: [BaMsgCenter, BaScrollPosition],
   pipes: [BaProfilePicturePipe],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [UserService]
 })
 export class BaPageTop {
 
   public isScrolled:boolean = false;
   public isMenuCollapsed:boolean = false;
 
-  constructor(private _state:AppState) {
+  constructor(private _state:AppState, private user : UserService, private router : Router) {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
@@ -37,4 +39,11 @@ export class BaPageTop {
   public scrolledChanged(isScrolled) {
     this.isScrolled = isScrolled;
   }
+
+  logout(){
+    this.user.logout();
+    this.router.navigate (['/#/login'])
+
+  }
+
 }

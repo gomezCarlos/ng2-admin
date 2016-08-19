@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 
 import { UserService } from '../../shared/user.service';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   template: require('./login.html'),
   providers: [UserService]
 })
-export class Login {
+export class Login implements OnInit {
 
   public form:FormGroup;
   public email:AbstractControl;
@@ -29,6 +29,11 @@ export class Login {
     this.password = this.form.controls['password'];
   }
 
+  ngOnInit(){
+    if (this.userService.isLoggedIn())
+      this.router.navigate(['/pages/dashboard']);
+  }
+
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
@@ -36,9 +41,8 @@ export class Login {
 	this.userService.login(this.email.value,this.password.value)
           .subscribe((result) =>{
             alert(this.userService.isLoggedIn());
-            alert(result);
             if(result){
-              this.router.navigate(['']);
+              this.router.navigate(['/pages/dashboard']);
             }
           });
       // console.log(values);
