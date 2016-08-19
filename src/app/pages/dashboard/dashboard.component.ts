@@ -1,6 +1,11 @@
 import {Component, ViewEncapsulation, OnInit} from '@angular/core';
+
 import { ProjectService } from '../projects/components/project.service';
 import { ProjectHal } from '../projects/components/Project';
+
+import { TaskService } from '../tasks/components/task.service';
+import { TaskHal } from '../tasks/components/Task';
+
 import { PaginatedList } from '../../shared/PaginatedList.component';
 import {BasicTablesService} from '../projects/components/list/list.service';
 import {Router} from '@angular/router'
@@ -21,27 +26,34 @@ import {BaCard} from '../../theme/components';
   encapsulation: ViewEncapsulation.None,
   styles: [require('./dashboard.scss')],
   template: require('./dashboard.html'),
-  providers: [ProjectService, BasicTablesService]
+  providers: [ProjectService, BasicTablesService, TaskService]
 })
 export class Dashboard implements OnInit {
 
   projectsTableData:Array<any>;
    error : any;
   projects :PaginatedList<ProjectHal>;
+  tasks :PaginatedList<TaskHal>;
+  
 
-  constructor(private _basicTablesService: BasicTablesService, private service : ProjectService, private router : Router) {
+  constructor(private _basicTablesService: BasicTablesService, private service : ProjectService, private taskService: TaskService, private router : Router) {
     this.projectsTableData = _basicTablesService.projectsTableData;
   }
   ngOnInit(){
    
   	//this.getPage();
   }
+
   getProject(project : ProjectHal){
     this.router.navigate(['projects/list']);
   }
 
   getPage(){
-    this.service.getPage(0,5).subscribe(response => {this.projects = response;},error => {this.error = error})
+    this.service.getPage(0,5).subscribe(response => {this.projects = response;},error => {this.error = error;})
+  }
+
+  getTasks(){
+    this.taskService.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})
   }
 
   delete(project : ProjectHal){

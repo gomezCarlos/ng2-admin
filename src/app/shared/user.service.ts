@@ -34,7 +34,11 @@ export class UserService {
   }
 
   getToken(){
-    return localStorage.getItem('auth_token');
+    let token = localStorage.getItem('auth_token');
+    if(token !=null)
+      return localStorage.getItem('auth_token');
+    else
+      return "";
   }
 
   isLoggedIn(){
