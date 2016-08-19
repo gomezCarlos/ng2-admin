@@ -1,0 +1,27 @@
+<div class="horizontal-scroll">
+  <table class="table table-responsive">
+    <thead>
+    <tr>
+      <th class="table-id">Nro.</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Roles</th>
+      <th>Accion</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="endPointServiceAuthentications && endPointServiceAuthentications._embedded">
+    <tr *ngFor=" let item of endPointServiceAuthentications._embedded?.endPointServiceAuthentications">
+      <td class="table-id">{{ item.ids }}</td>
+      <td>{{ item.name }}</td> 
+      <td>{{ item.description }}</td>
+      <td>{{ item.authorities }}</td>
+      <td>        
+       <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>    
+     </td>
+    </tr>
+    <tr *ngIf="isEmpty"><td colspan=4>Lista vacia</td></tr>
+
+    </tbody>
+  </table>
+</div>
+<!--¿Empty?:{{isEmpty}} -->

@@ -39,7 +39,10 @@ import {CreatePhase} from './phase/components/create/create.component';
 import {ListPhase}  from './phase/components/list/list.component';
 import {ViewProjects} from './projects/components/view/view.components';
 import {ViewPhase} from './phase/components/view/view.components';
-import {ViewTask} from './tasks/components/view/view.components'
+import {ViewTask} from './tasks/components/view/view.components';
+import {CreateEndPointServiceAuthentication} from './endPointAuthenticationService/components/create/create.component';
+import {ListEndPointServiceAuthentication} from './endPointAuthenticationService/components/list/list.component';
+
 
 //test
 
@@ -253,6 +256,42 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
+
+      //EndPointAuthenticationService
+      {
+        path: 'endPointAuthenticationService',
+        component: Account,
+        data: {
+          menu: {
+            title: 'Seguridad',
+            icon: 'ion-gear-a',
+            selected: false,
+            expanded: false,
+            order: 56,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateEndPointServiceAuthentication,
+            data: {
+              menu: {
+                title: 'Crear Auth',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListEndPointServiceAuthentication,
+            data: {
+              menu:{
+                title: 'Listar Auth',
+              }
+            }
+          } 
+        ]
+      },
+
       //lo demas
     /* {
         path: 'editors',

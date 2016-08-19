@@ -33,7 +33,7 @@ export class Service<T extends Hal> {
 	//define the basic options for the request.
 	private getOptions(){
 		let token = "none";
-		if(this.userService.getToken()==null)
+		if(this.userService.getToken()==null || this.userService.getToken()==undefined)
 		  token = "none";
 		else
 		  token = this.userService.getToken().toString();
