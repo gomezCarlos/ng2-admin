@@ -11,7 +11,7 @@ import {Router, ROUTER_DIRECTIVES} from '@angular/router';
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [TaskService,PhaseService]  
+  providers: [TaskService, PhaseService, ProjectService]  
 })
 
 export class Form  implements OnInit{
