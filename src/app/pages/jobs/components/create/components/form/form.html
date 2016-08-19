@@ -3,7 +3,7 @@
 <!-- LISTADO PARA SELECCIONAR TAREAS -->
   <div class="form-group" *ngIf = "listtask">
     <label for="input05">Tarea</label>
-    <select class="form-control" name="phase" id="input05" placeholder="Descripcion" title="" [(ngModel)]="jobhal.task" required="task" style="color:black">
+    <select class="form-control" name="phase" id="input05" placeholder="Tareas" title="" [(ngModel)]="jobhal.task" required="task" style="color:black" >
       <option *ngFor = "let item of listtask._embedded.tasks" value="{{ item._links?.self?.href }}">
         {{item.name}}
       </option>>
@@ -11,16 +11,19 @@
   </div>
   <div class="form-group">
     <label for="input01">Nombre del trabajo</label>
-    <input [(ngModel)]="jobhal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Nombre" required="name" name="nombre" >
+    <input [(ngModel)]="jobhal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Nombre" required="name" name="nombre" autocomplete="on"  autofocus="autofocus">
   </div>
 
   <div class="form-group">
     <label for="textarea01">Descripcion</label>
-    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="jobhal.description" name="description" ></textarea>
+    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="jobhal.description" name="description" autocomplete="on"></textarea>
+  </div>
+  <div class="form-group">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </div>
   <div class="form-group">
         <label for="select01">Porcentaje de Avance</label>
-       <select placeholder="Descripcion" class="btn btn-primary btn-raised" id="select01"  name="porcentj">
+       <select placeholder="Porcentaje" class="btn btn-primary btn-raised" id="select01"  name="porcentj">
          <option value="  ">0%</option>
          <option value="10">10%</option>
          <option value="20">20%</option>
@@ -34,6 +37,7 @@
          <option value="100">100%</option>
        </select>
    </div>
+   
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
                     <tr>
