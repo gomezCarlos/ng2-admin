@@ -24,9 +24,8 @@ export class CondensedTable implements OnInit{
   totalPages : number;
   //******************************************************
 
-  constructor(private _basicTablesService: BasicTablesService, private service : TaskService) {
+  constructor(private service : TaskService) {
 
-    this.taskTableData = _basicTablesService.taskTableData;
   }
 
   ngOnInit(){
@@ -46,24 +45,24 @@ export class CondensedTable implements OnInit{
   }
 
   last(){
-    this.getPage(this.tasks.getPage().getTotalPages() -1 );
+    this.getPage(this.tasks.page.totalPages -1 );
   }
 
   previous(){
     var page: number;
-    if(this.tasks.getPage().getNumber() -1<0)
+    if(this.tasks.page.number -1<0)
       page = 0;
     else
-      page = this.tasks.getPage().getNumber() -1;
+      page = this.tasks.page.number -1;
     this.getPage(page);
   }
 
   next(){
     var page: number;
-    if(this.tasks.getPage().getNumber() +1 >= this.tasks.getPage().getTotalPages() -1)
-      page = this.tasks.getPage().getTotalPages() -1;
+    if(this.tasks.page.number +1 >= this.tasks.page.totalPages -1)
+      page = this.tasks.page.totalPages -1;
     else
-      page = this.tasks.getPage().getNumber() +1;
+      page = this.tasks.page.number +1;
     this.getPage(page);
   }
 }

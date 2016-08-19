@@ -42,24 +42,24 @@ export class CondensedTable implements OnInit{
   }
 
   last(){
-    this.getPage(this.accounts.getPage().getTotalPages() -1 );
+    this.getPage(this.accounts.page.totalPages -1 );
   }
 
   previous(){
     var page: number;
-    if(this.accounts.getPage().getNumber() -1<0)
+    if(this.accounts.page.number -1<0)
       page = 0;
     else
-      page = this.accounts.getPage().getNumber() -1;
+      page = this.accounts.page.number -1;
     this.getPage(page);
   }
 
   next(){
     var page: number;
-    if(this.accounts.getPage().getNumber() +1 >= this.accounts.getPage().getTotalPages() -1)
-      page = this.accounts.getPage().getTotalPages() -1;
+    if(this.accounts.page.number +1 >= this.accounts.page.totalPages -1)
+      page = this.accounts.page.totalPages -1;
     else
-      page = this.accounts.getPage().getNumber() +1;
+      page = this.accounts.page.number +1;
     this.getPage(page);
   }
 

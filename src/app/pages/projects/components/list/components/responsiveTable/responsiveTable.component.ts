@@ -48,24 +48,24 @@ export class ResponsiveTable implements OnInit{
   }
 
   last(){
-    this.getPage(this.projects.getPage().getTotalPages() -1 );
+    this.getPage(this.projects.page.totalPages -1 );
   }
 
   previous(){
     var page: number;
-    if(this.projects.getPage().getNumber() -1<0)
+    if(this.projects.page.number -1<0)
       page = 0;
     else
-      page = this.projects.getPage().getNumber() -1;
+      page = this.projects.page.number -1;
     this.getPage(page);
   }
 
   next(){
     var page: number;
-    if(this.projects.getPage().getNumber() +1 >= this.projects.getPage().getTotalPages() -1)
-      page = this.projects.getPage().getTotalPages() -1;
+    if(this.projects.page.number +1 >= this.projects.page.totalPages -1)
+      page = this.projects.page.totalPages -1;
     else
-      page = this.projects.getPage().getNumber() +1;
+      page = this.projects.page.number +1;
     this.getPage(page);
   }
 }
