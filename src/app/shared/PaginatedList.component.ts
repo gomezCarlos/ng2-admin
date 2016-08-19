@@ -10,5 +10,9 @@ export class PaginatedList<T extends Hal> implements HasLinks {
   //the embedded array of objects from the response
   _embedded: { [propName: string]: T[]; }
   //a connstructor with the page element of the paginated response
-  constructor( page: Page ){}
+  constructor( private page: Page ){}
+
+  getPage(){
+  	return this.page;
+  }
 }

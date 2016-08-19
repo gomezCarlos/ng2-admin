@@ -10,7 +10,8 @@ import {API_URL} from '../../../shared/api_url';
 @Injectable()
 export class AccountService extends Service<AccountHal>{
 	urlBackend = API_URL+"accounts";
-	constructor( private _http : Http, private userService: UserService){
-	}
+  constructor(http: Http, user: UserService){
+	super(http,user);
+  }
 
 }

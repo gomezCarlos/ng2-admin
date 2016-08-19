@@ -16,9 +16,8 @@ import {Component, Output, EventEmitter} from '@angular/core';
   inputs: ['name', 'description', 'estimatedDateEnd']
 })
 export class Panel {
-    opened: Boolean = false;
-    toggle () {
-      this.opened = !this.opened;
-    }
+  opened: Boolean = false;
+  toggle () {
+    this.opened = !this.opened;
   }
 }

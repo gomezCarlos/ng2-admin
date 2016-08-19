@@ -38,7 +38,7 @@ export class CondensedTable implements OnInit{
   }
 
   delete(task : TaskHal){
-    this.service.delete(task).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
+    this.service.delete(task).subscribe(response=>{this.getPage},error => {this.getPage(0);alert("Error al eliminar")})
   }
 
   first(){
@@ -46,24 +46,24 @@ export class CondensedTable implements OnInit{
   }
 
   last(){
-    this.getPage(this.tasks.page.totalPages -1 );
+    this.getPage(this.tasks.getPage().getTotalPages() -1 );
   }
 
   previous(){
     var page: number;
-    if(this.tasks.page.number -1<0)
+    if(this.tasks.getPage().getNumber() -1<0)
       page = 0;
     else
-      page = this.tasks.page.number -1;
+      page = this.tasks.getPage().getNumber() -1;
     this.getPage(page);
   }
 
   next(){
     var page: number;
-    if(this.tasks.page.number +1 >= this.tasks.page.totalPages -1)
-      page = this.tasks.page.totalPages -1;
+    if(this.tasks.getPage().getNumber() +1 >= this.tasks.getPage().getTotalPages() -1)
+      page = this.tasks.getPage().getTotalPages() -1;
     else
-      page = this.tasks.page.number +1;
+      page = this.tasks.getPage().getNumber() +1;
     this.getPage(page);
   }
 }

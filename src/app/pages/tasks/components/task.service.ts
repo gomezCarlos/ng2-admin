@@ -10,8 +10,8 @@ import {API_URL} from '../../../shared/api_url';
 })
 @Injectable()
 export class TaskService extends Service<TaskHal>{
-	urlBackend = API_URL+"tasks"
-
-	constructor( private _http : Http, private userService: UserService){
+	urlBackend = API_URL+"tasks";
+	constructor(http: Http, user: UserService){
+		super(http,user);
 	}
 }

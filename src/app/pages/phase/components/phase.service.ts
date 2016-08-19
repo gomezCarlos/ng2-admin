@@ -7,12 +7,11 @@ import { Http } from '@angular/http';
 @Component({
         providers:[UserService]
 })
-
 @Injectable()
 export class PhaseService extends Service<PhaseHal>{
-	urlBackend = API_URL+"phases";	
-	
-	constructor( private _http : Http, private userService: UserService){
-	  super(_http);
+	urlBackend = API_URL+"phases";
+	constructor(http: Http, user: UserService){
+		super(http,user);
 	}
+
 }
