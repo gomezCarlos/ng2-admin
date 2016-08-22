@@ -6,7 +6,7 @@
 
 <div class="row">
 <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20"
-               title="Project" baCardClass="medium-card">
+               title="Proyectos" baCardClass="medium-card">
                <div class="row">
                 <table class="table table-responsive" *ngIf="projects">
     <thead>
@@ -30,17 +30,34 @@
     </div>
 </ba-card>
   <div class="row">
-
-    <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+<!--LLAMADA A TASK-->
+  <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20"
                title="Tareas" baCardClass="medium-card">
-                
+               <div class="row">
+                <table class="table table-responsive" *ngIf="tasks">
+    <thead>
+    <tr>
+      <th class="table-id">Nro.</th>      
+      <th>Tareas</th>
+      <th>Descripcion</th>  
+      <th>Fase</th>
 
-          <button type="button" class="btn btn-success btn-with-icon" (click)="getTasks()"><i class="ion-android-checkmark-circle"></i>Ver Tareas
+    </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let item of tasks._embedded.tasks">
+      <td class="table-id">{{ item.ids }}</td>
+      <td><a class="learn-more" [routerLink]="['/pages/tasks/view/' + item.ids]">{{ item.name }} </a></td> 
+      <td>{{ item.description }}</td>
+      <td>{{ item.phaseName }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+               <button type="button" class="btn btn-success btn-with-icon" (click)="getTasks()"><i class="ion-android-checkmark-circle"></i>Ver Tareas
     </button>
-
-
-        
-      </ba-card>
+    </div>
+</ba-card>
   </div>
 
     <div class="col-xlg-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">

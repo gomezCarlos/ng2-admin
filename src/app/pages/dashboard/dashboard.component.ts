@@ -8,6 +8,7 @@ import { TaskHal } from '../tasks/components/Task';
 
 import { PaginatedList } from '../../shared/PaginatedList.component';
 import {BasicTablesService} from '../projects/components/list/list.service';
+import {BasicTablesServicet} from '../tasks/components/list/list.service';
 import {Router} from '@angular/router'
 import {PopularApp} from './components/popularApp';
 import {PieChart} from './components/pieChart';
@@ -26,18 +27,20 @@ import {BaCard} from '../../theme/components';
   encapsulation: ViewEncapsulation.None,
   styles: [require('./dashboard.scss')],
   template: require('./dashboard.html'),
-  providers: [ProjectService, BasicTablesService, TaskService]
+  providers: [ProjectService, BasicTablesService,BasicTablesServicet, TaskService]
 })
 export class Dashboard implements OnInit {
 
   projectsTableData:Array<any>;
+  tasksTableData:Array<any>;
    error : any;
   projects :PaginatedList<ProjectHal>;
   tasks :PaginatedList<TaskHal>;
   
 
-  constructor(private _basicTablesService: BasicTablesService, private service : ProjectService, private taskService: TaskService, private router : Router) {
+  constructor(private _basicTablesService: BasicTablesService,private _basicTablesServicet: BasicTablesServicet, private service : ProjectService, private taskService: TaskService, private router : Router) {
     this.projectsTableData = _basicTablesService.projectsTableData;
+    this.tasksTableData = _basicTablesServicet.taskTableData;
   }
   ngOnInit(){
    
@@ -47,17 +50,33 @@ export class Dashboard implements OnInit {
   getProject(project : ProjectHal){
     this.router.navigate(['projects/list']);
   }
+  getTask(task : TaskHal){
+    this.router.navigate(['tasks/list']);
+  }
 
   getPage(){
     this.service.getPage(0,5).subscribe(response => {this.projects = response;},error => {this.error = error;})
+    //this.service.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})    
   }
 
   getTasks(){
     this.taskService.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})
   }
 
-  delete(project : ProjectHal){
+  delete(project : ProjectHal,task : TaskHal){
     this.service.delete(project).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
-  }
+    //this.service.delete(task).subscribe(response=>{this.getPage},error => {this.getPage();alert("Error al eliminar")})
 
+  }
+  
+  
+//Aqui Moises 22-08-2016  
+ 
+/*
+  getPagetask(){
+    this.service.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})
+  }
+*/
+ 
+  
 }

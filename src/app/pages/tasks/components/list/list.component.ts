@@ -1,6 +1,6 @@
 import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
-import {BasicTablesService} from './list.service';
+import {BasicTablesServicet} from './list.service';
 import {BaCard} from '../../../../theme/components';
 //import {HoverTable} from './components/hoverTable';
 //import {BorderedTable} from './components/borderedTable';
@@ -16,7 +16,7 @@ import { TaskService } from '../task.service';
   directives: [BaCard, CondensedTable],
   styles: [require('./list.scss')],
   template: require('./index.html'),
-  providers: [BasicTablesService,TaskService]
+  providers: [BasicTablesServicet,TaskService]
 })
 export class ListTask{
 

@@ -9,7 +9,7 @@
               <td colspan="4">{{ task.ids }}</td>
             </tr>
             <tr>
-              <th class="text-nowrap" scope="row">Proyecto</th>
+              <th class="text-nowrap" scope="row">Tarea</th>
               <td></td>
               <td colspan="4">{{ task.name }}</td>
             </tr>
@@ -35,8 +35,8 @@
             </tr>
             </tbody>
           </table>
-              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/projects/list/']">Actualizar</button>
+              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/tasks/list/']">Actualizar</button>
               <button type="button" class="btn btn-danger btn-mm" (click)="delete(task)">Borrar</button>
 
-              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/projects/list/']">Listar</button>
+              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/tasks/list/']">Listar</button>
       </div>

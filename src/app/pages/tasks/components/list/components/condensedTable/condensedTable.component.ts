@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import {BaAppPicturePipe} from '../../../../../../theme/pipes';
-import {BasicTablesService} from '../../list.service';
+//import {BasicTablesService} from '../../list.service';
 import { TaskService } from '../../../task.service';
 import { TaskHal } from '../../../Task';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
@@ -10,7 +10,7 @@ import { PaginatedList } from '../../../../../../shared/PaginatedList.component'
   selector: 'condensed-table',
   template: require('./condensedTable.html'),
   pipes: [BaAppPicturePipe],
-  providers: [TaskService, BasicTablesService, HTTP_PROVIDERS]
+  providers: [TaskService, HTTP_PROVIDERS]
 })
 export class CondensedTable implements OnInit{
 

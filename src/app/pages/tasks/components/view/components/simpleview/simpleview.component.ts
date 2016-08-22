@@ -23,8 +23,7 @@ export class ResponsiveTable implements OnInit{
   Tasks :PaginatedList<TaskHal>;
 
 
-  constructor(private _basicTablesService: BasicTablesService, private service : TaskService, private route : ActivatedRoute) {
-    this.projectsTableData = _basicTablesService.projectsTableData;
+  constructor(private service : TaskService, private route : ActivatedRoute) {   
   }
   ngOnInit(){
   	this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];

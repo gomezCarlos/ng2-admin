@@ -22,12 +22,7 @@ export class Form  implements OnInit{
 	constructor( private service : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router) {
 		this.taskhal = new TaskHal();
     
-  }
-
-  //object : ProjectHal
-
-  //constructor(service : ProjectService ) {
- // }
+  }  
 
  save(task : TaskHal){
    task.phase=Number(task.phase);
@@ -41,7 +36,7 @@ export class Form  implements OnInit{
     this.getprojects();
   }
 
- //OBTENER LISTA DE PROYECTOS
+ //OBTENER LISTA DE TAREAS
  getphases(){
    this.phases.getPage(0).subscribe(response=>{this.listphase=response},error => {this.error = error; alert(error.message)})
  }

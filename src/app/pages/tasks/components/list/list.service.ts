@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 @Injectable()
-export class BasicTablesService {
+export class BasicTablesServicet {
    editableTableData:Array<any>;
 
   taskTableData = [

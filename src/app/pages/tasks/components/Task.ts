@@ -5,8 +5,9 @@ export class TaskHal extends Hal {
 	name : string;
 	description: string;
 	phase : number;	
-	taskName : string;
-
+	phaseName : string;	
+	estimatedDateEnd: Date;
+    estimatedStartDate: Date; 
 
 	constructor(){
 		super();

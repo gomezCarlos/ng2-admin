@@ -1,5 +1,6 @@
 import { Service } from '../../../shared/service.component';
 import { ProjectHal } from './dashboards';
+//import { TaskHal } from './dashboards';
 
 //implementation of service for Project objects.
 export class ProjectService extends Service<ProjectHal>{
