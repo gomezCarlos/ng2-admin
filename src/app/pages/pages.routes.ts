@@ -10,7 +10,7 @@ import {Icons} from './ui/components/incons/icons.component';
 import {Grid} from './ui/components/grid/grid.component';
 import {Forms} from './forms/forms.component';
 import {Inputs} from './forms/components/inputs/inputs.component';
-import {Layouts} from './forms/components/layouts/layouts.component';
+//import {Layouts} from './forms/components/layouts/layouts.component';
 import {BasicTables} from './tables/components/basicTables/basicTables.component';
 import {Tables} from './tables/tables.component';
 import {Maps} from './maps/maps.component';
@@ -42,7 +42,7 @@ import {ViewPhase} from './phase/components/view/view.components';
 import {ViewTask} from './tasks/components/view/view.components';
 import {CreateEndPointServiceAuthentication} from './endPointAuthenticationService/components/create/create.component';
 import {ListEndPointServiceAuthentication} from './endPointAuthenticationService/components/list/list.component';
-
+import {Layouts} from './profile/layouts.component';
 
 //test
 
@@ -289,6 +289,33 @@ export const PagesRoutes:RouterConfig = [
               }
             }
           } 
+        ]
+      },
+
+      //perfil
+      {
+        path: '',
+        component: Account,
+        data: {
+          menu: {
+            title: 'Seguridad',
+            icon: 'ion-gear-a',
+            selected: false,
+            expanded: false,
+            order: 56,
+          }
+        },
+        children: [
+          {
+            path: 'perfil',
+            component: Layouts,
+            data: {
+              menu: {
+                title: 'Perfil',
+              }
+            }
+          },
+         
         ]
       },
 

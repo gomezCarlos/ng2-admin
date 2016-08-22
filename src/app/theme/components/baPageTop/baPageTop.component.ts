@@ -1,10 +1,13 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {AppState} from '../../../app.state';
 import {BaProfilePicturePipe} from '../../pipes';
 import {BaMsgCenter} from '../../components/baMsgCenter';
 import {BaScrollPosition} from '../../directives';
 import {UserService} from '../../../shared/user.service.ts'
+import {AccountService} from '../../../pages/account/components/account.service';
+import {AccountHal} from '../../../pages/account/components/Account';
+
 
 @Component({
   selector: 'ba-page-top',
@@ -13,14 +16,16 @@ import {UserService} from '../../../shared/user.service.ts'
   directives: [BaMsgCenter, BaScrollPosition],
   pipes: [BaProfilePicturePipe],
   encapsulation: ViewEncapsulation.None,
-  providers: [UserService]
+  providers: [UserService, AccountService, AccountHal]
 })
-export class BaPageTop {
+export class BaPageTop implements OnInit{
 
   public isScrolled:boolean = false;
   public isMenuCollapsed:boolean = false;
+   public data : string;
+      public foto : string
 
-  constructor(private _state:AppState, private user : UserService, private router : Router) {
+  constructor(private _state:AppState, private user : UserService, private router : Router, private accountService : AccountService, private accountHal : AccountHal) {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
@@ -46,4 +51,13 @@ export class BaPageTop {
 
   }
 
+  GetPicture(){
+    if(this.user.isLoggedIn()){
+      return this.user.getUser().subscribe(response=>{this.data = response.username},error=>{ this.data = "assets/img/theme/no-photo.png"})
+    }
+  }
+
+  ngOnInit(){
+    this.GetPicture();
+  }
 }

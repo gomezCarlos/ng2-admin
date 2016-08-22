@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 //import localStorage from 'localStorage';
 
 @Injectable()
@@ -39,6 +39,16 @@ export class UserService {
       return localStorage.getItem('auth_token');
     else
       return "";
+  }
+
+  getUser(){
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'X-Auth-Token': this.getToken().toString(),
+    })
+    let options = new RequestOptions({headers: headers})
+    return this.http.get('http://localhost:7890/api/v1/accounts/current',options).map(res => res.json())
   }
 
   isLoggedIn(){
