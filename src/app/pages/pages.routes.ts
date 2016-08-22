@@ -294,29 +294,18 @@ export const PagesRoutes:RouterConfig = [
 
       //perfil
       {
-        path: '',
-        component: Account,
+        path: 'profile',
+        component: Layouts,
         data: {
           menu: {
-            title: 'Seguridad',
+            title: 'Perfil',
             icon: 'ion-gear-a',
-            selected: false,
+            selected: true,
             expanded: false,
             order: 56,
           }
         },
-        children: [
-          {
-            path: 'perfil',
-            component: Layouts,
-            data: {
-              menu: {
-                title: 'Perfil',
-              }
-            }
-          },
-         
-        ]
+        
       },
 
       //lo demas
