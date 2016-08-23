@@ -25,7 +25,7 @@ export class Form  implements OnInit{
   }  
 
  save(task : TaskHal){
-   task.phase=Number(task.phase);
+  // task.phase=Number(task.phase);
  	this.service.save(task).subscribe(response => {this.taskhal = response; alert("Tarea Creada"); this.router.navigate(['/pages/tasks/view/' + this.taskhal.ids])},error => {this.error = error; alert(error.message)})
 
  }
