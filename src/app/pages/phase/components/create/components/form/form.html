@@ -3,7 +3,7 @@
   <div class="form-group" *ngIf = "listproject">
     <label for="input05">Proyecto</label>
     <select class="form-control" name="project" id="input05" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="project" style="color:black">
-      <option *ngFor = "let item of listproject._embedded.projects" value="{{ item._links?.self.href }}">
+      <option *ngFor = "let item of listproject._embedded.projects" value="{{ item.ids }}">
         {{item.name}}
       </option>>
     </select>

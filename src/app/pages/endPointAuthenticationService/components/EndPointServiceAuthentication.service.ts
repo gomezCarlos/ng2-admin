@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 @Injectable()
 export class EndPointServiceAuthenticationService extends Service<EndPointServiceAuthenticationHal>{
        urlBackend=API_URL+"endPointServiceAuthentications"  
-	constructor( private _http : Http, private userService: UserService){
-	super(_http);} 
+	constructor( private http : Http, private service: UserService){
+	super(http,service);} 
 
 }
