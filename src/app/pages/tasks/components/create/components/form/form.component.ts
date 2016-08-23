@@ -6,20 +6,22 @@ import {ProjectHal} from '../../../../../projects/components/Project';
 import { TaskService } from '../../../task.service';
 import { TaskHal } from '../../../Task';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Router, ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
+import { HTTP_PROVIDERS } from '@angular/http';
 
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [TaskService, PhaseService, ProjectService]  
+  providers: [TaskService, PhaseService, ProjectService, HTTP_PROVIDERS]  
 })
 
 export class Form  implements OnInit{
   listphase : PaginatedList<PhaseHal>;
   listproject : PaginatedList<ProjectHal>;
   error : any;
+  param : any;
   taskhal:TaskHal;
-	constructor( private service : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router) {
+	constructor( private service : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router, private route : ActivatedRoute) {
 		this.taskhal = new TaskHal();
     
   }  
@@ -32,7 +34,17 @@ export class Form  implements OnInit{
 
 
  ngOnInit(){
-    this.getphases();
+
+    this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
+    if(id){
+      this.service.find(id).subscribe(task => this.taskhal = task, error => this.error = error);
+    }
+    else{
+      this.taskhal = new TaskHal();
+    }
+    }  
+  );
+        this.getphases();
     this.getprojects();
   }
 

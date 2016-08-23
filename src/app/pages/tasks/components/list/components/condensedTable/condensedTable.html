@@ -10,7 +10,7 @@
     </thead>
     <tbody *ngIf="tasks">
     <tr *ngFor="let item of tasks._embedded?.tasks">
-      <td class="table-id">{{ item.id }}</td>
+      <td class="table-ids">{{ item.ids }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.description }}</td>            
       <td>{{ item.phaseName }}</td>

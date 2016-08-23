@@ -101,6 +101,13 @@ export const PagesRoutes:RouterConfig = [
                 title: 'Listar Proyectos',
               }
             }
+          },
+          {
+            path: 'update/:id',
+            component: Create,
+            data: {
+             
+            }
           }
         ]
       },
@@ -144,6 +151,7 @@ export const PagesRoutes:RouterConfig = [
 
             }
           },
+          
         ]
       },
       // Account Menu
@@ -184,6 +192,13 @@ export const PagesRoutes:RouterConfig = [
               menu:{
                 title: 'Listar Tareas',
               }
+            }
+          },
+          {
+            path: 'update/:id',
+            component: CreateTask,
+            data: {
+             
             }
           }
         ]
