@@ -27,6 +27,9 @@ import {Account} from './account/account.component';
 import {Phase} from './phase/phase.component';
 import {Task} from './tasks/task.component';//MOISES
 import {Jobs} from './jobs/jobs.component';//MOISES
+import {Indicator} from './indicator/indicators.component';//MOISES
+import {CreateIndicator} from './indicator/components/create/create.component';//MOISES
+import {ListIndicator}  from './indicator/components/list/list.component';//MOISES
 import {Create} from './projects/components/create/create.component';
 import {ListProjects}  from './projects/components/list/list.component';//MOISES
 import {CreateAccount} from './account/components/create/create.component';
@@ -638,7 +641,43 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      */{
+      */
+      // Work Menu //MOISES
+      {
+        path: 'indicators',
+        component: Indicator,
+        data: {
+          menu: {
+            title: 'Indicadores',
+            icon: 'ion-ios-briefcase-outline',
+            selected: false,
+            expanded: false,
+            order: 55,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateIndicator,
+            data: {
+              menu: {
+                title: 'Crear Indicador',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListIndicator,
+            data: {
+              menu:{
+                title: 'Listar Indicadores',
+              }
+            }
+          }
+        ]
+      },
+
+      {
         path: '',
         data: {
           menu: {

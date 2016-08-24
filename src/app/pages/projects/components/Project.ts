@@ -5,6 +5,8 @@ export class ProjectHal extends Hal {
   estimatedDateEnd: Date;
   estimatedStartDate: Date;  
   name:string;
+  indicator : number;	
+	indicatorName : string;
 
 	constructor(){
 		super();
