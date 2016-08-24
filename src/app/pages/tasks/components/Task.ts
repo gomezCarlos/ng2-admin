@@ -4,8 +4,9 @@ export class TaskHal extends Hal {
 
 	name : string;
 	description: string;
-	phase : number;	
-	phaseName : string;	
+	phase : number;
+	project: any;
+	phaseName : string;
 	estimatedDateEnd: Date;
     estimatedStartDate: Date; 
 

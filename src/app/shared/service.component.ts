@@ -25,13 +25,13 @@ export class Service<T extends Hal> {
 		
 	}
 	//handle the error, you should implements what to do.
-	private getError(error: any) { return Observable.throw(error); }
+	public getError(error: any) { return Observable.throw(error); }
 
 	//handle the response as a json object, it will fail with an empty response.
-	private getData(r: Response){ if(r != null) return r.json(); else return null}
+	public getData(r: Response){ if(r != null) return r.json(); else return null}
 
 	//define the basic options for the request.
-	private getOptions(){
+	public getOptions(){
 		let token = "none";
 		if(this.userService.getToken()==null || this.userService.getToken()==undefined)
 		  token = "none";
@@ -130,5 +130,9 @@ export class Service<T extends Hal> {
 		}
 		result = [];
 		return result;
+	}
+
+	getHttp(): Http{
+		return this._http;
 	}
 }

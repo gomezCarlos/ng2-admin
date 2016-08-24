@@ -1,9 +1,18 @@
 <form>
 <!-- LISTADO PARA SELECCIONAR FASES -->
+  <div class="form-group" *ngIf = "listproject">
+    <label for="input05">Proyecto</label>
+    <select class="form-control" (change)="updatePhases($event.target.value)" name="project" id="input05" placeholder="Descripcion" title="" [(ngModel)]="taskhal.project" required="project" style="color:black">
+      <option *ngFor = "let item of listproject._embedded?.projects" value="{{ item.ids }}">
+        {{item.name}}
+      </option>>
+    </select>
+  </div>
+
   <div class="form-group" *ngIf = "listphase">
     <label for="input05">Fase</label>
     <select class="form-control" name="phase" id="input05" placeholder="Descripcion" title="" [(ngModel)]="taskhal.phase" required="phase" style="color:black">
-      <option *ngFor = "let item of listphase._embedded.phases" value="{{ item._links.self.href }}">
+      <option *ngFor = "let item of listphase._embedded?.phases" value="{{ item._links.self.href }}">
         {{item.name}}
       </option>>
     </select>

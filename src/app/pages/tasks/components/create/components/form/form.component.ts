@@ -40,9 +40,16 @@ export class Form  implements OnInit{
  getphases(){
    this.phases.getPage(0).subscribe(response=>{this.listphase=response},error => {this.error = error; alert(error.message)})
  }
+
  getprojects(){
    this.projects.getPage(0).subscribe(response=>{this.listproject=response},error => {this.error = error; alert(error.message)})
  }
+
+ updatePhases(id: number){
+    this.projects.getPhases(id).subscribe(response=>{this.listphase=response},error => {this.error = error; alert(error.message)})
+ }
+
+
 
  delete(task : TaskHal){
  	this.service.delete(task).subscribe(response => {alert("Tarea Eliminada")},error => {this.error = error; alert(error.message)})
