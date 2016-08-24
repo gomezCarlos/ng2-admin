@@ -40,6 +40,7 @@ import {ListPhase}  from './phase/components/list/list.component';
 import {ViewProjects} from './projects/components/view/view.components';
 import {ViewPhase} from './phase/components/view/view.components';
 import {ViewTask} from './tasks/components/view/view.components';
+import {ViewJob} from './jobs/components/view/view.components';
 import {CreateEndPointServiceAuthentication} from './endPointAuthenticationService/components/create/create.component';
 import {ListEndPointServiceAuthentication} from './endPointAuthenticationService/components/list/list.component';
 import {Layouts} from './profile/layouts.component';
@@ -234,7 +235,14 @@ export const PagesRoutes:RouterConfig = [
                 title: 'Listar Trabajo',
               }
             }
-          }
+          },
+            {
+            path: 'view/:id',
+            component: ViewJob,
+            data: {
+
+            }
+          },
         ]
       },
       //Acount
