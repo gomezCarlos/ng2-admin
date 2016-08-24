@@ -27,6 +27,9 @@ import {Account} from './account/account.component';
 import {Phase} from './phase/phase.component';
 import {Task} from './tasks/task.component';//MOISES
 import {Jobs} from './jobs/jobs.component';//MOISES
+import {Indicator} from './indicator/indicators.component';//MOISES
+import {CreateIndicator} from './indicator/components/create/create.component';//MOISES
+import {ListIndicator}  from './indicator/components/list/list.component';//MOISES
 import {Create} from './projects/components/create/create.component';
 import {ListProjects}  from './projects/components/list/list.component';//MOISES
 import {CreateAccount} from './account/components/create/create.component';
@@ -40,6 +43,7 @@ import {ListPhase}  from './phase/components/list/list.component';
 import {ViewProjects} from './projects/components/view/view.components';
 import {ViewPhase} from './phase/components/view/view.components';
 import {ViewTask} from './tasks/components/view/view.components';
+import {ViewJob} from './jobs/components/view/view.components';
 import {CreateEndPointServiceAuthentication} from './endPointAuthenticationService/components/create/create.component';
 import {ListEndPointServiceAuthentication} from './endPointAuthenticationService/components/list/list.component';
 import {Layouts} from './profile/layouts.component';
@@ -101,6 +105,13 @@ export const PagesRoutes:RouterConfig = [
                 title: 'Listar Proyectos',
               }
             }
+          },
+          {
+            path: 'update/:id',
+            component: Create,
+            data: {
+             
+            }
           }
         ]
       },
@@ -144,6 +155,7 @@ export const PagesRoutes:RouterConfig = [
 
             }
           },
+          
         ]
       },
       // Account Menu
@@ -185,6 +197,13 @@ export const PagesRoutes:RouterConfig = [
                 title: 'Listar Tareas',
               }
             }
+          },
+          {
+            path: 'update/:id',
+            component: CreateTask,
+            data: {
+             
+            }
           }
         ]
       },
@@ -219,7 +238,14 @@ export const PagesRoutes:RouterConfig = [
                 title: 'Listar Trabajo',
               }
             }
-          }
+          },
+            {
+            path: 'view/:id',
+            component: ViewJob,
+            data: {
+
+            }
+          },
         ]
       },
       //Acount
@@ -615,7 +641,43 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      */{
+      */
+      // Work Menu //MOISES
+      {
+        path: 'indicators',
+        component: Indicator,
+        data: {
+          menu: {
+            title: 'Indicadores',
+            icon: 'ion-ios-briefcase-outline',
+            selected: false,
+            expanded: false,
+            order: 55,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateIndicator,
+            data: {
+              menu: {
+                title: 'Crear Indicador',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListIndicator,
+            data: {
+              menu:{
+                title: 'Listar Indicadores',
+              }
+            }
+          }
+        ]
+      },
+
+      {
         path: '',
         data: {
           menu: {

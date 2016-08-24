@@ -35,7 +35,7 @@
             </tr>
             </tbody>
           </table>
-              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/tasks/list/']">Actualizar</button>
+              <button *ngIf="task" type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/tasks/update/' + task.ids]">Actualizar</button>
               <button type="button" class="btn btn-danger btn-mm" (click)="delete(task)">Borrar</button>
 
               <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/tasks/list/']">Listar</button>
