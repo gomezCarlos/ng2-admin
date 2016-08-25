@@ -19,15 +19,20 @@
     <label for="textarea01">Descripcion</label>
     <textarea placeholder="Descripcion" class="form-control" name="description" id="textarea01" [(ngModel)]="projecthal.description" required="descripcion"></textarea>
   </div> 
+
 <!-- LISTADO PARA SELECCIONAR INDICADOR -->
   <div class="form-group" *ngIf = "listindicator">
-    <label for="input05">Valor Estimado</label>
-    <select class="form-control" name="phase" id="input05" placeholder="Valor" title="" [(ngModel)]="projecthal.indicator" required="indicator" style="color:black">
+    <label for="input05">Indicador</label>
+    <select class="form-control" name="indicator" id="input05" placeholder="Valor" title="" [(ngModel)]="projecthal.indicator" required="indicator" style="color:black">
       <option *ngFor = "let item of listindicator._embedded.indicators" value="{{ item._links.self.href }}">
         {{item.name}}
       </option>>
     </select>
   </div> 
+  <div class="form-group">
+    <label for="input06">Valor Estimado</label>    
+     <input type="text"  class="form-control" name="value" id="input06"  placeholder="Valor" [(ngModel)]="projecthal.value" required="value" >
+  </div>
     
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
