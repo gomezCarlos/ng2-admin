@@ -23,7 +23,7 @@
   <div class="form-group" *ngIf = "listindicator">
     <label for="input05">Valor Estimado</label>
     <select class="form-control" name="phase" id="input05" placeholder="Valor" title="" [(ngModel)]="projecthal.indicator" required="indicator" style="color:black">
-      <option *ngFor = "let item of listindicator._embedded.indicators" value="{{ item._links.self.href }}">
+      <option *ngFor = "let item of listindicator._embedded?.indicators" value="{{ item.ids }}">
         {{item.name}}
       </option>>
     </select>
