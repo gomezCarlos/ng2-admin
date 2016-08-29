@@ -1,0 +1,39 @@
+<div>
+<!--
+//
+// CREATED AND EDITED BY:
+// ING RONALDO MORENO 
+// WITH 
+// MASTERCOPYPASTE TECNIQUE
+// WITH MANY YEAR OF EXPERIENCE
+// IN THE AREA
+// COMPLETELY GRATEFUL TO GOD
+// AND THE BLESSED VIRGIN
+//
+-->
+          <table class="table table-bordered table-striped">
+            <thead>
+            </thead>
+            <tbody *ngIf="department">
+            <tr>
+              <th class="upper-text bold-text" scope="row">Codigo</th>
+              <td></td>
+              <td colspan="4">{{ department.ids }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Departamento</th>
+              <td></td>
+              <td colspan="4">{{ department.name }}</td>
+            </tr>            
+             <tr>
+              <th class="text-nowrap" scope="row">Detalle</th>
+              <td></td>
+              <td>{{ department.description }}</td>
+            </tr>
+            </tbody>
+          </table>
+              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/departments/list/']">Actualizar</button>
+              <button type="button" class="btn btn-danger btn-mm" (click)="delete(department)">Borrar</button>
+
+              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/department/list/']">Listar</button>
+      </div>
