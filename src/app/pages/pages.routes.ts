@@ -359,7 +359,7 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      {
+      */{
         path: 'components',
         component: Components,
         data: {
@@ -383,7 +383,7 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      {
+      /*{
         path: 'charts',
         component: Charts,
         data: {

@@ -1,5 +1,10 @@
 <div class="col-md-6">
   <ba-card title="basic">
+    <branchy id="tree-view" *ngIf="project && phases" [tree]="GenerateTree()" (nodeSelected)="logEvent($event)"></branchy>
+  </ba-card>
+</div>
+<div class="col-md-6">
+  <ba-card title="basic">
     <branchy id="tree-view" [tree]="tree"></branchy>
   </ba-card>
 </div>

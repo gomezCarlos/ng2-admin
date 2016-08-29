@@ -20,7 +20,7 @@ export class Form implements OnInit{
   projecthal:ProjectHal;
    param : any;
   
-	constructor( private service : ProjectService, private indicators : IndicatorService,private router: Router, private route : Router) {
+	constructor( private service : ProjectService, private indicators : IndicatorService,private router: Router, private route : ActivatedRoute) {
 		this.projecthal = new ProjectHal();
     
   }  
@@ -35,6 +35,15 @@ export class Form implements OnInit{
 
 
  ngOnInit(){
+       this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
+    if(id){
+      this.service.find(id).subscribe(task => this.projecthal = task, error => this.error = error);
+    }
+    else{
+      this.projecthal = new ProjectHal();
+    }
+    }  
+  );
     this.getindicators();
   }
 
