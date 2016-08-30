@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Router,ROUTER_DIRECTIVES} from '@angular/router';
+import { Router,ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
 import {IndicatorHal} from '../../../../../indicator/components/Indicator';
 import {IndicatorService} from '../../../../../indicator/components/indicator.service'
 import {ProjectService } from '../../../project.service';
 import {ProjectHal } from '../../../Project';
 import {PaginatedList } from '../../../../../../shared/PaginatedList.component';
-//import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'form',
