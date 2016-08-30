@@ -47,6 +47,10 @@ import {ViewJob} from './jobs/components/view/view.components';
 import {CreateEndPointServiceAuthentication} from './endPointAuthenticationService/components/create/create.component';
 import {ListEndPointServiceAuthentication} from './endPointAuthenticationService/components/list/list.component';
 import {Layouts} from './profile/layouts.component';
+import {Department} from './department/department.component';//ROMEN
+import {CreateDepartment} from './department/components/create/create.component';//ROMEN
+import {ListDepartment}  from './department/components/list/list.component';//ROMEN
+import {ViewDepartment}  from './department/components/view/view.components';//ROMEN
 
 //test
 
@@ -359,7 +363,7 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      {
+      */{
         path: 'components',
         component: Components,
         data: {
@@ -383,7 +387,7 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-      {
+      /*{
         path: 'charts',
         component: Charts,
         data: {
@@ -642,6 +646,47 @@ export const PagesRoutes:RouterConfig = [
         ]
       },
       */
+            // Department Menu
+      {
+        path: 'department',
+        component: Department,
+        data: {
+          menu: {
+            title: 'Departamentos',
+            icon: 'ion-arrow-graph-up-right',
+            selected: false,
+            expanded: false,
+            order: 57,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateDepartment,
+            data: {
+              menu: {
+                title: 'Crear Departamento',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListDepartment,
+            data: {
+              menu:{
+                title: 'Listar Departamento',
+              }
+            }
+          },
+           {
+            path: 'view/:id',
+            component: ViewDepartment,
+            data: {
+
+            }
+          },
+        ]
+      },
       // Work Menu //MOISES
       {
         path: 'indicators',
@@ -676,7 +721,6 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
-
       {
         path: '',
         data: {

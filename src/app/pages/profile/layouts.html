@@ -68,30 +68,6 @@
       </div>
     </div>
 
-    <h3 class="with-line">Cambio de Contraseña</h3>
-    <hr>
-
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group row clearfix">
-          <label for="inputPassword" class="col-sm-3 control-label">Contraseña</label>
-
-          <div class="col-sm-9">
-            <input style="color:black" type="password" class="form-control" id="inputPassword" placeholder="" value="">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group row clearfix">
-          <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirmar Contraseña</label>
-
-          <div class="col-sm-9">
-            <input style="color:black" type="password" class="form-control" id="inputConfirmPassword" placeholder="">
-          </div>
-        </div>
-      </div>
-    </div>
-
     <h3 class="with-line">Informacion de Contacto</h3>
     <hr>
 
@@ -137,9 +113,39 @@
 
    
     <button type="button" class="btn btn-primary btn-with-icon save-profile">
-      <i class="ion-android-checkmark-circle"></i>Update Profile
+      <i class="ion-android-checkmark-circle"></i>Actualizar Perfil
     </button>
   </div>
 </div>
       </ba-card>
+      <ba-card>
+          <h3 class="with-line">Cambio de Contraseña</h3>
+    <hr>
+
+    <div class="form-group row" [ngClass]="{'has-error': (!password.valid && password.touched), 'has-success': (password.valid && password.touched)}">
+      <div class="col-md-6">
+        <div>
+          <label for="inputPassword3" class="col-sm-2 control-label">Contraseña</label>
+
+          <div class="col-sm-9">
+            <input [formControl]="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirmar Contraseña</label>
+
+          <div class="col-sm-9">
+            <input [formControl]="repeatPassword" type="password" class="form-control" id="inputPassword3" placeholder="Repita Password">
+            <span *ngIf="!passwords.valid && (password.touched || repeatPassword.touched)" class="help-block sub-little-text">Contraseñas no coinciden</span>
+          </div>
+        </div>
+      </div>
+    </div>
+        <button [disabled]="!form.valid" type="button" class="btn btn-primary btn-with-icon save-profile">
+      <i class="ion-android-checkmark-circle"></i>Actualizar Contraseña
+    </button>
+    </ba-card>
   </div>
