@@ -2,7 +2,7 @@
 <!-- LISTADO PARA SELECCIONAR PROYECTOS -->
   <div class="form-group" *ngIf = "listproject">
     <label for="input05">Proyecto</label>
-    <select class="form-control" name="project" id="input05" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="project" style="color:black">
+    <select class="form-control" name="project" id="input05" placeholder="Descripcion" title="" [(ngModel)]="phasehal.project" required="input05" style="color:black">
       <option *ngFor = "let item of listproject._embedded.projects" value="{{ item.ids }}">
         {{item.name}}
       </option>>
@@ -39,6 +39,8 @@
     <label for="input06">Valor Estimado</label>    
      <input type="text"  class="form-control" name="value" id="input06"  placeholder="Valor" [(ngModel)]="phasehal.value" required="value" >
   </div>
+  
+
 
   
   
