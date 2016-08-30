@@ -5,26 +5,26 @@ import {ProjectHal} from '../../../../../projects/components/Project';
 import { PhaseService } from '../../../phase.service';
 import { PhaseHal } from '../../../Phase';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import {IndicatorHal} from '../../../../../indicator/components/Indicator';
+import {IndicatorService} from '../../../../../indicator/components/indicator.service'
 
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [PhaseService,ProjectService]  
+  providers: [PhaseService,ProjectService,IndicatorService]  
 })
 
 export class Form  implements OnInit{
   listproject : PaginatedList<ProjectHal>;
+  listindicator : PaginatedList<IndicatorHal>;
   error : any;
   phasehal:PhaseHal;
-	constructor( private service : PhaseService, private projects : ProjectService, private router : Router) {
+	constructor( private service : PhaseService, private projects : ProjectService, private indicators : IndicatorService, private router : Router) {
 		this.phasehal = new PhaseHal();
     
   }
 
-  //object : ProjectHal
-
-  //constructor(service : ProjectService ) {
- // }
+ 
 
  save(phase : PhaseHal){
    phase.project=Number(phase.project);
@@ -35,6 +35,7 @@ export class Form  implements OnInit{
 
  ngOnInit(){
     this.getprojects();
+    this.getindicators();
   }
 
  //OBTENER LISTA DE PROYECTOS
@@ -42,6 +43,10 @@ export class Form  implements OnInit{
    this.projects.getPage(0).subscribe(response=>{this.listproject=response},error => {this.error = error; alert(error.message)})
  }
 
+ //OBTENER LISTA DE INDICADORES
+ getindicators(){
+   this.indicators.getPage(0).subscribe(response=>{this.listindicator=response},error => {this.error = error; alert(error.message)})
+ }
  delete(phase : PhaseHal){
  	this.service.delete(phase).subscribe(response => {alert("Fase Eliminada")},error => {this.error = error; alert(error.message)})
 

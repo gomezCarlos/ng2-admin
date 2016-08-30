@@ -5,10 +5,12 @@ export class PhaseHal extends Hal {
 	name : string;
 	description: string;
 	project : number;	
-	projectName : string;
-	value : number;
+	projectName : string;	
 	estimatedDateEnd: Date;
     estimatedStartDate: Date; 	
+    indicator : number;	
+    indicatorName : string;
+    value : string;
 
 	constructor(){
 		super();
