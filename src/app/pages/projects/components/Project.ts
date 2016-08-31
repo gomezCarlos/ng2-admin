@@ -7,6 +7,8 @@ export class ProjectHal extends Hal {
   name:string;
   indicator : number;	
   indicatorName : string;
+  department : number;  
+  departmentName : string;
   value : string;
 
 	constructor(){
