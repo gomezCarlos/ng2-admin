@@ -25,6 +25,15 @@
   <div class="form-group">
     <label for="input04">Descripcion</label>
     <textarea class="form-control" name="description" id="input04" placeholder="Descripcion" title="" [(ngModel)]="phasehal.description" required="description" style="color:black"></textarea>
+  </div> 
+  <!-- LISTADO PARA SELECCIONAR DEPARTAMENTOS -->
+  <div class="form-group" *ngIf = "listdepartment">
+    <label for="input07">Departameto Responsable</label>
+    <select class="form-control" name="department" id="input07" placeholder="Departamento" title="" [(ngModel)]="phasehal.department" required="department" style="color:black">
+      <option *ngFor = "let item of listdepartment._embedded?.departments" value="{{ item.ids }}">
+        {{item.name}}
+      </option>
+    </select>
   </div>  
   <!-- LISTADO PARA SELECCIONAR INDICADOR -->
   <div class="form-group" *ngIf = "listindicator">

@@ -9,7 +9,6 @@ import { Panel } from './panel';
 
 @Component({
   selector: 'responsive-table',
-
   template: require('./responsiveTable.html'),
   pipes: [BaAppPicturePipe],
   providers: [ProjectService, BasicTablesService, HTTP_PROVIDERS],

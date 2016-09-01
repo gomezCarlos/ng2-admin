@@ -10,6 +10,8 @@ export class PhaseHal extends Hal {
     estimatedStartDate: Date; 	
     indicator : number;	
     indicatorName : string;
+    department : number;  
+    departmentName : string;
     value : string;
 
 	constructor(){
