@@ -3,5 +3,10 @@
   		<ba-card title="View" baCardClass="with-scroll table-panel">
   			<simple-view></simple-view>
   		</ba-card>
+  		<div class="button-wrapper">
+  <button *ngIf="project" type="view" class="btn btn-danger btn-lg" [routerLink]="['/pages/phase/create/' + '?project=' + project.ids]">Siguiente  <i class="socicon">)</i></button>
+	</div>
+  	</div>
+  	
   	</div>
   	
