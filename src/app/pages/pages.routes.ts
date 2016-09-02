@@ -143,6 +143,8 @@ export const PagesRoutes:RouterConfig = [
               }
             }
           },
+          
+         
           {
             path: 'list',
             component: ListPhase,

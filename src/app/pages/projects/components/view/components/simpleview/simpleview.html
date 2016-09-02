@@ -1,31 +1,4 @@
-<!--<div class="horizontal-scroll">
-  <table class="table table-responsive">
-<tbody *ngIf="project">
-  <thead>
-    <tr>
-    <th></th>
-      <th>  Codigo</th>
-      <th></th>
-      <th></th>
-      <th class="table-id">{{ project.ids }}</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr>
-      <th>Proyecto</th>
-      <th>{{ project.name }}</th>
-    </tr>
-    <tr>
-      <th>Detalle</th>
-      <th>{{ project.description }}</th>
-    </tr>
-  </thead>
-</tbody>-->  
+ 
         <div>
           <table class="table table-bordered table-striped">
             <thead>
@@ -56,6 +29,22 @@
               <td></td>
               <td>{{ project.description }}</td>
             </tr>
+             <tr>
+              <th class="text-nowrap" scope="row">Indicador</th>
+              <td></td>
+              <td>{{ project.indicatorName }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Valor Estimado</th>
+              <td></td>
+              <td>{{ project.value }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Departamento Responsable</th>
+              <td></td>
+              <td>{{ project.departmentName }}</td>
+            </tr>
+
             </tbody>
           </table>
               <button  type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/projects/update/' + project.ids]">Actualizar</button>

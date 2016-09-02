@@ -13,7 +13,7 @@
     <tbody *ngIf="phases">
     <tr *ngFor="let item of phases._embedded?.phases">
       <td class="table-id">{{ item.ids }}</td>
-      <td>{{ item.name }}</td>
+      <td><a class="learn-more" [routerLink]="['/pages/phases/view/' + item.ids]">{{ item.name }}</a></td>
       <td>{{ item.description }}</td>            
       <td>{{ item.projectName }}</td>
       <div class="progress">         

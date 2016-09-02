@@ -20,14 +20,13 @@ export class ResponsiveTable implements OnInit{
   phase :PhaseHal;
   param : any;
   page : number;
-  phases :PaginatedList<PhaseHal>;
+  Phases :PaginatedList<PhaseHal>;
 
 
-  constructor(private _basicTablesService: BasicTablesService, private service : PhaseService, private route : ActivatedRoute) {
-    this.projectsTableData = _basicTablesService.projectsTableData;
+   constructor(private service : PhaseService, private route : ActivatedRoute) {   
   }
   ngOnInit(){
-  	this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
+    this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
     if(id){
       this.service.find(id).subscribe(phase => this.phase = phase, error => this.error = error);
     }
@@ -40,9 +39,10 @@ export class ResponsiveTable implements OnInit{
   }
 
  delete(phase : PhaseHal){
-   this.service.delete(phase).subscribe(response => {alert("Phase Eliminado")},error => {this.error = error; alert("borrado")})
+   this.service.delete(phase).subscribe(response => {alert("Fase Eliminada")},error => {this.error = error; alert("borrado")})
 
  }
  
 }
+
 

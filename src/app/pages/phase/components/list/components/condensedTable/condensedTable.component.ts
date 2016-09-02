@@ -5,12 +5,14 @@ import {BasicTablesService} from '../../list.service';
 import { PhaseService } from '../../../phase.service';
 import { PhaseHal } from '../../../Phase';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import { Panel } from './panel';
 
 @Component({
   selector: 'condensed-table',
   template: require('./condensedTable.html'),
   pipes: [BaAppPicturePipe],
   providers: [PhaseService, BasicTablesService, HTTP_PROVIDERS]
+  //directives: [Panel]
 })
 export class CondensedTable implements OnInit{
 
@@ -25,9 +27,7 @@ export class CondensedTable implements OnInit{
   //******************************************************
 
   constructor(private _basicTablesService: BasicTablesService, private service : PhaseService) {
-
-    this.peopleTableData = _basicTablesService.peopleTableData;
-  }
+ }
 
   ngOnInit(){
   	this.getPage(0);

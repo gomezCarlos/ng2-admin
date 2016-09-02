@@ -51,11 +51,11 @@ export class Form implements OnInit{
     this.getdepartments();
   }
 
- //OBTENER LISTA DE PROYECTOS
+ //OBTENER LISTA DE INDICADORES
  getindicators(){
    this.indicators.getPage(0).subscribe(response=>{this.listindicator=response},error => {this.error = error; alert(error.message)})
  }
- //OBTENER LISTA DE PROYECTOS
+ //OBTENER LISTA DE DEPARTAMENTOS
  getdepartments(){
    this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
  }
