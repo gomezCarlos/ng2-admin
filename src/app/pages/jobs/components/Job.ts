@@ -6,7 +6,11 @@ export class JobHal extends Hal {
 	description: string;
 	task : number;	
 	taskName : string;
-	value : number;
+	phase : number;
+	project: any;
+	phaseName : string;
+	value : string;
+	
 
 	constructor(){
 		super();

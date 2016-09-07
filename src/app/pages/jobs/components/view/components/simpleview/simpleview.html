@@ -18,6 +18,16 @@
               <td></td>
               <td>{{ job.description }}</td>
             </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Tarea</th>
+              <td></td>
+              <td>{{ job.task }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Detalle</th>
+              <td></td>
+              <td>{{ job.value }}</td>
+            </tr>
             </tbody>
           </table>
               <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/jobs/list/']">Actualizar</button>

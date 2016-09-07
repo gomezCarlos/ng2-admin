@@ -8,7 +8,7 @@ import {BaCard} from '../../../../theme/components';
 //import {ContextualTable} from './components/contextualTable';
 import {ResponsiveTable} from './components/simpleview';
 import { JobService } from '../job.service'; 
-//MOISES
+//MOISES--
 @Component({
 	selector: 'view',
 	encapsulation: ViewEncapsulation.None,

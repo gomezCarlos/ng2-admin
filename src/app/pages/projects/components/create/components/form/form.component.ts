@@ -40,7 +40,7 @@ export class Form implements OnInit{
  ngOnInit(){
        this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
     if(id){
-      this.service.find(id).subscribe(task => this.projecthal = task, error => this.error = error);
+      this.service.find(id).subscribe(project => this.projecthal = project, error => this.error = error);
     }
     else{
       this.projecthal = new ProjectHal();

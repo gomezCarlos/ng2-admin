@@ -252,6 +252,13 @@ export const PagesRoutes:RouterConfig = [
 
             }
           },
+          {
+            path: 'update/:id',
+            component: CreateTask,
+            data: {
+             
+            }
+          }
         ]
       },
       //Acount

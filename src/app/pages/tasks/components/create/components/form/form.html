@@ -17,8 +17,7 @@
       </option>>
     </select>
   </div>  
-  
-  
+    
   <div class="form-group">
     <label for="input01">Nombre</label>
     <input type="text" class="form-control" name="name" id="input01" placeholder="Tareas" [(ngModel)]="taskhal.name" required="name" style="color:black">
@@ -36,7 +35,28 @@
     <label for="input04">Descripcion</label>
     <textarea class="form-control" name="description" id="input02" placeholder="Descripcion" title="" [(ngModel)]="taskhal.description" required="description" style="color:black"></textarea>
   </div>  
-
+  <!-- LISTADO PARA SELECCIONAR DEPARTAMENTOS -->
+  <div class="form-group" *ngIf = "listdepartment">
+    <label for="input07">Departameto Responsable</label>
+    <select class="form-control" name="department" id="input07" placeholder="Departamento" title="" [(ngModel)]="taskhal.department" required="department" style="color:black">
+      <option *ngFor = "let item of listdepartment._embedded?.departments" value="{{ item.ids }}">
+        {{item.name}}
+      </option>
+    </select>
+  </div> 
+<!-- LISTADO PARA SELECCIONAR INDICADOR -->
+  <div class="form-group" *ngIf = "listindicator">
+    <label for="input05">Indicador Estimado</label>
+    <select class="form-control" name="task" id="input05" placeholder="Valor" title="" [(ngModel)]="taskhal.indicator" required="indicator" style="color:black">
+      <option *ngFor = "let item of listindicator._embedded?.indicators" value="{{ item.ids }}">
+        {{item.name}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="input06">Valor Estimado</label>    
+     <input type="number"  class="form-control" name="value" id="input06"  placeholder="Valor" [(ngModel)]="taskhal.value" required="value" >
+  </div>
   
   
   <!--Boton Agregado por Moises aun falta los eventos -->

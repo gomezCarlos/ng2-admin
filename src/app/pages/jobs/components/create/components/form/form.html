@@ -1,14 +1,33 @@
 <form>
-<form>
-<!-- LISTADO PARA SELECCIONAR TAREAS -->
-  <div class="form-group" *ngIf = "listtask">
-    <label for="input05">Tarea</label>
-    <select class="form-control" name="phase" id="input05" placeholder="Tareas" title="" [(ngModel)]="jobhal.task" required="task" style="color:black" >
-      <option *ngFor = "let item of listtask._embedded.tasks" value="{{ item._links?.self?.href }}">
+<!-- LISTADO PARA SELECCIONAR PROYECTOS -->
+  <div class="form-group" *ngIf = "listproject">
+    <label for="input06">Proyecto</label>
+    <select class="form-control" (change)="updateJobs($event.target.value)" name="project" id="input06" placeholder="Descripcion" title="" [(ngModel)]="jobhal.project" required="project" style="color:black">
+      <option *ngFor = "let item of listproject._embedded?.projects" value="{{ item.ids }}">
         {{item.name}}
       </option>>
     </select>
   </div>
+<!-- LISTADO PARA SELECCIONAR FASES -->
+  <div class="form-group" *ngIf = "listphase">
+    <label for="input07">Fase</label>
+    <select class="form-control" (change)="updateJobs($event.target.value)" name="phase" id="input07" placeholder="Descripcion" title="" [(ngModel)]="jobhal.phase" required="phase" style="color:black">
+      <option *ngFor = "let item of listphase._embedded?.phases" value="{{ item.ids }}">
+        {{item.name}}
+      </option>>
+    </select>
+  </div>
+
+<!-- LISTADO PARA SELECCIONAR TAREAS. -->
+   <div class="form-group" *ngIf = "listtask">
+    <label for="input05">Tarea</label>
+    <select class="form-control" name="task" id="input05" placeholder="Descripcion" title="" [(ngModel)]="jobhal.task" required="task" style="color:black">
+      <option *ngFor = "let item of listtask._embedded?.tasks" value="{{ item.ids }}">
+        {{item.name}}
+      </option>>
+    </select>
+  </div>  
+ 
   <div class="form-group">
     <label for="input01">Nombre del trabajo</label>
     <input [(ngModel)]="jobhal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Nombre" required="name" name="nombre" autocomplete="on"  autofocus="autofocus">
@@ -16,7 +35,7 @@
 
   <div class="form-group">
     <label for="textarea01">Descripcion</label>
-    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="jobhal.description" name="description" autocomplete="on"></textarea>
+    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="jobhal.description" name="description" required="description" autocomplete="on"></textarea>
   </div>
   <div class="form-group">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,24 +45,7 @@
     <label for="input06">Valor Estimado</label>    
      <input type="number"  class="form-control" name="value" id="input06"  min="10" max="100" placeholder="Valor" [(ngModel)]="jobhal.value" required="value" >
   </div>
-   <!--
-  <div class="form-group">
-        <label for="select01">Porcentaje de Avance</label>
-       <select placeholder="Porcentaje" name="value" class="btn btn-primary btn-raised" id="select01"  [(ngModel)]="jobshal.value">
-         <option value="  ">0%</option>
-         <option value="10">10%</option>
-         <option value="20">20%</option>
-         <option value="30">30%</option>
-         <option value="40">40%</option>
-         <option value="50">50%</option>
-         <option value="60">60%</option>
-         <option value="70">70%</option>
-         <option value="80">80%</option>
-         <option value="90">90%</option>
-         <option value="100">100%</option>
-       </select>
-   </div>-->
-   
+  
   <!--Boton Agregado por Moises aun falta los eventos -->
   <table width="200" border="0" cellspacing="0" cellpadding="0">
                     <tr>
