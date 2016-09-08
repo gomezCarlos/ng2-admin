@@ -3,6 +3,11 @@ import { UserService } from '../../shared/user.service';
 import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {BaCard} from '../../theme/components';
+import { AccountService } from '../account/components/account.service';
+import { AccountHal } from '../account/components/Account';
+import { PaginatedList } from '../../shared/PaginatedList.component';
+import { DepartmentService } from '../department/components/department.service';
+import { DepartmentHal } from '../department/components/department';
 
 //import {InlineForm} from '/../../components/inlineForm';
 //import {BlockForm} from './components/blockForm';
@@ -15,12 +20,15 @@ import {BaPictureUploader} from '../../theme/components';
   selector: 'layouts',
   encapsulation: ViewEncapsulation.None,
   directives: [BaCard,  BaPictureUploader],
-  providers: [UserService],
+  providers: [UserService, AccountService, DepartmentService],
   styles: [require ('./layouts.scss')],
   template: require('./layouts.html'),
 })
 export class Layouts {
-
+  error : any;
+  departmenthal:DepartmentHal;
+  accounthal : AccountHal;
+  listdepartment : PaginatedList<DepartmentHal>;
    public form:FormGroup;
    public password:AbstractControl;
   public repeatPassword:AbstractControl;
@@ -39,7 +47,7 @@ export class Layouts {
     }
   };
 
-  constructor(private userService: UserService, fb:FormBuilder) {
+  constructor(private userService: UserService, fb:FormBuilder, private service : AccountService, private departments : DepartmentService ) {
        this.form = fb.group({
       'passwords': fb.group({
         'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -51,12 +59,22 @@ export class Layouts {
     this.passwords = <FormGroup> this.form.controls['passwords'];
     this.password = this.passwords.controls['password'];
     this.repeatPassword = this.passwords.controls['repeatPassword'];
+    this.accounthal = new AccountHal();
+    this.departmenthal = new DepartmentHal();
   }
  
 
   ngOnInit() {
     this.userService.getUser().subscribe(response => { return this.profile.picture = 'assets/img/app/profile/' + response.username + '.png'}, error => {return "assets/img/theme/no-photo.png"} ).toString()
+    this.getdepartments();
   }
+  getdepartments(){
+   this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
+ }
+  save(account : AccountHal){
+   this.service.save(account).subscribe(response => {this.accounthal = response; alert("Cuenta Creada")},error => {this.error = error; alert(error.message)})
+
+ }
 
 public onSubmit(values:Object):void {
     this.submitted = true;

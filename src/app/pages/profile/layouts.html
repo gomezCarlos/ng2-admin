@@ -32,28 +32,26 @@
           <label for="inputFirstName" class="col-sm-3 control-label">Nombre</label>
 
           <div class="col-sm-9">
-            <input style="color:black" type="text" class="form-control" id="inputFirstName" placeholder="" value="">
+            <input style="color:black" type="text" class="form-control" id="inputFirstName" placeholder="" value="" [(ngModel)]="accounthal.name">
           </div>
         </div>
         <div class="form-group row clearfix">
           <label for="inputLastName" class="col-sm-3 control-label">Apellido</label>
 
           <div class="col-sm-9">
-            <input style="color:black" type="text" class="form-control" id="inputLastName" placeholder="" value="">
+            <input style="color:black" type="text" class="form-control" id="inputLastName" placeholder="" value="" [(ngModel)]="accounthal.last">
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="form-group row clearfix">
+        <div class="form-group row clearfix" *ngIf = "listdepartment">
           <label class="col-sm-3 control-label">Departamento</label>
 
           <div class="col-sm-9">
-            <select class="form-control" style="color:black">
-              <option>Contabilidad</option>
-              <option>Tecnologia Informatica</option>
-              <option>Compras</option>
-              <option>Almacen</option>
-              <option>Servicios Generales</option>
+            <select class="form-control" style="color:black"  [(ngModel)]="accounthal.department">
+             <option *ngFor = "let item of listdepartment._embedded.departments" value="{{ item.ids }}">
+        {{ item.name }}
+      </option>>
             </select>
           </div>
         </div>
@@ -112,7 +110,7 @@
     </div>
 
    
-    <button type="button" class="btn btn-primary btn-with-icon save-profile">
+    <button type="button" class="btn btn-primary btn-with-icon save-profile" (click)="save(accounthal)">
       <i class="ion-android-checkmark-circle"></i>Actualizar Perfil
     </button>
   </div>

@@ -2,7 +2,7 @@
 <!-- LISTADO PARA SELECCIONAR PROYECTOS -->
   <div class="form-group" *ngIf = "listproject">
     <label for="input06">Proyecto</label>
-    <select class="form-control" (change)="updateJobs($event.target.value)" name="project" id="input06" placeholder="Descripcion" title="" [(ngModel)]="jobhal.project" required="project" style="color:black">
+    <select class="form-control" (change)="updatePhases($event.target.value)" name="project" id="input06" placeholder="Descripcion" title="" [(ngModel)]="jobhal.project" required="project" style="color:black">
       <option *ngFor = "let item of listproject._embedded?.projects" value="{{ item.ids }}">
         {{item.name}}
       </option>>
@@ -11,7 +11,7 @@
 <!-- LISTADO PARA SELECCIONAR FASES -->
   <div class="form-group" *ngIf = "listphase">
     <label for="input07">Fase</label>
-    <select class="form-control" (change)="updateJobs($event.target.value)" name="phase" id="input07" placeholder="Descripcion" title="" [(ngModel)]="jobhal.phase" required="phase" style="color:black">
+    <select class="form-control" (change)="updateTasks($event.target.value)" name="phase" id="input07" placeholder="Descripcion" title="" [(ngModel)]="jobhal.phase" required="phase" style="color:black">
       <option *ngFor = "let item of listphase._embedded?.phases" value="{{ item.ids }}">
         {{item.name}}
       </option>>

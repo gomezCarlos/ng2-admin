@@ -5,8 +5,12 @@ export class AccountHal extends Hal {
 	username : string;
 	authorities: string;
 	password: string;
-	name: string;
-	last: string;
+	firstname: string;
+	lastname: string;
+	deparment: string;
+	charge: string;
+	organization: string;
+	
 
 	constructor(){
 		super();
