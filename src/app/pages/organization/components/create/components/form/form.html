@@ -1,0 +1,48 @@
+  <!--
+//
+// CREATED AND EDITED BY:
+// ING RONALDO MORENO 
+// WITH 
+// MASTERCOPYPASTE TECNIQUE
+// WITH MANY YEAR OF EXPERIENCE
+// IN THE AREA
+// COMPLETELY GRATEFUL TO GOD
+// AND THE BLESSED VIRGIN
+//
+-->
+<form>
+<!-- LISTADO PARA SELECCIONAR COMPAÑIAS -->
+  <div class="form-group" *ngIf = "listcompany">
+    <label for="input05">Compañía</label>
+    <select class="form-control" name="company" id="input05" placeholder="Seleccione compañia" title="" [(ngModel)]="organizationhal.company" required="input05" style="color:black">
+      <option *ngFor = "let item of listcompany._embedded.companies" value="{{ item.ids }}">
+        {{item.name}}
+      </option>>
+    </select>
+  </div>  
+  
+  <div class="form-group">
+    <label for="input01">Nombre</label>
+    <input type="text" class="form-control" name="name" id="input01" placeholder="Organización" [(ngModel)]="organizationhal.name" required="name" style="color:black">
+  </div>
+  <div class="form-group">
+    <label for="input04">Descripcion</label>
+    <textarea class="form-control" name="description" id="input04" placeholder="Descripcion" title="" [(ngModel)]="organizationhal.description" required="description" style="color:black"></textarea>
+  </div> 
+  
+  <!--Boton Agregado por Moises aun falta los eventos -->
+  <table width="200" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <th scope="col">
+                          <div class="button-wrapper">
+                               <button type="submit" class="btn btn-primary btn-raised" (click)="save(organizationhal)">Guardar</button>
+                          </div>
+                      </th>
+                      <th scope="col">
+                          <div class="button-wrapper"> 
+                               <button type="reset" class="btn btn-primary btn-raised">Limpiar</button>
+                          </div>
+                      </th>
+                    </tr>
+            </table>
+</form>

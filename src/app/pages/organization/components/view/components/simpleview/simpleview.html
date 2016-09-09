@@ -1,0 +1,44 @@
+<!--
+//
+// CREATED AND EDITED BY:
+// ING RONALDO MORENO 
+// WITH 
+// MASTERCOPYPASTE TECNIQUE
+// WITH MANY YEAR OF EXPERIENCE
+// IN THE AREA
+// COMPLETELY GRATEFUL TO GOD
+// AND THE BLESSED VIRGIN
+//
+-->
+      <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            </thead>
+            <tbody *ngIf="organization">
+            <tr>
+              <th class="upper-text bold-text" scope="row">Codigo</th>
+              <td></td>
+              <td colspan="4">{{ organization.ids }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Nombre de la Organización</th>
+              <td></td>
+              <td colspan="4">{{ organization.name }}</td>
+            </tr>
+             <tr>
+              <th class="text-nowrap" scope="row">Descripción</th>
+              <td></td>
+              <td>{{ organization.description }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Compañía</th>
+              <td></td>
+              <td>{{ organization.projectName }}</td>
+            </tr>
+            </tbody>
+          </table>
+              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/organization/list/']">Actualizar</button>
+              <button type="button" class="btn btn-danger btn-mm" (click)="delete(organization)">Borrar</button>
+
+              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/organization/list/']">Listar</button>
+      </div>

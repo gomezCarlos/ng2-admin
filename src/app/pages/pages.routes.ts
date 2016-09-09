@@ -51,6 +51,14 @@ import {Department} from './department/department.component';//ROMEN
 import {CreateDepartment} from './department/components/create/create.component';//ROMEN
 import {ListDepartment}  from './department/components/list/list.component';//ROMEN
 import {ViewDepartment}  from './department/components/view/view.components';//ROMEN
+import {Company} from './company/company.component';//ROMEN
+import {CreateCompany} from './company/components/create/create.component';//ROMEN
+import {ListCompany}  from './company/components/list/list.component';//ROMEN
+import {ViewCompany}  from './company/components/view/view.components';//ROMEN
+import {Organization} from './organization/organization.component';//ROMEN
+import {CreateOrganization} from './organization/components/create/create.component';//ROMEN
+import {ListOrganization}  from './organization/components/list/list.component';//ROMEN
+import {ViewOrganization}  from './organization/components/view/view.components';//ROMEN
 
 //test
 
@@ -655,6 +663,88 @@ export const PagesRoutes:RouterConfig = [
         ]
       },
       */
+            // Company Menu
+      {
+        path: 'company',
+        component: Company,
+        data: {
+          menu: {
+            title: 'Compañías',
+            icon: 'ion-arrow-graph-up-right',
+            selected: false,
+            expanded: false,
+            order: 56,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateCompany,
+            data: {
+              menu: {
+                title: 'Crear Compañía',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListCompany,
+            data: {
+              menu:{
+                title: 'Listar Compañia',
+              }
+            }
+          },
+           {
+            path: 'view/:id',
+            component: ViewCompany,
+            data: {
+
+            }
+          },
+        ]
+      },
+            // Organization Menu
+      {
+        path: 'organization',
+        component: Organization,
+        data: {
+          menu: {
+            title: 'Organizaciones',
+            icon: 'ion-arrow-graph-up-right',
+            selected: false,
+            expanded: false,
+            order: 57,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateOrganization,
+            data: {
+              menu: {
+                title: 'Crear Organizaciones',
+              }
+            }
+          },
+          {
+            path: 'list',
+            component: ListOrganization,
+            data: {
+              menu:{
+                title: 'Listar Organizaciones',
+              }
+            }
+          },
+           {
+            path: 'view/:id',
+            component: ViewOrganization,
+            data: {
+
+            }
+          },
+        ]
+      },
             // Department Menu
       {
         path: 'department',
@@ -665,7 +755,7 @@ export const PagesRoutes:RouterConfig = [
             icon: 'ion-arrow-graph-up-right',
             selected: false,
             expanded: false,
-            order: 57,
+            order: 58,
           }
         },
         children: [

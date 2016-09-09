@@ -1,0 +1,45 @@
+  <!--
+//
+// CREATED AND EDITED BY:
+// ING RONALDO MORENO 
+// WITH 
+// MASTERCOPYPASTE TECNIQUE
+// WITH MANY YEAR OF EXPERIENCE
+// IN THE AREA
+// COMPLETELY GRATEFUL TO GOD
+// AND THE BLESSED VIRGIN
+//
+-->
+<div class="horizontal-scroll">
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>      
+      <th>Compañía</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="organizations">
+    <tr *ngFor="let item of organization._embedded?.organizations">
+      <td class="table-id">{{ item.ids }}</td>
+      <td><a class="learn-more" [routerLink]="['/pages/organizations/view/' + item.ids]">{{ item.name }}</a></td>
+      <td>{{ item.description }}</td>            
+      <td>{{ item.organizationName }}</td>
+      <td>
+        <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="horizontal-scroll">
+  <table class="table table-responsive">
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="first()" >Primero</button></td>
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="previous()" >Anterior</button></td>
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="next()" >Siguiente</button></td>
+    <td><button ngClass="{status-button btn btn-xs btn-info" (click)="last()" >Ultimo</button></td>
+  </table>
+</div>
+

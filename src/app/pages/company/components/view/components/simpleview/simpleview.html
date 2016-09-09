@@ -1,0 +1,39 @@
+<!--
+//
+// CREATED AND EDITED BY:
+// ING RONALDO MORENO 
+// WITH 
+// MASTERCOPYPASTE TECNIQUE
+// WITH MANY YEAR OF EXPERIENCE
+// IN THE AREA
+// COMPLETELY GRATEFUL TO GOD
+// AND THE BLESSED VIRGIN
+//
+-->
+      <div>
+          <table class="table table-bordered table-striped">
+            <thead>
+            </thead>
+            <tbody *ngIf="company">
+            <tr>
+              <th class="upper-text bold-text" scope="row">Codigo</th>
+              <td></td>
+              <td colspan="4">{{ company.ids }}</td>
+            </tr>
+            <tr>
+              <th class="text-nowrap" scope="row">Nombre de la Compañia</th>
+              <td></td>
+              <td colspan="4">{{ company.name }}</td>
+            </tr>
+             <tr>
+              <th class="text-nowrap" scope="row">descripcion</th>
+              <td></td>
+              <td>{{ company.description }}</td>
+            </tr>
+            </tbody>
+          </table>
+              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/company/list/']">Listar</button>
+              <button type="button" class="btn btn-danger btn-mm" (click)="delete(company)">Borrar</button>
+
+              <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/company/list/']">Listar</button>
+      </div>
