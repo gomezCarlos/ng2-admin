@@ -7,4 +7,9 @@
   <ba-card title="basic">
     <branchy id="tree-view" [tree]="tree"></branchy>
   </ba-card>
+<ng2-slider min="1" max="14" value="5" (onRangeChanged)="plainValueChange($event, 'plain_1')"></ng2-slider>
+<p class="value-box">
+	Value: <span class="value-span" id="plain_1">5</span>
+</p>
+
 </div>

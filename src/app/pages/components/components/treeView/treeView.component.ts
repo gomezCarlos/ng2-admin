@@ -56,8 +56,20 @@ export class TreeView implements OnInit{
   private logEvent(e: NodeEvent): void {
     this.router.navigate(['/pages/projects/view/' + this.project.ids])
   }
-
-
+  
+  plainValueChanged(event, container:any){
+    var el = this.getElement(container);
+    el.innerText = event.startValue;
+  }
+getElement(data){
+  if(typeof(data)=='string') {
+    return document.getElementById(data);
+  }
+  if (typeof(data)=='object' && data instanceof Element){
+    return data;
+  }
+  return null;
+}
 
 
   private tree: TreeModel = {

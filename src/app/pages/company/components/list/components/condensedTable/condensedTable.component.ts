@@ -25,7 +25,7 @@ export class CondensedTable implements OnInit{
 
   peopleTableData:Array<any>;
   error : any;
-  companys:PaginatedList<CompanyHal>;
+  companies:PaginatedList<CompanyHal>;
   
   //Variables para los botones de navegacion en las listas
   page : number;
@@ -43,7 +43,7 @@ export class CondensedTable implements OnInit{
   }
 
   getPage(page : number){
-    this.service.getPage(page).subscribe(response => {this.companys = response;},error => {this.error = error})
+    this.service.getPage(page).subscribe(response => {this.companies = response;},error => {this.error = error})
   }
 
   delete(company : CompanyHal){
@@ -55,24 +55,24 @@ export class CondensedTable implements OnInit{
   }
 
   last(){
-    this.getPage(this.companys.page.totalPages -1 );
+    this.getPage(this.companies.page.totalPages -1 );
   }
 
   previous(){
     var page: number;
-    if(this.companys.page.number -1<0)
+    if(this.companies.page.number -1<0)
       page = 0;
     else
-      page = this.companys.page.number -1;
+      page = this.companies.page.number -1;
     this.getPage(page);
   }
 
   next(){
     var page: number;
-    if(this.companys.page.number +1 >= this.companys.page.totalPages -1)
-      page = this.companys.page.totalPages -1;
+    if(this.companies.page.number +1 >= this.companies.page.totalPages -1)
+      page = this.companies.page.totalPages -1;
     else
-      page = this.companys.page.number +1;
+      page = this.companies.page.number +1;
     this.getPage(page);
   }
 }

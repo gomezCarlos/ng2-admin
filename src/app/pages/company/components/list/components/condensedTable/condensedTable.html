@@ -20,7 +20,7 @@
     </tr>
     </thead>
     <tbody *ngIf="companies">
-    <tr *ngFor="let item of companys._embedded?.companies">
+    <tr *ngFor="let item of companies._embedded?.companies">
       <td class="table-id">{{ item.ids }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.description }}</td>            

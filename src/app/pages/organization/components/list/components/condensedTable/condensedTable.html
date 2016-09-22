@@ -21,7 +21,7 @@
     </tr>
     </thead>
     <tbody *ngIf="organizations">
-    <tr *ngFor="let item of organization._embedded?.organizations">
+    <tr *ngFor="let item of organizations._embedded?.organizations">
       <td class="table-id">{{ item.ids }}</td>
       <td><a class="learn-more" [routerLink]="['/pages/organizations/view/' + item.ids]">{{ item.name }}</a></td>
       <td>{{ item.description }}</td>            
