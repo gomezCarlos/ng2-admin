@@ -36,7 +36,8 @@ export class Form implements OnInit{
  
   save(job : JobHal){
     job.task = Number(job.task);
- 	this.service.save(job).subscribe(response => {this.jobhal = response; alert("trabajo Creado"); this.router.navigate(['/pages/jobs/view/' + this.jobhal.ids])},error => {this.error = error; alert(error.message)})
+    if (Number(job.value) >=0 && Number(job.value)<=100)
+ 	    this.service.save(job).subscribe(response => {this.jobhal = response; alert("trabajo Creado"); this.router.navigate(['/pages/jobs/view/' + this.jobhal.ids])},error => {this.error = error; alert(error.message)})
 
  }
  ngOnInit(){
