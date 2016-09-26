@@ -40,6 +40,14 @@
   <div class="form-group">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </div>
+  <div class="form-group" *ngIf = "listdepartment">
+    <label for="input07">Departameto Responsable</label>
+    <select class="form-control" name="department" id="input07" placeholder="Departamento" title="" [(ngModel)]="jobhal.department" required="department" style="color:black">
+      <option *ngFor = "let item of listdepartment._embedded?.departments" value="{{ item.ids }}">
+        {{item.name}}
+      </option>
+    </select>
+  </div> 
  
   <div class="form-group">
     <label for="input06">Valor Estimado</label>    

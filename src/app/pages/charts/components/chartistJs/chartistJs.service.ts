@@ -15,7 +15,7 @@ export class ChartistJsService {
       }
     },
     simpleLineData: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
       series: [
         [20, 20, 12, 45, 50],
         [10, 45, 30, 14, 12],
@@ -37,7 +37,7 @@ export class ChartistJsService {
       showArea: true
     },
     biLineData: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'],
       series: [
         [1, 2, 3, 1, -2, 0, 1],
         [-2, -1, -2, -1, -2.5, -1, -2],

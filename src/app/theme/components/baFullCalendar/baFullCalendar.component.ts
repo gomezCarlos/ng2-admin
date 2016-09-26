@@ -2,6 +2,7 @@ import {Component, ViewChild, ViewEncapsulation, Input, Output, ElementRef, Even
 
 import './baFullCalendar.loader.ts';
 
+
 @Component({
   selector: 'ba-full-calendar',
   template: require('./baFullCalendar.html'),

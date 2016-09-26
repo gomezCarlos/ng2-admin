@@ -5,6 +5,8 @@ import { JobService } from '../../../job.service';
 import {PhaseService} from '../../../../../phase/components/phase.service';
 import {PhaseHal} from '../../../../../phase/components/Phase';
 import {ProjectHal} from '../../../../../projects/components/Project';
+import {DepartmentHal} from '../../../../../department/components/department';
+import {DepartmentService} from '../../../../../department/components/department.service';
 import {ProjectService} from '../../../../../projects/components/project.service';
 import { JobHal } from '../../../Job'
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
@@ -14,17 +16,18 @@ import { HTTP_PROVIDERS } from '@angular/http';
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [TaskService, PhaseService, ProjectService,JobService,HTTP_PROVIDERS]
+  providers: [TaskService, PhaseService, ProjectService,DepartmentService,JobService,HTTP_PROVIDERS]
  
 })
 export class Form implements OnInit{
+  listdepartment : PaginatedList<DepartmentHal>; 
   listtask : PaginatedList<TaskHal>;
   listphase : PaginatedList<PhaseHal>;
   listproject : PaginatedList<ProjectHal>;
   error : any;
   jobhal:JobHal;
   param : any;
-	constructor( private service : JobService, private tasks : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router, private route : ActivatedRoute) {
+	constructor( private service : JobService, private departments : DepartmentService, private tasks : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router, private route : ActivatedRoute) {
 		this.jobhal = new JobHal();
     
   }
@@ -49,6 +52,7 @@ export class Form implements OnInit{
     this.gettasks();
     this.getphases();
     this.getprojects();
+    this.getdepartments();
   }
 //OBTENER LISTA DE TAREAS
 
@@ -69,7 +73,9 @@ export class Form implements OnInit{
   updateTasks(id: number){
     this.phases.getTasks(id).subscribe(response=>{this.listtask=response},error => {this.error = error; alert(error.message)})
  }
- 
+ getdepartments(){
+   this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
+ }
 
 
  delete(job : JobHal){

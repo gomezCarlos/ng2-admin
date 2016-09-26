@@ -3,6 +3,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {BaFullCalendar} from '../../../../theme/components';
 import {CalendarService} from './calendar.service';
 
+
 @Component({
   selector: 'calendar',
   encapsulation: ViewEncapsulation.None,
@@ -12,6 +13,7 @@ import {CalendarService} from './calendar.service';
   providers: [CalendarService]
 })
 export class Calendar {
+
 
   public calendarConfiguration:any;
   private _calendar:Object;
