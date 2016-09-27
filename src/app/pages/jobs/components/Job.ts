@@ -10,6 +10,7 @@ export class JobHal extends Hal {
 	project: any;
 	phaseName : string;
 	value : string;
+	responsable: number;
 	
 
 	constructor(){

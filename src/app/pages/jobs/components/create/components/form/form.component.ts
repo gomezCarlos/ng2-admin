@@ -8,15 +8,17 @@ import {ProjectHal} from '../../../../../projects/components/Project';
 import {DepartmentHal} from '../../../../../department/components/department';
 import {DepartmentService} from '../../../../../department/components/department.service';
 import {ProjectService} from '../../../../../projects/components/project.service';
+import {UserService} from '../../../../../../shared/user.service';
 import { JobHal } from '../../../Job'
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import { Hal } from '../../../../../../shared/Hal';
 import {Router, ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [TaskService, PhaseService, ProjectService,DepartmentService,JobService,HTTP_PROVIDERS]
+  providers: [TaskService, PhaseService, UserService, ProjectService,DepartmentService,JobService,HTTP_PROVIDERS]
  
 })
 export class Form implements OnInit{
@@ -27,7 +29,8 @@ export class Form implements OnInit{
   error : any;
   jobhal:JobHal;
   param : any;
-	constructor( private service : JobService, private departments : DepartmentService, private tasks : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router, private route : ActivatedRoute) {
+  _user: Hal;
+	constructor( private user : UserService, private service : JobService, private departments : DepartmentService, private tasks : TaskService, private phases : PhaseService, private projects : ProjectService, private router : Router, private route : ActivatedRoute) {
 		this.jobhal = new JobHal();
     
   }
@@ -36,7 +39,8 @@ export class Form implements OnInit{
  
   save(job : JobHal){
     job.task = Number(job.task);
- 	this.service.save(job).subscribe(response => {this.jobhal = response; alert("trabajo Creado"); this.router.navigate(['/pages/jobs/view/' + this.jobhal.ids])},error => {this.error = error; alert(error.message)})
+    job.responsable = Number(this._user.ids);
+    this.service.save(job).subscribe(response => {this.jobhal = response; alert("trabajo Creado"); this.router.navigate(['/pages/jobs/view/' + this.jobhal.ids])},error => {this.error = error; alert(error.message)});
 
  }
  ngOnInit(){
@@ -49,12 +53,17 @@ export class Form implements OnInit{
     }
     }
     );
+   this.getUser();
     this.gettasks();
     this.getphases();
     this.getprojects();
     this.getdepartments();
   }
 //OBTENER LISTA DE TAREAS
+getUser(){
+   this.user.getUser().subscribe(response=>{this._user=response},error => {this.error = error; alert(error.message)})
+ }
+
 
  gettasks(){
    this.tasks.getPage(0).subscribe(response=>{this.listtask=response},error => {this.error = error; alert(error.message)})
