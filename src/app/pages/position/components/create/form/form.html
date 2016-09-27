@@ -1,0 +1,31 @@
+<form> 
+<form>
+  <div class="form-group">
+      <label for="input01">Nombre del cargo</label>
+    <input [(ngModel)]="positionhal.name"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="input01" placeholder="Cargo" required="name" name="nombre" autocomplete="on"  autofocus="autofocus">
+  </div>
+
+  <div class="form-group">
+    <label for="textarea01">Descripcion</label>
+    <textarea placeholder="Descripcion" class="form-control" id="textarea01" [(ngModel)]="positionhal.description" name="description" autocomplete="on"></textarea>
+  </div>
+  <div class="form-group">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </div>
+     
+  <table width="200" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <th scope="col">
+                          <div class="button-wrapper">
+                               <button type="submit" class="btn btn-primary btn-raised" (click)="save(positionhal)">Guardar</button>
+                          </div>
+                      </th>
+                      <th scope="col">
+                          <div class="button-wrapper"> 
+                               <button type="reset" class="btn btn-primary btn-raised">Limpiar</button>
+                          </div>
+                      </th>
+                    </tr>
+            </table>
+
+</form>

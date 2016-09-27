@@ -35,13 +35,14 @@ export class Form implements OnInit{
     
   }
 
-
- 
   save(job : JobHal){
     job.task = Number(job.task);
     job.responsable = Number(this._user.ids);
-    this.service.save(job).subscribe(response => {this.jobhal = response; alert("trabajo Creado"); this.router.navigate(['/pages/jobs/view/' + this.jobhal.ids])},error => {this.error = error; alert(error.message)});
-
+    if (Number(job.value) >=0 && Number(job.value)<=100)
+      this.service.save(job).subscribe(response => {this.jobhal = response; 
+        alert("trabajo Creado"); 
+        this.router.navigate(['/pages/jobs/view/' + this.jobhal.ids])},
+      error => {this.error = error; alert(error.message)});
  }
  ngOnInit(){
    this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
@@ -92,6 +93,4 @@ getUser(){
 
  }
 }
-
-
 

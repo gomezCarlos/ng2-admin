@@ -1,3 +1,11 @@
 .status-button {
   width: 60px;
 }
+
+@media screen and (min-width: 1620px) {
+  .row.shift-up {
+    > * {
+      margin-top: -573px;
+    }
+  }
+}

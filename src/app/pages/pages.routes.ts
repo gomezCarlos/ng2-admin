@@ -59,7 +59,10 @@ import {Organization} from './organization/organization.component';//ROMEN
 import {CreateOrganization} from './organization/components/create/create.component';//ROMEN
 import {ListOrganization}  from './organization/components/list/list.component';//ROMEN
 import {ViewOrganization}  from './organization/components/view/view.components';//ROMEN
-
+import {CreatePosition} from './position/components/create/create.component';
+import {ViewPosition} from './position/components/view/view.component';
+import {ListPosition} from './position/components/list/list.component';
+import {Position} from './position/position.component';
 //test
 
 //noinspection TypeScriptValidateTypes
@@ -820,6 +823,52 @@ export const PagesRoutes:RouterConfig = [
           }
         ]
       },
+      
+      // Positions //Andres
+      {
+        path: 'positions',
+        component: Position,
+        data: {
+          menu: {
+            title: 'Cargos',
+            icon: 'ion-ios-briefcase-outline',
+            selected: false,
+            expanded: false,
+            order: 55,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreatePosition,
+            data: {
+              menu: {
+                title: 'Crear Cargo',
+              }
+            }
+          },
+           {
+            path: 'list',
+            component: ListPosition,
+            data: {
+              menu:{
+                title: 'Listar Cargos',
+              }
+            }
+          },
+          {
+            path: 'view/:id',
+            component: ViewPosition,
+            data: {
+
+            }
+          },
+
+        ]
+      },
+      
+      
+      
       {
         path: '',
         data: {
