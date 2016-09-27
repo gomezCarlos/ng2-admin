@@ -17,12 +17,12 @@ import {AppState} from '../app.state';
       </div>
     </div>
     <footer class="al-footer clearfix">
-      <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
+      <div class="al-footer-right"><img src="http://anca.org.ve/img/slogan-01.png"></div>
       <div class="al-footer-main clearfix">
-        <div class="al-copy">&copy; <a href="http://akveo.com">Team ST</a> 2016</div>
+        <div class="al-copy">&copy; <a href="http://akveo.com">Team TI</a> 2016</div>
         <ul class="al-share clearfix">
-          <li src="http://akveo.com"><i class="socicon socicon-facebook" href="http://akveo.com"></i></li>
-          <li><i><a class="socicon socicon-twitter"></a></i></li>
+          <li><i class="socicon socicon-facebook" href="http://akveo.com"></i></li>
+          <li src="http://akveo.com"><i class="socicon socicon-twitter" href="http://akveo.com"></i></li>
         </ul>
       </div>
     </footer>
