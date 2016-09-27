@@ -8,6 +8,7 @@ import { AccountHal } from '../account/components/Account';
 import { PaginatedList } from '../../shared/PaginatedList.component';
 import { DepartmentService } from '../department/components/department.service';
 import { DepartmentHal } from '../department/components/department';
+import { Hal } from '../../shared/Hal';
 
 //import {InlineForm} from '/../../components/inlineForm';
 //import {BlockForm} from './components/blockForm';
@@ -28,6 +29,7 @@ export class Layouts {
   error : any;
   departmenthal:DepartmentHal;
   accounthal : AccountHal;
+  _user: Hal;
   listdepartment : PaginatedList<DepartmentHal>;
    public form:FormGroup;
    public password:AbstractControl;
@@ -67,6 +69,7 @@ export class Layouts {
   ngOnInit() {
     this.userService.getUser().subscribe(response => { return this.profile.picture = 'assets/img/app/profile/' + response.username + '.png'}, error => {return "assets/img/theme/no-photo.png"} ).toString()
     this.getdepartments();
+    this.getUser();
   }
   getdepartments(){
    this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
@@ -75,6 +78,19 @@ export class Layouts {
    this.service.save(account).subscribe(response => {this.accounthal = response; alert("Cuenta Creada")},error => {this.error = error; alert(error.message)})
 
  }
+ getUser(){
+   this.userService.getUser().subscribe(response=>{this.accounthal=response},error => {this.error = error; alert(error.message)})
+ }
+
+ updatePassword(){
+   if(this.password.value == this.repeatPassword.value){
+     this.accounthal.password=this.password.value;
+     
+     this.service.changePassword(this.accounthal).subscribe(reponse=>{alert("Contraseña actualizada.");},error=>{this.error = error});
+
+   }
+ }
+
 
 public onSubmit(values:Object):void {
     this.submitted = true;

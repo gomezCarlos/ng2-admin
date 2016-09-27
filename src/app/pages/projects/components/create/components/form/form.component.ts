@@ -32,9 +32,27 @@ export class Form implements OnInit{
   save(project : ProjectHal){
     project.indicator=Number(project.indicator);
     project.department=Number(project.department);
- 	this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado"); this.router.navigate(['/pages/projects/view/' + this.projecthal.ids])},error => {this.error = error; alert(error.message)})
-
+    var projectStartDate = new Date(project.estimatedStartDate+"");
+    var projectEndDate = new Date(project.estimatedDateEnd+"");
+    var duration = projectEndDate.valueOf() - projectStartDate.valueOf();
+    
+    if(duration>0)
+ 	    this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado"); this.router.navigate(['/pages/projects/view/' + this.projecthal.ids])},error => {this.error = error; alert(error.message)})
+     else
+       alert("Fecha invalida.");
  }
+
+   validateDate(project : ProjectHal){
+    var success = false;
+    var projectStartDate = new Date(project.estimatedStartDate+"");
+    var projectEndDate = new Date(project.estimatedDateEnd+"");
+    var duration = projectEndDate.valueOf() - projectStartDate.valueOf();
+    if(duration>0){
+      success=true;
+    }
+
+     return success;
+   }
 
 
  ngOnInit(){
