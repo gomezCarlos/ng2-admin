@@ -6,7 +6,7 @@ import {BaCard} from '../../../../theme/components';
 //import {CondensedTable} from './components/condensedTable';
 //import {StripedTable} from './components/stripedTable';
 //import {ContextualTable} from './components/contextualTable';
-import {ResponsiveTable} from './components/simpleview';
+import {ResponsiveTable} from './components/simpleView/simpleview.component';
 import { PositionService } from '../position.service';
  
 @Component({
