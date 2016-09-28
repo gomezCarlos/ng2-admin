@@ -40,7 +40,7 @@ export class Login implements OnInit {
       // your code goes here
 	this.userService.login(this.email.value,this.password.value)
           .subscribe((result) =>{
-            alert(this.userService.isLoggedIn());
+            //alert(this.userService.isLoggedIn());
             if(result){
               this.router.navigate(['/pages/dashboard']);
             }

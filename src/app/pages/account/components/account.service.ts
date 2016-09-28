@@ -4,6 +4,7 @@ import {UserService} from '../../../shared/user.service';
 import {AccountHal} from './Account';
 import { Http } from '@angular/http';
 import {API_URL} from '../../../shared/api_url';
+import { Observable } from 'rxjs/Observable';
 @Component({
         providers:[UserService]
 })
@@ -13,5 +14,13 @@ export class AccountService extends Service<AccountHal>{
   constructor(http: Http, user: UserService){
 	super(http,user);
   }
+
+  //change password
+	changePassword(object: AccountHal): Observable<AccountHal>{
+		return this.getHttp()
+		  .put(this.urlBackend+"/changePassword",JSON.stringify(object),this.getOptions())
+		    .map(this.getData)
+		      .catch(this.getError);
+	}
 
 }
