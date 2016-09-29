@@ -7,7 +7,7 @@ import { ProjectHal } from '../../../Project';
 import { PaginatedList } from '../../../../../../shared/PaginatedList.component';
 import { ActivatedRoute, Router } from '@angular/router'
 import {AccountService} from '../../../../../account/components/account.service'
-import {AccountHal} from '../../../../../account/components/account'
+import {AccountHal} from '../../../../../account/components/Account'
 
 @Component({
   selector: 'simple-view',

@@ -9,7 +9,7 @@ import {IndicatorHal} from '../../../../../indicator/components/Indicator';
 import {IndicatorService} from '../../../../../indicator/components/indicator.service'
 import {DepartmentHal} from '../../../../../department/components/department';
 import {DepartmentService} from '../../../../../department/components/department.service'
-import {AccountHal} from '../../../../../account/components/account';
+import {AccountHal} from '../../../../../account/components/Account';
 import {AccountService} from '../../../../../account/components/account.service';
 
 @Component({

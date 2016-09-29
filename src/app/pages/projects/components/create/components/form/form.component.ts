@@ -9,7 +9,7 @@ import {DepartmentHal} from '../../../../../department/components/department';
 import {DepartmentService} from '../../../../../department/components/department.service'
 import {PaginatedList } from '../../../../../../shared/PaginatedList.component';
 import {AccountService} from '../../../../../account/components/account.service'
-import {AccountHal} from '../../../../../account/components/account'
+import {AccountHal} from '../../../../../account/components/Account'
 
 @Component({
   selector: 'form',
