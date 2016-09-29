@@ -7,9 +7,9 @@ export class AccountHal extends Hal {
 	password: string;
 	firstname: string;
 	lastname: string;
-	deparment: string;
-	charge: string;
-	organization: string;
+	department: number;
+	charge: number;
+	organization: number;
 	
 
 	constructor(){

@@ -75,6 +75,7 @@ export class Layouts {
    this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
  }
   save(account : AccountHal){
+    account.department = Number(this.accounthal.department);
    this.service.save(account).subscribe(response => {this.accounthal = response; alert("Cuenta Creada")},error => {this.error = error; alert(error.message)})
 
  }
