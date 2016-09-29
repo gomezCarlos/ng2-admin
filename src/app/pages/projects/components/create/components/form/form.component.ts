@@ -8,21 +8,24 @@ import {ProjectHal } from '../../../Project';
 import {DepartmentHal} from '../../../../../department/components/department';
 import {DepartmentService} from '../../../../../department/components/department.service'
 import {PaginatedList } from '../../../../../../shared/PaginatedList.component';
+import {AccountService} from '../../../../../account/components/account.service'
+import {AccountHal} from '../../../../../account/components/account'
 
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [ProjectService, IndicatorService,DepartmentService],
+  providers: [ProjectService, IndicatorService,DepartmentService,AccountService],
 })
 
 export class Form implements OnInit{
   listdepartment : PaginatedList<DepartmentHal>;  
   listindicator : PaginatedList<IndicatorHal>;
+  listaccount : PaginatedList<AccountHal>;
   error : any;
   projecthal:ProjectHal;
    param : any;
   
-	constructor( private service : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router: Router, private route : ActivatedRoute) {
+	constructor( private service : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router: Router, private route : ActivatedRoute, private accounts : AccountService) {
 		this.projecthal = new ProjectHal();
     
   }  
@@ -32,6 +35,7 @@ export class Form implements OnInit{
   save(project : ProjectHal){
     project.indicator=Number(project.indicator);
     project.department=Number(project.department);
+    project.owner=Number(project.owner);
     var projectStartDate = new Date(project.estimatedStartDate+"");
     var projectEndDate = new Date(project.estimatedDateEnd+"");
     var duration = projectEndDate.valueOf() - projectStartDate.valueOf();
@@ -67,6 +71,7 @@ export class Form implements OnInit{
   );
     this.getindicators();
     this.getdepartments();
+    this.getaccounts();
   }
 
  //OBTENER LISTA DE INDICADORES
@@ -77,7 +82,10 @@ export class Form implements OnInit{
  getdepartments(){
    this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
  }
-
+// OBTENER LISTA DE USUARIOS
+getaccounts(){
+   this.accounts.getPage(0).subscribe(response=>{this.listaccount=response},error => {this.error = error; alert(error.message)})
+ }
   delete(project : ProjectHal){
    this.service.delete(project).subscribe(response => {alert("Proyecto Eliminado")},error => {this.error = error; alert(error.message)})
 

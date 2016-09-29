@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
 import {BaCard} from '../../../../theme/components';
 //import {PieChartService} from './pieChart.service';
@@ -16,7 +16,7 @@ import './pieChart.loader.ts';
   template: require('./pieChart.html')
 })
 // TODO: move easypiechart to component
-export class PieChart {
+export class PieChart implements OnInit{
 
   public charts: Array<Object>;
   private _init = false;
@@ -24,17 +24,34 @@ export class PieChart {
   constructor(private _pieChartService: PieChartService) {
     this.charts = this._pieChartService.getDataOrgiginal();
 
+    
+  }
+
+  loadCharts(){
     this._pieChartService.getCharts().subscribe(response=>{
-      this.charts = response;
+      //this.charts = response;
+      
+      
+    },error=>{},()=>{
+      jQuery('.pie-charts .chart').each(function(index, chart) {
+      jQuery(chart).data('easyPieChart').update(50);
     });
+    });
+  }
+
+  ngOnInit(){
+    
+
   }
 
   ngAfterViewInit() {
     if (!this._init) {
       this._loadPieCharts();
+      
       this._updatePieCharts();
       this._init = true;
     }
+
   }
 
   private _loadPieCharts() {
@@ -58,6 +75,7 @@ export class PieChart {
   }
 
   private _updatePieCharts() {
+
     let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min };
 
     jQuery('.pie-charts .chart').each(function(index, chart) {

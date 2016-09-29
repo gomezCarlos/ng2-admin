@@ -9,20 +9,23 @@ import {IndicatorHal} from '../../../../../indicator/components/Indicator';
 import {IndicatorService} from '../../../../../indicator/components/indicator.service'
 import {DepartmentHal} from '../../../../../department/components/department';
 import {DepartmentService} from '../../../../../department/components/department.service'
+import {AccountHal} from '../../../../../account/components/account';
+import {AccountService} from '../../../../../account/components/account.service';
 
 @Component({
   selector: 'form',
   template: require('./form.html'),
-  providers: [PhaseService,ProjectService,IndicatorService,DepartmentService]  
+  providers: [PhaseService,ProjectService,IndicatorService,DepartmentService, AccountService]  
 })
 
 export class Form  implements OnInit{
   listdepartment : PaginatedList<DepartmentHal>;
   listproject : PaginatedList<ProjectHal>;
   listindicator : PaginatedList<IndicatorHal>;
+  listaccount : PaginatedList<AccountHal>;
   error : any;
   phasehal:PhaseHal;
-	constructor( private service : PhaseService, private projects : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router : Router) {
+	constructor( private service : PhaseService, private projects : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router : Router, private accounts : AccountService) {
 		this.phasehal = new PhaseHal();
     
   }
@@ -33,6 +36,7 @@ export class Form  implements OnInit{
    phase.project=Number(phase.project);
    phase.department=Number(phase.department);
    phase.indicator=Number(phase.indicator);
+   phase.account=Number(phase.account);
  	this.service.save(phase).subscribe(response => {this.phasehal = response; alert("Fase Creada");this.router.navigate(['/pages/phase/view/' + this.phasehal.ids])},error => {this.error = error; alert(error.message)})
 
  }
@@ -42,6 +46,7 @@ export class Form  implements OnInit{
     this.getprojects();
     this.getindicators();
     this.getdepartments();
+    this.getaccounts();
   }
 
  //OBTENER LISTA DE PROYECTOS
@@ -56,6 +61,10 @@ export class Form  implements OnInit{
  //OBTENER LISTA DE PROYECTOS
  getdepartments(){
    this.departments.getPage(0).subscribe(response=>{this.listdepartment=response},error => {this.error = error; alert(error.message)})
+ }
+ //OBTENER LISTA DE USUARIOS
+ getaccounts(){
+   this.accounts.getPage(0).subscribe(response=>{this.listaccount=response},error => {this.error = error; alert(error.message)})
  }
  delete(phase : PhaseHal){
  	this.service.delete(phase).subscribe(response => {alert("Fase Eliminada")},error => {this.error = error; alert(error.message)})
