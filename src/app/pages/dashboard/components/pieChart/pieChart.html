@@ -3,8 +3,9 @@
   <ba-card *ngFor="let chart of charts" class="pie-chart-item-container col-xlg-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
 
     <div class="pie-chart-item">
-      <div class="chart" [attr.data-rel]="chart.color" data-percent="60">
-        <span class="percent"></span>
+      <div class="chart" [attr.data-rel]="chart.color" data-percent="1">
+        <span class="percent">{{ chart.stats }}</span>
+
       </div>
       <div class="description">
         <div>{{ chart.description }}</div>
@@ -15,3 +16,4 @@
 
   </ba-card>
 </div>
+<button (click)="loadCharts()"></button>
