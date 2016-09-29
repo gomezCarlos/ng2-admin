@@ -16,7 +16,6 @@ export class CalendarService {
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
-      defaultDate: '2016-09-26',
       selectable: true,
       selectHelper: true,
       editable: true,

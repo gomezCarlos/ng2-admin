@@ -6,6 +6,7 @@ import {UserService} from '../../../../shared/user.service';
 import { ProjectService } from '../../../projects/components/project.service';
 import {PhaseService} from '../../../phase/components/phase.service';
 import {PhaseHal} from '../../../phase/components/Phase';
+import {TaskHal} from '../../../tasks/components/Task';
 import { PaginatedList } from '../../../../shared/PaginatedList.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import {ROUTER_DIRECTIVES} from '@angular/router';
@@ -21,36 +22,66 @@ export class TreeView implements OnInit{
   project : ProjectHal;
   phase : PhaseHal;
   phases : PaginatedList<PhaseHal>
+  tasks : PaginatedList<TaskHal>
+  projects: PaginatedList<ProjectHal>
+  task : TaskHal
   error : any;
 
   constructor(private projectService : ProjectService, private phaseService: PhaseService, private router : Router) {
   }
 
   GetProject(){
-    this.projectService.find(1).subscribe(response => this.project = response, error => this.error = error);
+    this.projectService.getAll().subscribe();
   }
-  GetPhase(){
-   this.projectService.getPhases(1).subscribe(response => this.phases = response, error => this.error = error);
+  GetPhase(id : number){
+   this.projectService.getPhases(id).subscribe(response => this.phases = response, error => this.error = error);
+  }
+  GetTask(id : number){
+    this.phaseService.getTasks(id).subscribe(response => this.tasks = response, error => this.error = error);
   }
 
   ngOnInit(){
    this.GetProject();
 
-   this.GetPhase();
+   this.GetPhase(1);
+   this.GetTask(0);
   }
   Converter(){
     let phase : Array<TreeModel> = new Array<TreeModel>() ; 
     for (let i of this.phases._embedded.phases) {
-     let tree = { value: i.name}
+     let tree = { value : i.name}
      phase.push(tree);
      }
 
     return phase;
   }
+  Convertertask(){
+    let task : Array<TreeModel> = new Array<TreeModel>() ; 
+    for (let i of this.tasks._embedded.tasks) {
+     let tree = { value: i.name}
+     task.push(tree);
+     }
+
+    return task;
+
+  }  Converterproject(){
+    let project : Array<TreeModel> = new Array<TreeModel>() ; 
+    for (let i of this.projects._embedded.projects) {
+     let tree = { value: i.name}
+     project.push(tree);
+     }
+
+    return project;
+
+  }
 
   GenerateTree():TreeModel{
     let tree: TreeModel; 
-    tree = { value : this.project.name, children : this.Converter()}
+    tree = { value : this.Converterproject, children : this.Converterproject()
+
+        
+      
+    }
   return tree;
   }
   private logEvent(e: NodeEvent): void {
