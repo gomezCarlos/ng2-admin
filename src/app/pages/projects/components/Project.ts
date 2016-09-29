@@ -10,6 +10,8 @@ export class ProjectHal extends Hal {
   department : number;  
   departmentName : string;
   value : string;
+  owner : number;
+  username : string;
 
 	constructor(){
 		super();

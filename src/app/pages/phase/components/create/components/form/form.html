@@ -34,7 +34,18 @@
         {{item.name}}
       </option>
     </select>
-  </div>  
+  </div>
+
+  <!-- LISTADO PAR8 SELECCIONAR USUARIOS -->
+    <div class="select" *ngIf = "listaccount">
+    <label for="input08">Usuario Responsable</label>
+    <select class="form-control" name="account" id="input08" placeholder="account" title="account" [(ngModel)]="phasehal.account" required="account" style="color:black">
+      <option *ngFor = "let item of listaccount._embedded?.accounts" value="{{ item.ids }}">
+        {{item.username}}
+      </option>
+    </select>
+  </div> 
+
   <!-- LISTADO PARA SELECCIONAR INDICADOR -->
   <div class="form-group" *ngIf = "listindicator">
     <label for="input05">Valor Estimado de Fase</label>
