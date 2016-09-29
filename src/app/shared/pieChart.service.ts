@@ -1,31 +1,24 @@
-import {Injectable} from '@angular/core';
-import {Component, ViewEncapsulation} from '@angular/core';
-import {BaThemeConfigProvider, colorHelper} from '../../../../theme';
+import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers, URLSearchParams } from '@angular/http';
-//import {HTTP_PROVIDERS} from '@angular/http';
+import {UserService} from './user.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
-import { UserService } from '../../../../shared/user.service';
 
-@Component({
-        providers:[UserService]
-})
 @Injectable()
 export class PieChartService {
   urlBackend: string;
 
-  //ADD Http Service in order to call REST endpoint
-  constructor(private _baConfig:BaThemeConfigProvider,  private http : Http, private userService: UserService) {
-  this.urlBackend="http://localhost:7890/api/v1/projects/chart"
+  constructor(private http : Http, private userService: UserService){
+    this.urlBackend="http://localhost:7890/api/v1/projects/chart"
   }
 
-  public getError(error: any) { return Observable.throw(error); }
+public getError(error: any) { return Observable.throw(error); }
 
   public getData(r: Response){ 
-    let pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
+    let pieColor = "rgba(255,255,255,0.8)";
     if(r != null) return r.json(); else return [
       {
         color: pieColor,
@@ -64,7 +57,7 @@ export class PieChartService {
   }
 
   getDataOrgiginal() {
-    let pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
+    let pieColor = "rgba(255,255,255,0.8)";
     return [
       {
         color: pieColor,

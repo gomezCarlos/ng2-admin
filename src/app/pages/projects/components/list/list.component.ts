@@ -7,7 +7,8 @@ import {BaCard} from '../../../../theme/components';
 //import {StripedTable} from './components/stripedTable';
 //import {ContextualTable} from './components/contextualTable';
 import {ResponsiveTable} from './components/responsiveTable';
-import { ProjectService } from '../project.service'; 
+import { ProjectService } from '../project.service';
+
 //MOISES
 @Component({
   selector: 'basic-tables',

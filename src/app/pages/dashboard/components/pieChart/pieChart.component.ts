@@ -1,7 +1,9 @@
 import {Component, ViewEncapsulation} from '@angular/core';
-
+import {HTTP_PROVIDERS} from '@angular/http';
 import {BaCard} from '../../../../theme/components';
-import {PieChartService} from './pieChart.service';
+//import {PieChartService} from './pieChart.service';
+import {PieChartService} from '../../../../shared/pieChart.service';
+import { UserService } from '../../../../shared/user.service';
 
 import './pieChart.loader.ts';
 
@@ -9,7 +11,7 @@ import './pieChart.loader.ts';
   selector: 'pie-chart',
   encapsulation: ViewEncapsulation.None,
   directives: [BaCard],
-  providers: [PieChartService],
+  providers: [PieChartService,HTTP_PROVIDERS,UserService],
   styles: [require('./pieChart.scss')],
   template: require('./pieChart.html')
 })
@@ -20,7 +22,11 @@ export class PieChart {
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
-    this.charts = this._pieChartService.getData();
+    this.charts = this._pieChartService.getDataOrgiginal();
+
+    this._pieChartService.getCharts().subscribe(response=>{
+      this.charts = response;
+    });
   }
 
   ngAfterViewInit() {
