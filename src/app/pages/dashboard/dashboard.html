@@ -8,13 +8,14 @@
 <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20"
                title="Proyectos" baCardClass="medium-card">
                <div class="row">
-                <table class="table table-responsive" *ngIf="projects">
+                <table class="table table-responsive" *ngIf="projects" style="width: 100%">
     <thead>
     <tr>
       <th class="table-id">Nro.</th>
       <th>Proyecto</th>
-      <th>Descripcion</th>
-      <th>Progreso</th>  
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;Descripcion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Progreso De Proyecto</th>
+      <th>Porcentaje</th>  
     </tr>
     </thead>
     <tbody >
@@ -22,14 +23,11 @@
       <td class="table-id">{{ item.ids }}</td>
       <td><a class="learn-more" [routerLink]="['/pages/projects/view/' + item.ids]">{{ item.name }} </a></td> 
       <td>{{ item.description }}</td>
-      <!--<div class="progress">
-         <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;" >45%
-        </div>
-      </div>-->
+      <td><progress class="progress progress-striped active" value="{{item.advance}}" max="100" aria-describedby="example-caption-6">{{item.advance}}
+</progress></td>
+<td>{{item.advance}} %</td>
 
-
-        <progress class="progress progress-striped active" value="{{item.advance}}" max="100" aria-describedby="example-caption-6">{{item.advance}}
-</progress>        
+       
 
     </tr>
     </tbody>
@@ -47,14 +45,14 @@
   <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20"
                title="Tareas" baCardClass="medium-card">
                <div class="row">
-                <table class="table table-responsive" *ngIf="tasks">
+                <table class="table table-responsive" *ngIf="tasks" style="width: 100%">
     <thead>
     <tr>
       <th class="table-id">Nro.</th>      
       <th>Tareas</th>
       <th>Descripcion</th>  
-      <!--<th>Fase</th>-->
       <th>Progreso de tareas</th>
+      <th>Porcentaje</th> 
 
     </tr>
     </thead>
@@ -63,24 +61,9 @@
       <td class="table-id">{{ item.ids }}</td>
       <td><a class="learn-more" [routerLink]="['/pages/tasks/view/' + item.ids]">{{ item.name }} </a></td> 
       <td>{{ item.description }}</td>
-     <!-- <td>{{ item.phaseName }}</td>-->
-      <!--<div class="progress">
-         <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 75%;" >75%
-        </div>
-      </div>-->
-       <div class="progress">         
-        <svg width="150" height="15">
-        <text x=80 y=12 fill= "#FFFFFF">45%</text>
-           <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:rgb(179,0,62);stop-opacity:1" />
-            <stop offset="75%" style="stop-color:rgb(0, 152, 179);stop-opacity:1" />
-            <stop offset="10%" style="stop-color:rgb(0,182,26);stop-opacity:1" />
-            </linearGradient>
-          </defs>
-       <rect width="150" height="15" fill="url(#grad1)" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"  />         
-      </svg>      
-      </div>
+     <td><progress class="progress progress-striped active" value="{{item.advance}}" max="100" aria-describedby="example-caption-6">{{item.advance}}
+</progress></td>
+<td>{{item.advance}} %</td>
     </tr>
     </tbody>
   </table>

@@ -17,7 +17,7 @@ import {AppState} from '../app.state';
       </div>
     </div>
     <footer class="al-footer clearfix">
-      <div class="al-footer-right"><img src="assets/img/slogananca.jpg"></div>
+      <div class="al-footer-right"><img src="http://anca.org.ve/img/slogan-01.png"></div>
       <div class="al-footer-main clearfix">
         <div class="al-copy">&copy; <a href="http://akveo.com">Team TI</a> 2016</div>
         <ul class="al-share clearfix">
