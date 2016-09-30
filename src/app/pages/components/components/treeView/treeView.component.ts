@@ -49,40 +49,10 @@ export class TreeView implements OnInit{
   }
 
   ngOnInit(){
-   this.GetProject();
-
-   this.GetPhase(1);
-   this.GetTask(0);
+   
    this.getTree();
   }
-  Converter(){
-    let phase : Array<TreeModel> = new Array<TreeModel>() ; 
-    for (let i of this.phases._embedded.phases) {
-     let tree = { value : i.name}
-     phase.push(tree);
-     }
-
-    return phase;
-  }
-  Convertertask(){
-    let task : Array<TreeModel> = new Array<TreeModel>() ; 
-    for (let i of this.tasks._embedded.tasks) {
-     let tree = { value: i.name}
-     task.push(tree);
-     }
-
-    return task;
-
-  }  Converterproject(){
-    let project : Array<TreeModel> = new Array<TreeModel>() ; 
-    for (let i of this.projects._embedded.projects) {
-     let tree = { value: i.name}
-     project.push(tree);
-     }
-
-    return project;
-
-  }
+  
 
   GenerateTree():TreeModel{
     let tree: TreeModel;
