@@ -6,13 +6,14 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
+import { API_URL } from './api_url';
 
 @Injectable()
 export class PieChartService {
   urlBackend: string;
 
   constructor(private http : Http, private userService: UserService){
-    this.urlBackend="http://localhost:7890/api/v1/projects/chart"
+    this.urlBackend=API_URL+"projects/";
   }
 
 public getError(error: any) { return Observable.throw(error); }
@@ -49,11 +50,23 @@ public getError(error: any) { return Observable.throw(error); }
                   'Access-Control-Allow-Origin': '*', 
                   'X-Auth-Token': this.userService.getToken().toString() });
     let requestOptions = new RequestOptions({ headers: headers, search: params });
-          return this.http.get(this.urlBackend,requestOptions)
+          return this.http.get(this.urlBackend+"chart",requestOptions)
                         .map(this.getData)
                         .catch(this.getError)
                         ;
 
+  }
+
+  getTree(): Observable<Tree>{
+                let params = new URLSearchParams();
+                let headers = new Headers({ 'Content-Type': 'application/json', 
+                  'Access-Control-Allow-Origin': '*', 
+                  'X-Auth-Token': this.userService.getToken().toString() });
+    let requestOptions = new RequestOptions({ headers: headers, search: params });
+    return this.http.get(this.urlBackend+"tree",requestOptions)
+                        .map(this.getData)
+                        .catch(this.getError)
+                        ;
   }
 
   getDataOrgiginal() {
@@ -89,4 +102,9 @@ export class Chart{
         description: string;
         stats: string;
         icon: string;
+}
+
+export class Tree{
+  value: string;
+  children: Array<Tree>;
 }

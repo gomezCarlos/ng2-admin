@@ -8,6 +8,8 @@ import {PhaseService} from '../../../phase/components/phase.service';
 import {PhaseHal} from '../../../phase/components/Phase';
 import {TaskHal} from '../../../tasks/components/Task';
 import { PaginatedList } from '../../../../shared/PaginatedList.component';
+import { PieChartService } from '../../../../shared/pieChart.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
@@ -15,7 +17,7 @@ import {ROUTER_DIRECTIVES} from '@angular/router';
   selector: 'tree-view',
   directives: [BranchyComponent, BaCard],
   template: require('./treeView.html'),
-providers:[UserService, ProjectService, PhaseService]
+providers:[UserService, ProjectService, PhaseService, PieChartService]
 })
 
 export class TreeView implements OnInit{
@@ -26,13 +28,19 @@ export class TreeView implements OnInit{
   projects: PaginatedList<ProjectHal>
   task : TaskHal
   error : any;
-
-  constructor(private projectService : ProjectService, private phaseService: PhaseService, private router : Router) {
+  constructor(private projectService : ProjectService, private phaseService: PhaseService, private pieChartService: PieChartService, private router : Router) {
   }
+
+  
 
   GetProject(){
     this.projectService.getAll().subscribe();
   }
+
+  getTree(){
+    this.pieChartService.getTree().subscribe(response => this.tree = response, error => this.error = error);
+  }
+
   GetPhase(id : number){
    this.projectService.getPhases(id).subscribe(response => this.phases = response, error => this.error = error);
   }
@@ -45,6 +53,7 @@ export class TreeView implements OnInit{
 
    this.GetPhase(1);
    this.GetTask(0);
+   this.getTree();
   }
   Converter(){
     let phase : Array<TreeModel> = new Array<TreeModel>() ; 
@@ -76,22 +85,31 @@ export class TreeView implements OnInit{
   }
 
   GenerateTree():TreeModel{
-    let tree: TreeModel; 
-    tree = { value : this.Converterproject, children : this.Converterproject()
+    let tree: TreeModel;
 
-        
-      
-    }
+    //tree = { value : this.Converterproject, children : this.Converterproject()  
+    //}
+    this.getTree();
+
   return tree;
   }
   private logEvent(e: NodeEvent): void {
-    this.router.navigate(['/pages/projects/view/' + this.project.ids])
+    console.log(e.node.id);
+    if(e.node.type =="project")
+      this.router.navigate(['/pages/projects/view/'+e.node.id]);
+    if(e.node.type =="phase")
+      this.router.navigate(['/pages/phase/view/'+e.node.id]);
+    if(e.node.type =="task")
+      this.router.navigate(['/pages/tasks/view/'+e.node.id]);
+    if(e.node.type =="job")
+      this.router.navigate(['/pages/jobs/view/'+e.node.id]);
   }
   
   plainValueChanged(event, container:any){
     var el = this.getElement(container);
     el.innerText = event.startValue;
   }
+
 getElement(data){
   if(typeof(data)=='string') {
     return document.getElementById(data);
