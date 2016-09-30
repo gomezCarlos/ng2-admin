@@ -19,6 +19,7 @@ import './pieChart.loader.ts';
 export class PieChart implements OnInit{
 
   public charts: Array<Object>;
+  public chartsRest: Array<Object>;
   private _init = false;
 
   constructor(private _pieChartService: PieChartService) {
@@ -29,13 +30,22 @@ export class PieChart implements OnInit{
 
   loadCharts(){
     this._pieChartService.getCharts().subscribe(response=>{
-      //this.charts = response;
-      
+      this.chartsRest = response;
+      let i =0;
+      let value=0;
+      for(let chart of this.chartsRest){
+        this.charts[i].stats= chart.stats;
+        value = Number(chart.stats);
+        this.charts[i].description= chart.description;
+        jQuery('.pie-charts .chart').each(function(index, chart) {
+          if(index==i)
+        jQuery(chart).data('easyPieChart').update(value);
+        });
+        i++;
+      }
       
     },error=>{},()=>{
-      jQuery('.pie-charts .chart').each(function(index, chart) {
-      jQuery(chart).data('easyPieChart').update(50);
-    });
+      
     });
   }
 
@@ -48,7 +58,8 @@ export class PieChart implements OnInit{
     if (!this._init) {
       this._loadPieCharts();
       
-      this._updatePieCharts();
+      //this._updatePieCharts();
+      this.loadCharts();
       this._init = true;
     }
 
@@ -79,7 +90,7 @@ export class PieChart implements OnInit{
     let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min };
 
     jQuery('.pie-charts .chart').each(function(index, chart) {
-      jQuery(chart).data('easyPieChart').update(getRandomArbitrary(55, 90));
+      jQuery(chart).data('easyPieChart').update(1);
     });
   }
 }

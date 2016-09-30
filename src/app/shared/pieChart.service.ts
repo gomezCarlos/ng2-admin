@@ -74,23 +74,23 @@ public getError(error: any) { return Observable.throw(error); }
     return [
       {
         color: pieColor,
-        description: 'New Visits',
-        stats: '57,820',
+        description: 'Project',
+        stats: '0,0',
         icon: 'person',
       }, {
         color: pieColor,
-        description: 'Purchases',
-        stats: '$ 89,745',
+        description: 'Project',
+        stats: '$ 0,0',
         icon: 'money',
       }, {
         color: pieColor,
-        description: 'Active Users',
-        stats: '178,391',
+        description: 'Project',
+        stats: '0,0',
         icon: 'face',
       }, {
         color: pieColor,
-        description: 'Returned',
-        stats: '32,592',
+        description: 'Project',
+        stats: '0,0',
         icon: 'refresh',
       }
     ];
