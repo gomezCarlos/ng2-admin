@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProjectService} from '../../../../../projects/components/project.service';
-import {Router, ROUTER_DIRECTIVES} from '@angular/router';
+import {Router,ROUTER_DIRECTIVES, ActivatedRoute} from '@angular/router';
 import {ProjectHal} from '../../../../../projects/components/Project';
 import { PhaseService } from '../../../phase.service';
 import { PhaseHal } from '../../../Phase';
@@ -19,13 +19,14 @@ import {AccountService} from '../../../../../account/components/account.service'
 })
 
 export class Form  implements OnInit{
+   param : any;
   listdepartment : PaginatedList<DepartmentHal>;
   listproject : PaginatedList<ProjectHal>;
   listindicator : PaginatedList<IndicatorHal>;
   listaccount : PaginatedList<AccountHal>;
   error : any;
   phasehal:PhaseHal;
-	constructor( private service : PhaseService, private projects : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router : Router, private accounts : AccountService) {
+	constructor( private service : PhaseService, private route : ActivatedRoute, private projects : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router : Router, private accounts : AccountService) {
 		this.phasehal = new PhaseHal();
     
   }
@@ -42,7 +43,15 @@ export class Form  implements OnInit{
  }
 
 
- ngOnInit(){
+ ngOnInit(){    this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
+    if(id){
+      this.service.find(id).subscribe(phase => this.phasehal = phase, error => this.error = error);
+    }
+    else{
+      this.phasehal = new PhaseHal();
+    }
+    }  
+  )
     this.getprojects();
     this.getindicators();
     this.getdepartments();

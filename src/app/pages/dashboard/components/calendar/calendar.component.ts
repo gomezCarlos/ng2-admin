@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 
 import {BaFullCalendar} from '../../../../theme/components';
-import {CalendarService} from './calendar.service';
+import {CalendarService} from '../../../../shared/calendar.service';
 
 
 @Component({

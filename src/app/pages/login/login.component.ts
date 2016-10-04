@@ -18,6 +18,7 @@ export class Login implements OnInit {
   public email:AbstractControl;
   public password:AbstractControl;
   public submitted:boolean = false;
+  public error : any;
 
   constructor(fb:FormBuilder, private userService: UserService, private router: Router) {
     this.form = fb.group({
@@ -44,7 +45,8 @@ export class Login implements OnInit {
             if(result){
               this.router.navigate(['/pages/dashboard']);
             }
-          });
+
+          },error=>{this.error = error; console.log(error); alert("Cuenta Invalida")} );
       // console.log(values);
     }
   }

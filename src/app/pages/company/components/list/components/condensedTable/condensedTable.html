@@ -24,19 +24,6 @@
       <td class="table-id">{{ item.ids }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.description }}</td>            
-      <div class="progress">         
-        <svg width="95" height="15">
-        <text x=70 y=12 fill= "#FFFFFF">55%</text>
-           <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:rgb(179,0,62);stop-opacity:1" />
-            <stop offset="75%" style="stop-color:rgb(0, 152, 179);stop-opacity:1" />
-            <stop offset="35%" style="stop-color:rgb(0,182,26);stop-opacity:1" />
-            </linearGradient>
-          </defs>
-       <rect width="120" height="15" fill="url(#grad1)" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"  />         
-      </svg>      
-      </div>
       <td>
         <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>
       </td>
