@@ -23,8 +23,13 @@ export class Form  implements OnInit{
   listproject : PaginatedList<ProjectHal>;
   listindicator : PaginatedList<IndicatorHal>;
   listaccount : PaginatedList<AccountHal>;
+  min_start  = "1970/12/30";
+  max_start = "1970/12/30";
+  min_end = "1970/12/31";
+  max_end = "1970/12/31";
   error : any;
   phasehal:PhaseHal;
+  projectArray:any;
 	constructor( private service : PhaseService, private projects : ProjectService, private indicators : IndicatorService,private departments : DepartmentService, private router : Router, private accounts : AccountService) {
 		this.phasehal = new PhaseHal();
     
@@ -49,9 +54,21 @@ export class Form  implements OnInit{
     this.getaccounts();
   }
 
+  changeProject(value: any){
+    for (var project in this.projectArray) {
+      console.log(project.ids);
+      if(project.ids == value){
+        this.min_start = project.estimatedStartDate;
+        this.max_start = project.estimatedDateEnd;
+        this.min_end = project.estimatedStartDate;
+        this.max_end = project.estimatedDateEnd;
+      }
+    }
+  }
+
  //OBTENER LISTA DE PROYECTOS
  getprojects(){
-   this.projects.getPage(0).subscribe(response=>{this.listproject=response},error => {this.error = error; alert(error.message)})
+   this.projects.getPage(0).subscribe(response=>{this.listproject=response; this.projectArray = response._embedded.projects; },error => {this.error = error; alert(error.message)})
  }
 
  //OBTENER LISTA DE INDICADORES

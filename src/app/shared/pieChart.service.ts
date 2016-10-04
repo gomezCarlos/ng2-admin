@@ -105,6 +105,7 @@ export class Chart{
 }
 
 export class Tree{
+  id: number;
   value: string;
   children: Array<Tree>;
 }
