@@ -172,6 +172,13 @@ export const PagesRoutes:RouterConfig = [
 
             }
           },
+          {
+            path: 'update/:id',
+            component: CreatePhase,
+            data: {
+             
+            }
+          }
           
         ]
       },
@@ -265,7 +272,7 @@ export const PagesRoutes:RouterConfig = [
           },
           {
             path: 'update/:id',
-            component: CreateTask,
+            component: CreateJob,
             data: {
              
             }

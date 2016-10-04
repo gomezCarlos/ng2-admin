@@ -35,7 +35,7 @@
             </tr>
             </tbody>
           </table>
-              <button type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/phase/list/']">Actualizar</button>
+             <button *ngIf="phase" type="button" class="btn btn-warning btn-mm" [routerLink]="['/pages/phase/update/' + phase.ids]">Actualizar</button>
               <button type="button" class="btn btn-danger btn-mm" (click)="delete(phase)">Borrar</button>
 
               <button type="button" class="btn btn-info btn-mm" [routerLink]="['/pages/phase/list/']">Listar</button>

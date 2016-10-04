@@ -6,10 +6,10 @@
       <th>Proyecto</th>
       <th>Descripcion</th>  
       <th>Indicador</th>
-      <th>Valor</th> 
       <th>Departamento Responsable</th>
       <th>Usuario</th>         
       <th>Estatus</th>
+      <th>Porcentaje</th> 
       <th>Acción</th>
     </tr>
     </thead>
@@ -19,22 +19,11 @@
       <td><a class="learn-more" [routerLink]="['/pages/projects/view/' + item.ids]">{{ item.name }}</a></td>
       <td>{{ item.description }}</td>
       <td>{{ item.indicatorName }}</td>
-      <td>{{ item.value }}</td>
       <td>{{ item.departmentName }}</td>
       <td>{{ item.username }}</td>
-      <div class="progress">         
-        <svg width="90" height="15">
-        <text x=60 y=12 fill= "#FFFFFF">47%</text>
-           <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:rgb(179,0,62);stop-opacity:1" />
-            <stop offset="75%" style="stop-color:rgb(0, 152, 179);stop-opacity:1" />
-            <stop offset="15%" style="stop-color:rgb(0,182,26);stop-opacity:1" />
-            </linearGradient>
-          </defs>
-       <rect width="120" height="15" fill="url(#grad1)" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"  />         
-      </svg>      
-      </div> 
+<progress class="progress progress-striped active" value="{{item.advance}}" max="100" aria-describedby="example-caption-6">{{item.advance}}
+</progress>
+      <td>{{ item.value }}</td>
      <td>
         <button ngClass="{status-button btn btn-xs btn-warning" (click)="delete(item)" >Borrar</button>
       </td>
