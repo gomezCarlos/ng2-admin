@@ -19,12 +19,22 @@ export class Calendar {
   private _calendar:Object;
 
   constructor(private _calendarService:CalendarService) {
-    this.calendarConfiguration = this._calendarService.getData();
+    this.calendarConfiguration = this._calendarService.getDataOriginal();
     this.calendarConfiguration.select = (start, end) => this._onSelect(start, end);
+  }
+
+loadEvents(){
+    this._calendarService.getEvents().subscribe(response=>{
+      this._calendar.events = response;
+      
+    },error=>{},()=>{
+      
+    });
   }
 
   public onCalendarReady(calendar):void {
     this._calendar = calendar;
+    //this.loadEvents();
   }
 
   private _onSelect(start, end):void {
