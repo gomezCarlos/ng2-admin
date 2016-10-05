@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row vertical-scroll">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <pie-chart></pie-chart>
   </div>
@@ -7,8 +7,8 @@
 <div class="row">
 <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20"
                title="Proyectos" baCardClass="medium-card">
-               <div class="row">
-                <table class="table table-responsive" *ngIf="projects" style="width: 100%">
+               <div class="row vertical-scroll">
+                <table class="table" *ngIf="projects" style="width: 100%">
     <thead>
     <tr>
       <th class="table-id">Nro.</th>
@@ -36,16 +36,20 @@
                <button type="button" class="btn btn-success btn-with-icon" (click)="getPage()"><i class="ion-android-checkmark-circle"></i>Ver Proyectos
     </button>
     </div>
+
 </ba-card>
+
+
+
   <div class="row">
 
 
   
 <!--LLAMADA A TASK-->
-  <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20"
-               title="Tareas" baCardClass="medium-card">
-               <div class="row">
-                <table class="table table-responsive" *ngIf="tasks" style="width: 100%">
+  <ba-card class="col-xlg-6 col-xl-6 col-lg-6 col-md-6 col-sm-20 col-xs-20 vertical-scroll"
+               title="Tareas" baCardClass="medium-card ">
+               <div class="row vertical-scroll">
+                <table class="table table-striped" *ngIf="tasks" style="width: 100%">
     <thead>
     <tr>
       <th class="table-id">Nro.</th>      
@@ -86,3 +90,4 @@
   </ba-card>
 
 </div>
+
