@@ -13,6 +13,8 @@ export class PhaseHal extends Hal {
     department : number;
     departmentName : string;
     value : string;
+    advance : number; 
+    percentage : number;
 
 	constructor(){
 		super();
