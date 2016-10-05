@@ -19,7 +19,7 @@ export class PieChartService {
 
   //ADD Http Service in order to call REST endpoint
   constructor(private _baConfig:BaThemeConfigProvider,  private http : Http, private userService: UserService) {
-  this.urlBackend="http://193.1.3.20:7890/api/v1/projects/chart"
+  this.urlBackend="http://localhost:7890/api/v1/projects/chart"
   }
 
   public getError(error: any) { return Observable.throw(error); }

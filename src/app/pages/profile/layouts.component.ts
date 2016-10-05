@@ -42,7 +42,7 @@ export class Layouts {
     picture: 'assets/img/app/profile/undefined.png' 
       };
   public uploaderOptions:any = {
-    url: 'http://193.1.3.20:7890/upload',
+    url: 'http://localhost:7890/upload',
     customHeaders: {
       'Access-Control-Allow-Origin': '*',
       'X-Auth-Token': this.userService.getToken().toString(),

@@ -63,6 +63,8 @@ import {CreatePosition} from './position/components/create/create.component';
 import {ViewPosition} from './position/components/view/view.component';
 import {ListPosition} from './position/components/list/list.component';
 import {Position} from './position/position.component';
+import {QuickTask} from './quicktasks/quicktask.component';
+import {CreateQuickTask} from './quicktasks/components/create/create.component';
 //test
 
 //noinspection TypeScriptValidateTypes
@@ -872,6 +874,30 @@ export const PagesRoutes:RouterConfig = [
           },
 
         ]
+      },
+
+      //QuickTasks
+      {
+        path: 'quicktasks',
+        component: QuickTask,
+        data: {
+          menu: {
+            title: 'Tareas Rapidas',
+            icon: 'ion-ios-list-outline',
+            selected: false,
+            expanded: false,
+            order: 54,
+          }
+        },
+        children: [
+          {
+            path: 'create',
+            component: CreateQuickTask,
+            data: {
+              menu: {
+                title: 'Crear Tarea',
+           }
+          }
       },
       
       
