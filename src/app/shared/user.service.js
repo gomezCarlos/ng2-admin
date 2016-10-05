@@ -19,7 +19,7 @@ var UserService = (function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('http://193.1.3.20:7890/api/v1/auth', JSON.stringify({ username: username, password: password }), { headers: headers })
+            .post('http://localhost:7890/api/v1/auth', JSON.stringify({ username: username, password: password }), { headers: headers })
             .map(function (res) { return res.json(); })
             .map(function (res) {
             if (res.token) {
@@ -47,7 +47,7 @@ var UserService = (function () {
             'X-Auth-Token': this.getToken().toString()
         });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.get('http://193.1.3.20:7890/api/v1/accounts/current', options).map(function (res) { return res.json(); });
+        return this.http.get('http://localhost:7890/api/v1/accounts/current', options).map(function (res) { return res.json(); });
     };
     UserService.prototype.isLoggedIn = function () {
         return this.loggedIn;

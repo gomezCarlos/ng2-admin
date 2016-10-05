@@ -15,7 +15,7 @@ export class UserService {
     headers.append('Content-Type','application/json');
 
     return this.http
-      .post('http://193.1.3.20:7890/api/v1/auth',
+      .post('http://localhost:7890/api/v1/auth',
       JSON.stringify({username,password}),
       {headers})
       .map(res => res.json())
@@ -48,7 +48,7 @@ export class UserService {
       'X-Auth-Token': this.getToken().toString(),
     })
     let options = new RequestOptions({headers: headers})
-    return this.http.get('http://193.1.3.20:7890/api/v1/accounts/current',options).map(res => res.json())
+    return this.http.get('http://localhost:7890/api/v1/accounts/current',options).map(res => res.json())
   }
 
   isLoggedIn(){
