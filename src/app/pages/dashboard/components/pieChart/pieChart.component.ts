@@ -35,6 +35,7 @@ export class PieChart implements OnInit{
       let value=0;
       for(let chart of this.chartsRest){
         this.charts[i].stats= chart.stats;
+        this.charts[i].id= chart.id;
         value = Number(chart.stats);
         this.charts[i].description= chart.description;
         jQuery('.pie-charts .chart').each(function(index, chart) {

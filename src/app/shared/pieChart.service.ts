@@ -77,21 +77,25 @@ public getError(error: any) { return Observable.throw(error); }
         description: 'Project',
         stats: '0,0',
         icon: 'person',
+        id: 0
       }, {
         color: pieColor,
         description: 'Project',
         stats: '$ 0,0',
         icon: 'money',
+        id: 0
       }, {
         color: pieColor,
         description: 'Project',
         stats: '0,0',
         icon: 'face',
+        id: 0
       }, {
         color: pieColor,
         description: 'Project',
         stats: '0,0',
         icon: 'refresh',
+        id: 0
       }
     ];
   }
