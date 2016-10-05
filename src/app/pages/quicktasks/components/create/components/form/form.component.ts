@@ -3,7 +3,7 @@ import {PhaseService} from '../../../../../phase/components/phase.service';
 import {ProjectService} from '../../../../../projects/components/project.service';
 import {PhaseHal} from '../../../../../phase/components/Phase';
 import {ProjectHal} from '../../../../../projects/components/Project';
-import { QuickTaskService } from '../../../Quicktask.service';
+import { QuickTaskService } from '../../../quicktask.service';
 import { QuickTaskHal } from '../../../QuickTask';
 import {IndicatorHal} from '../../../../../indicator/components/Indicator';
 import {IndicatorService} from '../../../../../indicator/components/indicator.service';
