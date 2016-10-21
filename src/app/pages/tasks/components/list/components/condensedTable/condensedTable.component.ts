@@ -33,7 +33,11 @@ export class CondensedTable implements OnInit{
   }
 
   getPage(page : number){
-    this.service.getPage(0).subscribe(response => {this.tasks = response;},error => {this.error = error})
+    this.service.getPage(0).subscribe(response => {this.tasks = response;},error => {this.error = error;
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+    })
   }
 
   delete(task : TaskHal){

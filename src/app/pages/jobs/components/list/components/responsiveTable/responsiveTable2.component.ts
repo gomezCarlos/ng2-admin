@@ -9,7 +9,7 @@ import { Panel } from './panel';
 
 @Component({
   selector: 'responsive-table',
-  template: require('./responsiveTable.html'),
+  template: require('./responsiveTable2.html'),
   pipes: [BaAppPicturePipe],
   providers: [JobService, BasicTablesService, HTTP_PROVIDERS],
   directives: [Panel]
@@ -34,12 +34,7 @@ export class ResponsiveTable implements OnInit{
   }
 
   getPage(page : number){
-    this.service.getPage(page).subscribe(response => {this.jobs = response;},error => {this.error = error;
-         /* Manejo de errores */
-         if(error.status==403)error.statusText="Usuario no autorizado.";
-        /*END error */
-
-    })
+    this.service.getPage(page).subscribe(response => {this.jobs = response;},error => {this.error = error})
   }
 
   delete(job : JobHal){

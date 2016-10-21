@@ -29,6 +29,9 @@ export class ResponsiveTable implements OnInit{
     this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
     if(id){
       this.service.find(id).subscribe(phase => this.phase = phase, error => this.error = error);
+        /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
     }
     else{
       this.phase = new PhaseHal();
