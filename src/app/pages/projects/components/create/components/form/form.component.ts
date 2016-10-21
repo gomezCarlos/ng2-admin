@@ -41,7 +41,11 @@ export class Form implements OnInit{
     var duration = projectEndDate.valueOf() - projectStartDate.valueOf();
     
     if(duration>0)
- 	    this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado"); this.router.navigate(['/pages/projects/view/' + this.projecthal.ids])},error => {this.error = error; alert(error.message)})
+ 	    this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado"); this.router.navigate(['/pages/projects/view/' + this.projecthal.ids])},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
      else
        alert("Fecha invalida.");
  }

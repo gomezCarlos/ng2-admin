@@ -34,7 +34,7 @@ export class ResponsiveTable implements OnInit{
   }
 
   getPage(page : number){
-    this.service.getPage(page).subscribe(response => {this.projects = response;},error => {this.error = error})
+    this.service.getPage(page).subscribe(response => {this.projects = response;},error => {this.error = error; if(error.status == 403)error.statusText="Usuario no autorizado"; console.log(error)})
   }
 
   delete(project : ProjectHal){
