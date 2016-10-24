@@ -30,7 +30,11 @@ export class Form implements OnInit{
   }
  
   save(department : DepartmentHal){
- 	this.service.save(department).subscribe(response => {this.departmenthal = response; alert("Departamento Creado")},error => {this.error = error; alert(error.message)})
+ 	this.service.save(department).subscribe(response => {this.departmenthal = response; alert("Departamento Creado")},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
  ngOnInit(){
@@ -38,7 +42,11 @@ export class Form implements OnInit{
 
 
  delete(department : DepartmentHal){
- 	this.service.delete(department).subscribe(response => {alert("Departamento Eliminado")},error => {this.error = error; alert(error.message)})
+ 	this.service.delete(department).subscribe(response => {alert("Departamento Eliminado")},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
 }

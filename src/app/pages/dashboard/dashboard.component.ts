@@ -55,12 +55,20 @@ export class Dashboard implements OnInit {
   }
 
   getPage(){
-    this.service.getPage(0,5).subscribe(response => {this.projects = response;},error => {this.error = error;})
+    this.service.getPage(0,5).subscribe(response => {this.projects = response;},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
     //this.service.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})    
   }
 
   getTasks(){
-    this.taskService.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})
+    this.taskService.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
   }
 
   delete(project : ProjectHal,task : TaskHal){
@@ -74,7 +82,11 @@ export class Dashboard implements OnInit {
  
 /*
   getPagetask(){
-    this.service.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error;})
+    this.service.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
   }
 */
  

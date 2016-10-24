@@ -34,12 +34,11 @@ export class ResponsiveTable implements OnInit{
   }
 
   getPage(page : number){
-    this.service.getPage(page).subscribe(response => {this.jobs = response;},error => {this.error = error;
+    this.service.getPage(page).subscribe(response => {this.jobs = response;},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
         /*END error */
-
-    })
+        })
   }
 
   delete(job : JobHal){

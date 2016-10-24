@@ -29,7 +29,11 @@ export class ResponsiveTable implements OnInit{
   ngOnInit(){
   	this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
     if(id){
-      this.service.find(id).subscribe(indicator => this.indicator = indicator, error => this.error = error);
+      this.service.find(id).subscribe(indicator => this.indicator = indicator, error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        });
     }
     else{
       this.indicator = new IndicatorHal();

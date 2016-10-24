@@ -21,7 +21,11 @@ export class Form implements OnInit{
   }
  
   save(indicator : IndicatorHal){
- 	this.service.save(indicator).subscribe(response => {this.indicatorhal = response; alert("indicador Creado")},error => {this.error = error; alert(error.message)})
+ 	this.service.save(indicator).subscribe(response => {this.indicatorhal = response; alert("indicador Creado")},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
  ngOnInit(){
@@ -30,12 +34,20 @@ export class Form implements OnInit{
 
  //OBTENER LISTA DE TAREAS
  gettasks(){
-   this.tasks.getPage(0).subscribe(response=>{this.listtask=response},error => {this.error = error; alert(error.message)})
+   this.tasks.getPage(0).subscribe(response=>{this.listtask=response},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
  }
 
 
  delete(indicator : IndicatorHal){
- 	this.service.delete(indicator).subscribe(response => {alert("Indicador Eliminado")},error => {this.error = error; alert(error.message)})
+ 	this.service.delete(indicator).subscribe(response => {alert("Indicador Eliminado")},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
 }

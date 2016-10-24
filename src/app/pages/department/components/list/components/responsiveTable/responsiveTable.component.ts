@@ -43,7 +43,11 @@ export class ResponsiveTable implements OnInit{
 
   getPage(page : number){
     this.isEmpty = false;
-    this.service.getPage(0).subscribe(response => {this.departments = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error})
+    this.service.getPage(0).subscribe(response => {this.departments = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
   }
 
   delete(department : DepartmentHal){

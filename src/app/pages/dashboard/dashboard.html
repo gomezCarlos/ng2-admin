@@ -1,3 +1,6 @@
+<!-- Manejo de errores-->
+<div *ngIf="error" class="alert alert-danger" role="alert">{{error.statusText}}</div>
+<!-- END error -->
 <div class="row vertical-scroll">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <pie-chart></pie-chart>

@@ -31,8 +31,11 @@ export class ResponsiveTable implements OnInit{
   ngOnInit(){
   	this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
     if(id){
-      this.service.find(id).subscribe(project => this.project = project, error => this.error = error;
-        if(error.status==403)error.statusText="Usuario no autorizado.";
+      this.service.find(id).subscribe(project => this.project = project, error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        }
       );
     }
     else{

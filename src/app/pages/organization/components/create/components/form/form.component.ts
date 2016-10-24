@@ -32,7 +32,11 @@ export class Form  implements OnInit{
 
  save(organization : OrganizationHal){
    organization.company=Number(organization.company);
- 	this.service.save(organization).subscribe(response => {this.organizationhal = response; alert("Organizacion Creada");this.router.navigate(['/pages/organization/view/' + this.organizationhal.ids])},error => {this.error = error; alert(error.message)})
+ 	this.service.save(organization).subscribe(response => {this.organizationhal = response; alert("Organizacion Creada");this.router.navigate(['/pages/organization/view/' + this.organizationhal.ids])},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
 
@@ -43,7 +47,11 @@ export class Form  implements OnInit{
 
  //OBTENER LISTA DE COMPAÑIAS
  getcompanies(){
-   this.companies.getPage(0).subscribe(response=>{this.listcompany = response},error => {this.error = error; alert(error.message)})
+   this.companies.getPage(0).subscribe(response=>{this.listcompany = response},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
  }
 
  delete(organization : OrganizationHal){
