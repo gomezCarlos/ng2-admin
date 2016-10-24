@@ -23,14 +23,19 @@ export class ResponsiveTable implements OnInit{
   Tasks :PaginatedList<TaskHal>;
 
 
-  constructor(private service : TaskService, private route : ActivatedRoute) {   
+  constructor(private service : TaskService, private route : ActivatedRoute, private router) {   
   }
   ngOnInit(){
   	this.param = this.route.params.subscribe(parameter=>{ let id = parameter['id'];
     if(id){
       this.service.find(id).subscribe(task => this.task = task, error => {this.error = error; 
         /* Manejo de errores */
+         if(error.status==401){
+           error.statusText="Usuario no autorizado.";
+           this.router.navigate(['login']);
+         }
          if(error.status==403)error.statusText="Usuario no autorizado.";
+
         /*END error */}
         );
          

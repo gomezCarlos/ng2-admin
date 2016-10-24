@@ -1,11 +1,8 @@
 import {Component, ViewEncapsulation, OnInit} from '@angular/core';
-
 import { ProjectService } from '../projects/components/project.service';
 import { ProjectHal } from '../projects/components/Project';
-
 import { TaskService } from '../tasks/components/task.service';
 import { TaskHal } from '../tasks/components/Task';
-
 import { PaginatedList } from '../../shared/PaginatedList.component';
 import {BasicTablesService} from '../projects/components/list/list.service';
 import {BasicTablesServicet} from '../tasks/components/list/list.service';
@@ -64,10 +61,9 @@ export class Dashboard implements OnInit {
   }
 
   getTasks(){
-    this.taskService.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error; 
-         /* Manejo de errores */
-         if(error.status==403)error.statusText="Usuario no autorizado.";
-        /*END error */
+    this.taskService.getPage(0,5).subscribe(response => {this.tasks = response;},error => {
+      this.error = error;
+      if(error.status==403)error.statusText="Usuario no autorizado.";
         })
   }
 
@@ -83,9 +79,7 @@ export class Dashboard implements OnInit {
 /*
   getPagetask(){
     this.service.getPage(0,5).subscribe(response => {this.tasks = response;},error => {this.error = error; 
-         /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
-        /*END error */
         })
   }
 */
