@@ -44,6 +44,7 @@ export class Form implements OnInit{
  	    this.service.save(project).subscribe(response => {this.projecthal = response; alert("Proyecto Creado"); this.router.navigate(['/pages/projects/view/' + this.projecthal.ids])},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
      else

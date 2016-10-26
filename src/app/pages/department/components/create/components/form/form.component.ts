@@ -33,6 +33,7 @@ export class Form implements OnInit{
  	this.service.save(department).subscribe(response => {this.departmenthal = response; alert("Departamento Creado")},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 
@@ -45,6 +46,7 @@ export class Form implements OnInit{
  	this.service.delete(department).subscribe(response => {alert("Departamento Eliminado")},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 

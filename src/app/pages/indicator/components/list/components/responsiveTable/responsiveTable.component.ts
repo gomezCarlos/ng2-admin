@@ -36,6 +36,7 @@ export class ResponsiveTable implements OnInit{
     this.service.getPage(0).subscribe(response => {this.indicators = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
   }

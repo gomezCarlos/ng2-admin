@@ -32,11 +32,9 @@ export class ResponsiveTable implements OnInit{
       this.service.find(id).subscribe(job => this.job = job, error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         });
-         /* Manejo de errores */
-         if(error.status==403)error.statusText="Usuario no autorizado.";
-        /*END error */
     }
     else{
       this.job = new JobHal();

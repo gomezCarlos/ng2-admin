@@ -34,7 +34,12 @@ export class ResponsiveTable implements OnInit{
 
   getPage(page : number){
     this.isEmpty = false;
-    this.service.getPage(0).subscribe(response => {this.positions = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error})
+    this.service.getPage(0).subscribe(response => {this.positions = response; if(response._embedded == null)this.isEmpty=true; },error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
   }
 
   delete(position : PositionHal){  

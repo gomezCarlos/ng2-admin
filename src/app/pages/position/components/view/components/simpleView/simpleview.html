@@ -1,4 +1,7 @@
 <¡DOCTYPE html>
+<!-- Manejo de errores-->
+<div *ngIf="error" class="alert alert-danger" role="alert">{{error.statusText}}</div>
+<!-- END error -->
 <div>
 
           <table class="table table-bordered table-striped">

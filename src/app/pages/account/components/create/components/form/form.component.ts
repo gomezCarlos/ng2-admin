@@ -29,6 +29,7 @@ export class Form {
  	this.service.save(account).subscribe(response => {this.accounthal = response; alert("Cuenta Creada"); this.router.navigate(['/pages/account/view/' + this.accounthal.ids]);},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 

@@ -20,7 +20,12 @@ export class Form implements OnInit{
   }
 
   save(position : PositionHal){
- 	this.service.save(position).subscribe(response => {this.positionhal = response; alert("Cargo Creado Exitosamente")},error => {this.error = error; alert(error.message)})
+ 	this.service.save(position).subscribe(response => {this.positionhal = response; alert("Cargo Creado Exitosamente")},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
  ngOnInit(){
@@ -28,7 +33,12 @@ export class Form implements OnInit{
 
 
  delete(position : PositionHal){
- 	this.service.delete(position).subscribe(response => {alert("Cargo Eliminado Exitosamente")},error => {this.error = error; alert(error.message)})
+ 	this.service.delete(position).subscribe(response => {alert("Cargo Eliminado Exitosamente")},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
 }

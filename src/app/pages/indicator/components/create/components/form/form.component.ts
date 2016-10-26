@@ -24,6 +24,7 @@ export class Form implements OnInit{
  	this.service.save(indicator).subscribe(response => {this.indicatorhal = response; alert("indicador Creado")},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 
@@ -37,6 +38,7 @@ export class Form implements OnInit{
    this.tasks.getPage(0).subscribe(response=>{this.listtask=response},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
  }
@@ -46,6 +48,7 @@ export class Form implements OnInit{
  	this.service.delete(indicator).subscribe(response => {alert("Indicador Eliminado")},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 

@@ -36,7 +36,12 @@ export class Form  implements OnInit{
   task.indicator=Number(task.indicator);
   task.department=Number(task.department);
   task.phase=Number(task.phase);
-   this.service.save(task).subscribe(response => {this.taskhal = response; alert("Tarea Creada"); this.router.navigate(['/pages/tasks/view/' + this.taskhal.ids])},error => {this.error = error; alert(error.message)})
+   this.service.save(task).subscribe(response => {this.taskhal = response; alert("Tarea Creada"); this.router.navigate(['/pages/tasks/view/' + this.taskhal.ids])},error => {this.error = error; 
+         /* Manejo de errores */
+         if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
+        /*END error */
+        })
 
  }
 

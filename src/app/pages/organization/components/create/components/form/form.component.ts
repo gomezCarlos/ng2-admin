@@ -35,6 +35,7 @@ export class Form  implements OnInit{
  	this.service.save(organization).subscribe(response => {this.organizationhal = response; alert("Organizacion Creada");this.router.navigate(['/pages/organization/view/' + this.organizationhal.ids])},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 
@@ -50,6 +51,7 @@ export class Form  implements OnInit{
    this.companies.getPage(0).subscribe(response=>{this.listcompany = response},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
  }

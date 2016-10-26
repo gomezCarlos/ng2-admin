@@ -31,6 +31,7 @@ export class Form  implements OnInit{
  	this.service.save(company).subscribe(response => {this.companyhal = response; alert("Compañía Creada");this.router.navigate(['/pages/company/view/' + this.companyhal.ids])},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
  }

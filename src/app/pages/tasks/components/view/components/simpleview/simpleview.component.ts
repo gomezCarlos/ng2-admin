@@ -35,6 +35,7 @@ export class ResponsiveTable implements OnInit{
            this.router.navigate(['login']);
          }
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
 
         /*END error */}
         );

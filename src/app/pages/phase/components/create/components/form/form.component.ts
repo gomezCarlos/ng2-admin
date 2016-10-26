@@ -46,6 +46,7 @@ export class Form  implements OnInit{
  	this.service.save(phase).subscribe(response => {this.phasehal = response; alert("Fase Creada");this.router.navigate(['/pages/phase/view/' + this.phasehal.ids])},error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         })
 
@@ -57,6 +58,7 @@ export class Form  implements OnInit{
       this.service.find(id).subscribe(phase => this.phasehal = phase, error => {this.error = error; 
          /* Manejo de errores */
          if(error.status==403)error.statusText="Usuario no autorizado.";
+         if(error.status==401)error.statusText="Usuario no autorizado.";
         /*END error */
         });
     }
